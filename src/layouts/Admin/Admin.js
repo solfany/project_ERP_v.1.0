@@ -13,7 +13,11 @@ import routes from "routes.js";
 import logo from "assets/img/react-logo.png";
 import { BackgroundColorContext } from "contexts/BackgroundColorContext";
 
+import TestSub from "components/Test/Test.js"
+
 var ps;
+
+<TestSub></TestSub>
 
 function Admin(props) {
   const location = useLocation();

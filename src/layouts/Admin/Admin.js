@@ -26,6 +26,7 @@ function Admin(props) {
   const [sidebarOpened, setsidebarOpened] = React.useState(
     document.documentElement.className.indexOf('nav-open') !== -1
   );
+
   React.useEffect(() => {
     if (navigator.platform.indexOf('Win') > -1) {
       document.documentElement.className += ' perfect-scrollbar-on';
@@ -97,7 +98,7 @@ function Admin(props) {
               routes={routes}
               logo={{
                 outterLink: '/',
-                text: 'jot react',
+                text: 'Fucking react',
                 imgSrc: logo,
               }}
               toggleSidebar={toggleSidebar}
@@ -115,6 +116,7 @@ function Admin(props) {
                 {getRoutes(routes)}
                 <Redirect from="*" to="/admin/001" />
               </Switch>
+
               {
                 // 푸터
                 location.pathname === '/admin/maps' ? null : <Footer fluid />

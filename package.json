@@ -1,5 +1,5 @@
 {
-  "name": "black-dashboard-react",
+  "name": "project-02",
   "version": "1.2.1",
   "private": true,
   "homepage": "https://demos.creative-tim.com/black-dashboard-react/#/admin/dashboard",
@@ -8,15 +8,17 @@
     "bootstrap": "4.5.3",
     "chart.js": "3.4.1",
     "classnames": "2.3.1",
+    "moment": "^2.29.4",
     "perfect-scrollbar": "1.5.5",
     "prop-types": "15.8.1",
     "react": "18.2.0",
-    "react-chartjs-2": "3.0.4",
+    "react-big-calendar": "0.17.0",
+    "react-chartjs-2": "3.0np.4",
     "react-dom": "18.2.0",
     "react-notification-alert": "0.0.13",
     "react-router-dom": "5.2.0",
     "react-scripts": "5.0.1",
-    "reactstrap": "8.7.1",
+    "reactstrap": "^8.7.1",
     "sass": "1.53.0"
   },
   "scripts": {

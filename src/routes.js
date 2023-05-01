@@ -31,10 +31,10 @@ var routes = [
     layout: '/admin',
   },
   {
-    path: '/notifications',
+    path: '/attendance',
     name: '근태 정산',
     icon: 'tim-icons icon-bell-55',
-    component: Notifications,
+    component: Attendance,
     layout: '/admin',
   },
   {

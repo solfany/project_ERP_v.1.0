@@ -6,19 +6,48 @@ import "./Map.css";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 // import { Children } from "react/cjs/react.production.min";
 
-function Example(props) {
+function Example({ data, setData }) {
+  // 모달창 토글 방식
   const [modal, setModal] = useState(false);
-
   const toggle = () => setModal(!modal);
-
+  //모달창 내부 이름 텍스트 입력
   const [userId, setUserId] = useState("");
   const onChangeUserId = (e) => {
     console.log(e.target.value);
     setUserId(e.target.value);
   };
-  
-    
-  
+  // 모달창 내부 입력값 table로 전송
+  const [optionValue, setOptionValue] = useState("");
+  const [checkboxValue, setCheckboxValue] = useState(false);
+
+  const handleSubmit = (e) => {
+    console.log('s')
+    e.preventDefault();
+    const newData = {
+      code: "",
+      name: e.target.elements.Name.value,
+      class: e.target.elements.Class.value,
+      classType :e.target.elements.Day.checked,
+      // vacationType: e.target.elements.vacationType.checked,
+      day: "",
+      etc: "",
+      reason: "why"
+    };
+    setData(...data, newData);
+    console.log(data)
+    console.log(newData)
+  };
+  // props.onSubmit(e.target.elements.userId.value);
+  //   const xival = {
+  //   code:'',
+  //   name:{userId},
+  //   class:{optionValue},
+  //   check:{checkboxValue}
+
+  //  }
+
+  // setOptionValue(e.target.value)
+  // setCheckboxValue(e.target.checked)
 
   return (
     <div>
@@ -26,64 +55,97 @@ function Example(props) {
       <Button color="danger" onClick={toggle}>
         Click Me
       </Button>
-      <Modal isOpen={modal} toggle={toggle} >
+      <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>Modal title</ModalHeader>
         <ModalBody>
           <div>
             {/* {Mmodal && 의미 */}
-            <form>
+            <form onSubmit={handleSubmit}>
               <ul>
                 <li>
                   <label>이름 : </label>
                   <input
                     type="id"
+                    name="Name"
                     //   id={onChange}
                     placeholder="이름을 입력하세요"
                     value={userId}
                     onChange={onChangeUserId}
                   ></input>
+                  {/* 별 의미 없는 하위 <span> */}
                   <span>{userId}</span>
                 </li>
                 <li>
                   <label>부서 : </label>
-                  <select value={""}>
-                    <option selected>부서를 고르세요</option>
-                    <option>인사팀</option>
-                    <option>경영팀</option>
-                    <option>영업팀</option>
-                    <option>회계팀</option>
+                  <select
+                    name="Class"
+                    class="Class"
+                    value={optionValue}
+                    onChange={(e) => setOptionValue(e.target.value)}
+                  >
+                    <option value="" >
+                      부서를 고르세요
+                    </option>
+                    <option value="인사팀">
+                      인사팀
+                    </option>
+                    <option value="경영팀">경영팀</option>
+                    <option value="영업팀">영업팀</option>
+                    <option value="회계팀">회계팀</option>
                   </select>
                 </li>
                 <li>
                   <label>직무 : </label>
-                  <select>
-                    <option selected>직무를 고르세요</option>
-                    <option>부장</option>
-                    <option>차장</option>
-                    <option>과장</option>
-                    <option>대리</option>
-                    <option>주임</option>
-                    <option>사원</option>
+                  <select
+                    
+                    // value={optionValue}
+                    // onChange={(e) => setOptionValue(e.target.value)}
+                  >
+                    <option value="">직무를 고르세요</option>
+                    <option value="부장">부장</option>
+                    <option value="차장">차장</option>
+                    <option value="과장">과장</option>
+                    <option value="대리">대리</option>
+                    <option value="주임">주임</option>
+                    <option value="사원">사원</option>
                   </select>
                 </li>
                 <li>
                   <label>휴가 종류 : </label>
-                  <select>
-                    {/* 노마드 코더 확인 select */}
-                    <option selected>휴가 종류를 고르세요</option>
-                    <option>연차 휴가</option>
-                    <option>특별 휴가</option>
-                    <option>조퇴</option>
+                  <select name="vacationType" vacationType='vacationType'>
+                    <option value="">휴가 종류를 고르세요</option>
+                    <option value="연차">연차 휴가</option>
+                    <option value="특별 휴가">특별 휴가</option>
+                    <option value="조퇴">조퇴</option>
+                    <option value="기타">기타</option>
                   </select>
                 </li>
 
                 <li>
                   <label>기간 : </label>
-                  <input type="checkbox" id="check1" value={""}></input>
+                  <input
+                    name="Day"
+                    type="checkbox"
+                    id="check1"
+                    checked={checkboxValue}
+                    onChange={(e) => setCheckboxValue(e.target.checked)}
+                  ></input>
                   <label style={{ width: "40px" }}>하루</label>
-                  <input type="checkbox" id="check2"></input>
+
+                  <input
+                    type="checkbox"
+                    id="check2"
+                    
+                    
+                  ></input>
+
                   <label style={{ width: "40px" }}>오전</label>
-                  <input type="checkbox" id="check3"></input>
+                  <input
+                    type="checkbox"
+                    id="check3"
+                    
+                    onChange={''}
+                  ></input>
                   <label style={{ width: "40px" }}>오후</label>
                 </li>
                 <li>
@@ -108,8 +170,7 @@ function Example(props) {
                     placeholder="내용을 입력하세요"
                   ></textarea>
 
-
-                  <Button onClick={props.getTextValue} color="primary">
+                  <Button color="primary" type="submit" onClick={toggle}>{' '}
                     Do Something
                   </Button>
                   <Button color="secondary" onClick={toggle}>
@@ -122,6 +183,7 @@ function Example(props) {
         </ModalBody>
         <ModalFooter></ModalFooter>
       </Modal>
+      {userId}
     </div>
   );
 }
@@ -130,7 +192,6 @@ function Example(props) {
 //table list에 와야 하는게 유저코드너버, 이름, 부서, 직책 4개 일치했을때
 // 로컬 스토리지나 express 서버로 보내고 불러오는
 //select의 태그의 value 확인 ,check box, text area
-
 
 //바뀐 state값을
 

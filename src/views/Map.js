@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../components/Vacation/Map.css";
 // import Mmodal from "../components/Vacation/Modal copy";
 import {
-  //   Button,
+    Button,
   //   ButtonGroup,
   //   Card,
   //   CardHeader,
@@ -22,6 +22,7 @@ import {
 } from "reactstrap";
 //import Example from "./Modal";
 import Example from "../components/Vacation/Modal copy";
+import baseData from '../components/Vacation/MapArray'
 // import But from "./Modal copy";
 // import TT from "./Listt";
 // reactstrap components
@@ -72,50 +73,55 @@ const Td = N.map((parameters, i) => <td key={i}>{parameters.name}</td>);
 
 
 function Map() {
-  const [textValue, setTextValue] = useState("");
+  // const [textValue, setTextValue] = useState("");
 
   
 
-    const getTextValue = ( e) => {
-      // TT = {
-      //   이름 : e.target.value ,
-      //   부서 : '',
-      //   직무 : ''
-      // }
-    setTextValue();
-  }
+  //   const getTextValue = ( e) => {
+  //     // TT = {
+  //     //   이름 : e.target.value ,
+  //     //   부서 : '',
+  //     //   직무 : ''
+  //     // }
+  //   setTextValue();
+  // }
 
-  
+  const [data, setData] = useState(baseData)
+// inint
   return (
     <div className="content">
       <h1>휴가 관리</h1>
       <div className="Mmodal_bn">
-        <Example getTextValue={getTextValue}>
+        <Example data={data} setData={setData}>
         </Example>
-        {textValue}
+        <div >여긴:{data.name}</div>
+        {/* {textValue} */}
       </div>
     {/* 배열을 만들어서 기본값하고  */}
-      <Table>
+      <Table >
         <thead>
           <tr>{TableSub}</tr>
         </thead>
         <tbody>
           <tr scope="row">{Td}</tr>
           <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
+            <th scope="row">{data.code}</th>
+            <td >{data.name}</td>
+            <td >{data.class}</td>
+            <td>{data.vacationType}</td>
+            <td>{data.day}</td>
+            <td>{data.etc}</td>
+            <td>{data.reason}</td>
           </tr>
           <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
+            <th scope="row"></th>
+            <td></td>
+            <td>x</td>
+            <td></td>
           </tr>
         </tbody>
       </Table>
-
+    
       {/* <Table></Table> */}
       {/* <Example></Example> */}
     </div>

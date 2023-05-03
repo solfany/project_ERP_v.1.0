@@ -2,7 +2,7 @@
 import Dashboard from 'views/Dashboard.js';
 import Icons from 'views/Icons.js';
 import Map from 'views/Map.js';
-import Notifications from 'views/Notifications.js';
+// import Notifications from 'views/Notifications.js';
 import TableList from 'views/TableList.js';
 import Typography from 'views/Typography.js';
 import UserProfile from 'views/UserProfile.js';
@@ -32,10 +32,10 @@ var routes = [
     layout: '/admin',
   },
   {
-    path: '/notifications',
+    path: '/attendance',
     name: '근태 정산',
     icon: 'tim-icons icon-bell-55',
-    component: Notifications,
+    // component: Attendance,
     layout: '/admin',
   },
   {

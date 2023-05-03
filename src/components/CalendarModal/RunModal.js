@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CustomButton from 'components/Button/CustomButton';
 import {
   Button,
   Modal,
@@ -44,9 +45,13 @@ function RunModal({ events, setEvents, className }) {
   };
   return (
     <div>
-      <Button color="info" onClick={toggle} size="sm">
-        일정 ㅈㄴ 추가하기
-      </Button>
+      <CustomButton
+        type="button"
+        onClick={toggle}
+        className="blue"
+        text="일정추가하기"
+      />
+
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>일정 작성</ModalHeader>
         <ModalBody>
@@ -126,12 +131,13 @@ function RunModal({ events, setEvents, className }) {
               </Col>
             </Row>
             <ModalFooter>
-              <Button color="info" type="submit">
-                저장하기
-              </Button>{' '}
-              <Button color="secondary" onClick={toggle}>
-                취소
-              </Button>
+              <CustomButton type="submit" text="저장하기" className="blue" />
+              <CustomButton
+                type="button"
+                onClick={toggle}
+                text="취소"
+                className="normal"
+              />
             </ModalFooter>
           </form>
         </ModalBody>

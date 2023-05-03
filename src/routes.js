@@ -6,6 +6,7 @@ import Notifications from 'views/Notifications.js';
 import TableList from 'views/TableList.js';
 import Typography from 'views/Typography.js';
 import UserProfile from 'views/UserProfile.js';
+import Bulletin from 'views/Bulletin.js';
 
 var routes = [
   {
@@ -66,11 +67,12 @@ var routes = [
     layout: '/naver.com',
   },
   {
-    path: 'www.naver.com',
+    path: '/bulletin',
     name: '게시판',
     icon: 'tim-icons icon-world',
-    // component: naver,
-    layout: '/naver.com',
+    component: Bulletin,
+    layout: '/admin',
+    props: { myProp: 'someValue' }, // props를 전달하기 위해서는 이와같은 형식을 따라야 함
   },
 ];
 export default routes;

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
 import './calendar2.css';
+import './calendar.css';
+import CustomButton from 'components/Button/CustomButton';
 import {
   Button,
   Modal,
@@ -115,12 +117,20 @@ const Calendar = ({ isWhiteContent, events, setEvents }) => {
           )}
         </ModalBody>
         <ModalFooter>
-          <Button color="danger" onClick={handleDeleteEvent}>
-            <i className={`fa red-circle fa-trash`}></i> 삭제
-          </Button>
-          <Button color="info" onClick={toggleModal}>
-            저장하기
-          </Button>{' '}
+          <div>
+            <CustomButton
+              color="danger"
+              onClick={handleDeleteEvent}
+              text="삭제"
+              className="red"
+            />
+            <CustomButton
+              color="info"
+              onClick={toggleModal}
+              className="normal"
+              text="확인"
+            />
+          </div>
         </ModalFooter>
       </Modal>
     </div>

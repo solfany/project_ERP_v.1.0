@@ -1,5 +1,6 @@
 // 여기가 사이드바 메뉴 조종
 import Dashboard from 'views/Dashboard.js';
+import MainLogin from 'views/MainLogin';
 import Icons from 'views/Icons.js';
 import Map from 'views/Map.js';
 // import Notifications from 'views/Notifications.js';
@@ -9,6 +10,13 @@ import UserProfile from 'views/UserProfile.js';
 import Bulletin from 'views/Bulletin.js';
 
 var routes = [
+  {
+    path: '/MainLogin',
+    name: '로그인',
+    icon: 'tim-icons icon-chart-pie-36',
+    component: MainLogin,
+    layout: '/admin',
+  },
   {
     path: '/dashboard',
     name: '근무일정',

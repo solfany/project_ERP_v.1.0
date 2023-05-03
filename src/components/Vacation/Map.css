@@ -9,11 +9,11 @@
 li {
   list-style: none;
 }
-/* label {
-  width: 11%;
-  height: 28px;
+label {
+  /* width: 11%;
+  height: 28px; */
   color: black;
-} */
+}
 button {
   background: none;
   border: none;

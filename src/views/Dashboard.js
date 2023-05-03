@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import CustomButton from 'components/Button/CustomButton';
-import { Button } from 'reactstrap';
 import initialEvents from '../components/Calendar/events';
 import '../components/CalendarModal/modal.css';
 import RunModal from '../components/CalendarModal/RunModal';

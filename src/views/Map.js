@@ -94,7 +94,7 @@ function Map() {
       {/* 배열을 만들어서 기본값하고  */}
       <Table>
         <thead>
-          <tr>{TableSub}</tr>
+          <tr>{TableSub}/////</tr>
         </thead>
         <tbody>
           <tr scope="row">{Td}</tr>

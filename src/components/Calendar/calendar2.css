@@ -6,23 +6,12 @@
     border: 2px solid rgb(0, 0, 0);
 }
 
-
-
 .calendar-themeIsWhite {
     color: #DDD;
-    background-color: #dedddd;
+    background-color: #fbf7f7;
     padding: 15px 8px 15px 8px;
     border-radius: 5px;
     border: 2px solid rgb(0, 0, 0);
-}
-
-.calendarHead {
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
-    height: 40px;
-    margin-bottom: 10px;
-
 }
 
 .calendar-themeIsWhite .rbc-toolbar button,
@@ -322,6 +311,8 @@ button.rbc-input::-moz-focus-inner {
 .rbc-event {
     cursor: pointer;
     padding: 0;
+    padding-left: 8px;
+    margin: 0 4px;
     font-size: 12px;
     background: linear-gradient(0deg, #3358f4 0%, #1d8cf8 100%);
     color: #fff;

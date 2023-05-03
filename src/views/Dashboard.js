@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import CustomButton from 'components/Button/CustomButton';
 import { Button } from 'reactstrap';
 import initialEvents from '../components/Calendar/events';
 import '../components/CalendarModal/modal.css';
@@ -12,24 +13,30 @@ function Dashboard() {
   return (
     <div className="content">
       <div className="card" style={{ padding: '0 10px' }}>
+        <div className="calendarHead">
+          <div className="calendarTitle">근무일정 관리</div>
+          <div className="calendarBtnWrapper">
+            <RunModal events={events} setEvents={setEvents}></RunModal>
+            <div>
+              <CustomButton
+                type="button"
+                className="blue"
+                checked={isWhiteContent}
+                onClick={() => {
+                  setIsWhiteContent(
+                    (prevIsWhiteContent) => !prevIsWhiteContent
+                  );
+                }}
+                text="색깔놀이하기"
+              />
+            </div>
+          </div>
+        </div>
         <Calendar
           isWhiteContent={isWhiteContent}
           events={events}
           setEvents={setEvents}
         />
-        <div className="calendarHead">
-          <RunModal events={events} setEvents={setEvents}></RunModal>
-          <Button
-            color="success"
-            size="sm"
-            checked={isWhiteContent}
-            onClick={() => {
-              setIsWhiteContent((prevIsWhiteContent) => !prevIsWhiteContent);
-            }}
-          >
-            색깔놀이 하기
-          </Button>
-        </div>
       </div>
     </div>
   );

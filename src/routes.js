@@ -1,14 +1,22 @@
 // 여기가 사이드바 메뉴 조종
 import Dashboard from 'views/Dashboard.js';
+import MainLogin from 'views/MainLogin';
 import Icons from 'views/Icons.js';
 import Map from 'views/Map.js';
 // import Notifications from 'views/Notifications.js';
 import TableList from 'views/TableList.js';
 import Typography from 'views/Typography.js';
 import UserProfile from 'views/UserProfile.js';
-// import Attendance from 'views/Attendance';
+import Bulletin from 'views/Bulletin.js';
 
 var routes = [
+  {
+    path: '/MainLogin',
+    name: '로그인',
+    icon: 'tim-icons icon-chart-pie-36',
+    component: MainLogin,
+    layout: '/admin',
+  },
   {
     path: '/dashboard',
     name: '근무일정',
@@ -67,11 +75,12 @@ var routes = [
     layout: '/naver.com',
   },
   {
-    path: 'www.naver.com',
+    path: '/bulletin',
     name: '게시판',
     icon: 'tim-icons icon-world',
-    // component: naver,
-    layout: '/naver.com',
+    component: Bulletin,
+    layout: '/admin',
+    props: { myProp: 'someValue' }, // props를 전달하기 위해서는 이와같은 형식을 따라야 함
   },
 ];
 export default routes;

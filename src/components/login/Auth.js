@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { authService, firebaseInstance } from "/react-main/project02-master/src/Loginbase";
+import { authService, firebaseInstance } from "Loginbase";
 import { Button,
          Form,
         //  FormGroup,

@@ -6,6 +6,9 @@ import TableList from 'views/TableList.js';
 import Typography from 'views/Typography.js';
 import UserProfile from 'views/UserProfile.js';
 import Bulletin from 'views/Bulletin.js';
+// import Message from 'views/Message';
+import Chat from 'views/Chat';
+
 
 var routes = [
   {
@@ -23,6 +26,7 @@ var routes = [
     component: Dashboard,
     layout: '/admin',
     props: true,
+    //여기 props로 인해 다른 곳에서도 props로 사용 가능한것인가?
   },
   {
     path: '/icons',
@@ -67,11 +71,11 @@ var routes = [
     layout: '/admin',
   },
   {
-    path: 'www.naver.com',
+    path: '/Chat',
     name: '메신저',
     icon: 'tim-icons icon-world',
-    // component: naver,
-    layout: '/naver.com',
+    component: Chat,
+    layout: '/admin',
   },
   {
     path: '/bulletin',

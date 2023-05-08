@@ -19,6 +19,7 @@ var routes = [
     icon: 'tim-icons icon-chart-pie-36',
     component: MainLogin,
     layout: '/admin',
+    props: true,
   },
   {
     path: '/dashboard',

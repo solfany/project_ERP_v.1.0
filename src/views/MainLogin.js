@@ -1,38 +1,39 @@
 // import Login from '../components/login/Login';
-// import React, { useState, useEffect } from 'react';
-// import AppRouter from "../components/login/Router";
-// import { authService } from '../Loginbase';
-import Auth from '../components/Auth';
+import React, { useState, useEffect } from 'react';
+import AppRouter from "../components/login/Router";
+import { authService } from '../Loginbase';
+import Auth from '../components/login/Auth';
 // import Auth from "../components/login/Auth";
 // import Auth from "../components/login/Auth"
 // import "../components/login/Login.css";
 
 // npm install firebase 설치 필요
 
-function MainLogin() {
-  // const [init,setInit] = useState(false);
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // useEffect(() => {
-  //   authService.onAuthStateChanged((user) => {
-  //     if (user) {
-  //       setIsLoggedIn(true);
-  //     } else {
-  //       setIsLoggedIn(false);
-  //     }
-  //       setInit(true);
-  //     });
-  //   }, []);
-
-  return (
-    <>
-      <Auth />
+function MainLogin () {
+  const [init,setInit] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    authService.onAuthStateChanged((user) => {
+      if (user) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
+        setInit(true);
+      });
+    }, []);
+ 
+    return (
+      <>
+      {/* <Auth /> */}
       {/* <AppRouter isLoggedIn={isLoggedIn} /> */}
-      {/* {init ? <AppRouter isLoggedIn={isLoggedIn} /> : "Initializing..."} */}
+      {init ? <AppRouter isLoggedIn={isLoggedIn} /> : "Initializing..."}
       {/* {init ? <AppRouter /> : "Initializing..."} */}
       {/* <footer>&copy; {new Date().getFullYear()} asdas</footer> */}
-    </>
-  );
-}
+      </>
+    );
+  }
+
 
 export default MainLogin;
 
@@ -47,6 +48,7 @@ export default MainLogin;
 //   );
 // }
 
+
 // export default MainLogin;
 
 // 새로운거 작업
@@ -58,7 +60,7 @@ export default MainLogin;
 
 // const LoginComponent = () => {
 //   const dispatch = useDispatch();
-
+  
 //   const [id, setId] = useState("");
 //   const [password, setPassword] = useState("");
 

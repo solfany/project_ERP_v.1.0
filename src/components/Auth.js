@@ -31,13 +31,12 @@ const Auth = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
-      // let data;
       if (newAccount) {
         await authService.createUserWithEmailAndPassword(email, password);
       } else {
         await authService.signInWithEmailAndPassword(email, password);
       }
-      history.push('/admin');
+      history.push('/icons');
       // console.log(data)
     } catch (error) {
       setError(error.message);

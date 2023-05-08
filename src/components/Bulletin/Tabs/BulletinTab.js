@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './BulletinTab.css';
 import Notification from '../Route/Notification';
 import Unknown from '../Route/Unknown';
+import Profile from 'components/login/Profile';
 // Data array
 const tabTitle = [
   {

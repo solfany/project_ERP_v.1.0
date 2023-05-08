@@ -7,6 +7,7 @@ import 'components/Bulletin/Bulletin.css';
 import BulletinTab from 'components/Bulletin/Tabs/BulletinTab';
 import { Route, Switch } from 'react-router-dom';
 import Auth from 'components/Auth';
+import Profile from 'components/login/Profile';
 
 function Bulletin() {
   const history = useHistory();
@@ -105,6 +106,7 @@ function Bulletin() {
 
   return (
     <div className="content">
+      <Profile userObj={userObj} />
       <Switch>
         {userObj ? (
           <>

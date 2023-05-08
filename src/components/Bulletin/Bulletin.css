@@ -1,0 +1,182 @@
+.factoryContainer {
+    margin: 10px 20%;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0px 0px 10px #04AAFF;
+
+}
+
+/* scope */
+.form__scope {
+    margin-bottom: 20px;
+}
+
+.scope__switch {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.scope__private {
+    color: rgb(103, 102, 102);
+}
+
+.scope__public {
+    color: black;
+    font-weight: 500;
+}
+
+/* text 입력 input */
+.factoryInput__container {
+    position: relative;
+}
+
+.factoryInput__arrow {
+    position: absolute;
+    height: 36px;
+    width: 36px;
+    right: 1px;
+    bottom: 1px;
+    border-radius: 0.4285rem;
+    background-color: transparent;
+    color: #04AAFF;
+    font-family: sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    transition: 0.5s ease-in-out all;
+    cursor: pointer;
+}
+
+/* photo 첨부파일 input, lable */
+.factoryInput__label {
+    padding: 3px 10px;
+    background-color: transparent;
+    color: #04AAFF;
+    font-family: sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    outline: none;
+    border-radius: 0.4285rem;
+    border: 2px solid transparent;
+    margin: 2px;
+    transition: 0.5s ease-in-out all;
+    cursor: pointer;
+}
+
+.factoryInput__label:hover,
+.factoryInput__label:focus {
+    border: 2px solid #04AAFF;
+    color: #04AAFF;
+}
+
+.factoryInput__attach {
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin: 10px 0;
+    flex-direction: column;
+}
+
+#attach-file {
+    display: none;
+}
+
+.factoryForm__attachment img {
+    margin-top: 5px;
+    width: 150px;
+    height: 150px;
+    border: 2px solid #04AAFF;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.factoryForm__clear {
+    text-align: right;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+.factoryForm__clear span {
+    margin-right: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+/* Text.js 텍스트 칸 */
+
+.TextPage__container {
+    margin: 15px 20%;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.Text__displayName {
+    font-weight: 700;
+    text-align: right;
+}
+
+.Text__author {
+    margin-right: 15px;
+    font-size: 15px;
+    color: gray;
+}
+
+.Text__email {
+    display: inline;
+    margin-left: 15px;
+    font-size: 14px;
+    color: gray;
+}
+
+.Text__text {
+    padding: 10px;
+    padding-bottom: 0;
+    font-size: 15px;
+    font-family: "Poppins";
+}
+
+.Text__attachmentImg {
+    width: 150px;
+    height: 150px;
+    border: 2px solid #04AAFF;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.Text__textcontainer {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+}
+
+.Text__textcontainer div:first-child {
+    width: 70%;
+    background-color: ivory;
+}
+
+.Text__textcontainer div:nth-child(2) {
+    width: 155px;
+    height: auto;
+}
+
+.Text__Pusa {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    margin-left: 15px;
+    border: 1px solid black;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* .Text__textcontainer img {
+    position: absolute;
+    right: 10px;
+    top: -45px;
+} */
+
+.notice {
+    text-align: center;
+    font-size: 15px;
+}

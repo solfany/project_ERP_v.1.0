@@ -13,7 +13,7 @@ function Dashboard() {
     <div className="content">
       <div className="card" style={{ padding: '0 10px' }}>
         <div className="calendarHead">
-          <div className="calendarTitle">근무일정 관리</div>
+          <div className="contentTitle">근무일정 관리</div>
           <div className="calendarBtnWrapper">
             <RunModal events={events} setEvents={setEvents}></RunModal>
             <div>

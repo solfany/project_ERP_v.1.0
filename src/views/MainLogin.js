@@ -1,31 +1,45 @@
-// import Login from '../components/login/Login';
-import React, { useState, useEffect } from 'react';
 import AppRouter from '../components/Router';
+import Loader from '../components/Loader/Loader';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { authService } from '../Loginbase';
-import Auth from '../components/Auth';
+import { updateProfile } from '@firebase/auth';
+import { SET_USER } from '../actions';
+import { setInitAction } from '../actions';
 
-// npm install firebase 설치 필요
+function MainLogin(props) {
+  const dispatch = useDispatch();
+  const init = useSelector((state) => state.init);
+  const userObj = useSelector((state) => state.userObj);
 
-function MainLogin() {
-  const [init, setInit] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
       if (user) {
-        setIsLoggedIn(true);
+        dispatch({
+          type: SET_USER,
+          payload: {
+            displayName: user.displayName,
+            uid: user.uid,
+            photoURL: user.providerData[0].photoURL || null,
+            email: user.providerData[0].email || null,
+            updateProfile: (args) =>
+              updateProfile(user, { displayName: user.displayName }),
+          },
+        });
       } else {
-        setIsLoggedIn(false);
+        dispatch({ type: SET_USER, payload: null });
       }
-      setInit(true);
+      dispatch(setInitAction(true));
     });
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
-      {/* <Auth /> */}
-      {/* <AppRouter isLoggedIn={isLoggedIn} /> */}
-      {init ? <AppRouter isLoggedIn={isLoggedIn} /> : 'Initializing...'}
-      {/* <footer>&copy; {new Date().getFullYear()} asdas</footer> */}
+      {init ? (
+        <AppRouter isLoggedIn={Boolean(userObj)} userObj={userObj} />
+      ) : (
+        <Loader />
+      )}
     </>
   );
 }

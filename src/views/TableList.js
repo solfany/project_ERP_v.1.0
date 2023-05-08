@@ -15,7 +15,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
+import React from 'react';
 
 // reactstrap components
 // import {
@@ -30,7 +30,7 @@ import React from "react";
 
 function Tables() {
   return (
-    <>
+    <div>
       {/* <div className="content">
         <Row>
           <Col md="12">
@@ -162,7 +162,7 @@ function Tables() {
           </Col>
         </Row>
       </div> */}
-    </>
+    </div>
   );
 }
 

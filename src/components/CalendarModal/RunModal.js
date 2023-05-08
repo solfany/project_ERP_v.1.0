@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import CustomButton from 'components/Button/CustomButton';
 import {
-  Button,
   Modal,
   ModalHeader,
   ModalBody,

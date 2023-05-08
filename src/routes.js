@@ -1,9 +1,7 @@
-// 여기가 사이드바 메뉴 조종
 import Dashboard from 'views/Dashboard.js';
 import MainLogin from 'views/MainLogin';
 import Icons from 'views/Icons.js';
 import Map from 'views/Map.js';
-// import Notifications from 'views/Notifications.js';
 import TableList from 'views/TableList.js';
 import Typography from 'views/Typography.js';
 import UserProfile from 'views/UserProfile.js';
@@ -81,7 +79,7 @@ var routes = [
     icon: 'tim-icons icon-world',
     component: Bulletin,
     layout: '/admin',
-    props: { myProp: 'someValue' }, // props를 전달하기 위해서는 이와같은 형식을 따라야 함
+    props: true,
   },
 ];
 export default routes;

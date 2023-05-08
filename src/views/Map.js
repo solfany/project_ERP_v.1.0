@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../components/Vacation/Map.css";
+
 // import Mmodal from "../components/Vacation/Modal copy";
 import {
   Button,
@@ -20,25 +21,11 @@ import {
   //   Col,
   //   UncontrolledTooltip
 } from "reactstrap";
-//import Example from "./Modal";
+
 import Example from "../components/Vacation/Modal copy";
 import baseData from "../components/Vacation/MapArray";
-// import But from "./Modal copy";
-// import TT from "./Listt";
-// reactstrap components
-// import { Card, CardHeader, CardBody, Row, Col } from "reactstrap";
+import { Route } from "react-router-dom";
 
-//1. 휴가 신청 추가 버튼(완)으로 모달창 생성(50%),닫기(50%) 버튼 이후 휴가 신청 가능
-//1-1 휴가 신청하기 버튼으로 창 닫고 submit으로 데이터 전송 이후
-//    창은 닫고 해당 데이터의 값은 content로 목록화
-
-//2. 휴가 조회 시스템 버튼
-
-// const MapModal = <div style={{display:"none", border:"3px solid blue"}}>ddd</div>
-
-// function modalClose(){
-//   let[modalSwitch, setModalSwitch] = useState(false)
-// }
 
 const N = [
   { id: 1, name: "#", value: "" },
@@ -70,52 +57,42 @@ const TableSub = Options.map((parameter, index) => (
 const Td = N.map((parameters, i) => <td key={i}>{parameters.name}</td>);
 
 function Map() {
-  // const [textValue, setTextValue] = useState("");
-
-  //   const getTextValue = ( e) => {
-  //     // TT = {
-  //     //   이름 : e.target.value ,
-  //     //   부서 : '',
-  //     //   직무 : ''
-  //     // }
-  //   setTextValue();
-  // }
 
   const [data, setData] = useState(baseData);
   // inint
   return (
     <div className="content">
       <h1>휴가 관리</h1>
-      <div className="Mmodal_bn">
+      <div className="Mmodal_btn">
         <Example data={data} setData={setData}></Example>
-        <div>여긴:{data.name}</div>
+    </div>
+    <div className="Mmodal_btn">
+        <Button path= '/dashboard'>휴가 일정 관리 조회</Button></div>
         {/* {textValue} */}
-      </div>
+      
       {/* 배열을 만들어서 기본값하고  */}
       <Table>
         <thead>
-          <tr>{TableSub}/////</tr>
+          <tr>{TableSub}</tr>
         </thead>
         <tbody>
           <tr scope="row">{Td}</tr>
           {data.map((data) => (
-            <tr key={data.code}>
+            <tr key={data.name}>
               <td>{data.code}</td>
               <td>{data.name}</td>
-              <td>{data.class}</td>
+              <td>{data.teamName}</td>
+              <td>{data.position}</td>
               <td>{data.vacationType}</td>
               <td>{data.day}</td>
               <td>{data.etc}</td>
               <td>{data.reason}</td>
             </tr>
           ))}
-          <tr>
-            <th scope="row"></th>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
         </tbody>
+        <tfoot>
+
+        </tfoot>
       </Table>
 
       {/* <Table></Table> */}

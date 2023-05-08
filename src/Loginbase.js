@@ -3,7 +3,9 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+
 import 'firebase/compat/storage';
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -17,6 +19,8 @@ const firebaseConfig = {
   appId: '1:231391389225:web:cd72aa1c6681a9090ede38',
 };
 
+
+// const db = firebase.firestore()
 // Initialize Firebase
 
 // const app = initializeApp(firebaseConfig);
@@ -24,3 +28,6 @@ firebase.initializeApp(firebaseConfig);
 
 export const firebaseInstance = firebase;
 export const authService = firebase.auth();
+
+export const db = firebase.firestore()
+ 

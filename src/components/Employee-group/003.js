@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Table } from "reactstrap";
+import {
+  Table,
+  FormGroup,
+  Label,
+  Input,
+  Row,
+  Col,
+  Button,
+  Pagination,
+} from "reactstrap";
 function EmployeeManagement() {
   const [rows, setRows] = useState([]);
   const [users, setUsers] = useState([]);

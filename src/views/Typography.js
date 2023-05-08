@@ -18,12 +18,12 @@
 import React from "react";
 
 // reactstrap components
-// import { Card, CardHeader, CardBody, CardTitle, Row, Col } from "reactstrap";
+import { Card, CardHeader, CardBody, CardTitle, Row, Col } from "reactstrap";
 
 function Typography() {
   return (
     <>
-      {/* <div className="content">
+      <div className="content">
         <Row>
           <Col md="12">
             <Card>
@@ -205,8 +205,9 @@ function Typography() {
               </CardBody>
             </Card>
           </Col>
-        </Row> 
-      </div>*/}
+        </Row>
+      </div>
+      */}
     </>
   );
 }

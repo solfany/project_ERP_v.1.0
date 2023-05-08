@@ -1,0 +1,18 @@
+#employee-nav {
+  height: 5vh;
+}
+#employee-li:hover {
+  cursor: pointer;
+  background-color: rgb(232, 232, 232);
+  border-radius: 10%;
+  height: 5vh;
+}
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#page-content-wrapper {
+  min-width: 0;
+  width: 100%;
+}

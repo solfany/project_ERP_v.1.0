@@ -44,7 +44,7 @@ function EmployeeManagement() {
   }
 
   const tableColumns = [
-    "사원번호",
+    "사원번호이다",
     "이름",
     "유급휴가일수",
     "실제근로일수",

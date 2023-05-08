@@ -1,6 +1,7 @@
+import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-// import Home from "./routes/Home";
 import Userlsit from "../components/Userlist-group/Userlist.js";
+// detail import
 
 function Attendance() {
   return (
@@ -8,7 +9,6 @@ function Attendance() {
       {" "}
       <Router>
         {/* 라우터를 만들어주고  */}
-
         <Userlsit />
 
         {/* 그 안에 라우트를 만들고, 누군가 우리 웹사이트의 "/" url에 있다면 
@@ -18,5 +18,3 @@ function Attendance() {
   );
 }
 export default Attendance;
-
-// memo

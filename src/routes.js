@@ -1,25 +1,36 @@
 // 여기가 사이드바 메뉴 조종
 import Dashboard from "views/Dashboard.js";
+import MainLogin from "views/MainLogin";
 import Icons from "views/Icons.js";
 import Map from "views/Map.js";
-import Attendance from "views/Attendance.js";
-import Notifications from "views/Notifications.js";
+// import Notifications from 'views/Notifications.js';
 import Typography from "views/Typography.js";
+import Bulletin from "views/Bulletin.js";
+// import Message from 'views/Message';
+import Chat from "views/Chat";
+import Attendance from "views/Attendance";
 import Payroll from "views/Payroll";
 
 var routes = [
   {
-    path: "/notifications",
-    name: "근무일정",
-    // rtlName: "لوحة القيادة",
+    path: "/MainLogin",
+    name: "로그인",
     icon: "tim-icons icon-chart-pie-36",
-    component: Notifications,
+    component: MainLogin,
     layout: "/admin",
+  },
+  {
+    path: "/dashboard",
+    name: "근무일정",
+    icon: "tim-icons icon-chart-pie-36",
+    component: Dashboard,
+    layout: "/admin",
+    props: true,
+    //여기 props로 인해 다른 곳에서도 props로 사용 가능한것인가?
   },
   {
     path: "/icons",
     name: "출퇴근 기록",
-    // rtlName: "الرموز",
     icon: "tim-icons icon-atom",
     component: Icons,
     layout: "/admin",
@@ -27,7 +38,6 @@ var routes = [
   {
     path: "/map",
     name: "휴가",
-    // rtlName: "خرائط",
     icon: "tim-icons icon-pin",
     component: Map,
     layout: "/admin",
@@ -57,26 +67,24 @@ var routes = [
   {
     path: "/typography",
     name: "프로필",
-    // rtlName: "طباعة",
     icon: "tim-icons icon-align-center",
     component: Typography,
     layout: "/admin",
   },
   {
-    path: "www.naver.com",
+    path: "/Chat",
     name: "메신저",
-    // rtlName: "ار تي ال",
     icon: "tim-icons icon-world",
-    // component: naver,
-    layout: "/naver.com",
+    component: Chat,
+    layout: "/admin",
   },
   {
-    path: "www.naver.com",
+    path: "/bulletin",
     name: "게시판",
-    // rtlName: "ار تي ال",
     icon: "tim-icons icon-world",
-    // component: naver,
-    layout: "/naver.com",
+    component: Bulletin,
+    layout: "/admin",
+    props: { myProp: "someValue" }, // props를 전달하기 위해서는 이와같은 형식을 따라야 함
   },
 ];
 export default routes;

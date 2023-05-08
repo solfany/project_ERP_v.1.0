@@ -1,9 +1,10 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
 export const backgroundColors = {
-  primary: "primary",
-  blue: "blue",
-  green: "green",
+  primary: 'primary',
+  blue: 'blue',
+  green: 'green',
+  yellow: 'yellow',
   // 백그라운드 컬러 변경 가능 현재 블루/핑크/초록만 된다..
 };
 

@@ -1,28 +1,9 @@
-import React from "react";
+import React from 'react';
 
 // reactstrap components
-import { Card, CardHeader, CardBody, Row, Col } from "reactstrap";
-import classNames from "classnames";
-
-// nodejs library that concatenates classes
-// react plugin used to create charts
-import { Line, Bar } from "react-chartjs-2";
-
+import { Card, CardHeader, CardBody, Row, Col } from 'reactstrap';
 // reactstrap components
-import {
-  Button,
-  ButtonGroup,
-  CardTitle,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  Label,
-  FormGroup,
-  Input,
-  Table,
-  UncontrolledTooltip,
-} from "reactstrap";
+import { Button, CardTitle } from 'reactstrap';
 
 // core components
 
@@ -69,13 +50,13 @@ function Icons() {
                       <Button color="dark" id="0" size="m">
                         버튼
                       </Button>
-                      <Button variant="outline-primary">Primary</Button>{" "}
-                      <Button variant="outline-secondary">Secondary</Button>{" "}
-                      <Button variant="outline-success">Success</Button>{" "}
-                      <Button variant="outline-warning">Warning</Button>{" "}
-                      <Button variant="outline-danger">Danger</Button>{" "}
-                      <Button variant="outline-info">Info</Button>{" "}
-                      <Button variant="outline-light">Light</Button>{" "}
+                      <Button variant="outline-primary">Primary</Button>{' '}
+                      <Button variant="outline-secondary">Secondary</Button>{' '}
+                      <Button variant="outline-success">Success</Button>{' '}
+                      <Button variant="outline-warning">Warning</Button>{' '}
+                      <Button variant="outline-danger">Danger</Button>{' '}
+                      <Button variant="outline-info">Info</Button>{' '}
+                      <Button variant="outline-light">Light</Button>{' '}
                       <Button variant="outline-dark">Dark</Button>
                     </Col>
                   </Col>

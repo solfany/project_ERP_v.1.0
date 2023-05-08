@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Grid, Table } from "react-bootstrap";
-
+import { Table } from "reactstrap";
 function EmployeeManagement() {
   const [rows, setRows] = useState([]);
   const [users, setUsers] = useState([]);

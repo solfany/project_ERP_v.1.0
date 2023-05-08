@@ -1,0 +1,18 @@
+.calendarHead {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    padding: 10px 0;
+    margin: 15px 0;
+}
+
+.calendarTitle {
+    font-size: 25px;
+    font-weight: 700;
+    padding: 0 12px;
+}
+
+.calendarBtnWrapper {
+    display: flex;
+    justify-content: flex-end;
+}

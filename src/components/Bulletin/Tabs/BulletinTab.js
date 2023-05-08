@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './BulletinTab.css';
 import Notification from '../Route/Notification';
 import Unknown from '../Route/Unknown';
-import Profile from 'components/login/Profile';
+import Profile from 'components/Bulletin/Profile';
 // Data array
 const tabTitle = [
   {
@@ -100,6 +100,7 @@ function Display({
 }) {
   return (
     <div className="tabcontent">
+      <Profile userObj={userObj} />
       {tabObj.tabname === '공지사항' ? (
         <Notification
           userObj={userObj}

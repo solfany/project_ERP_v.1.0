@@ -16,6 +16,7 @@ import {
   where,
 } from '@firebase/firestore';
 import { message } from 'antd';
+import CustomButton from 'components/Button/CustomButton';
 
 const Profile = () => {
   // const init = useSelector((state) => state.init);
@@ -131,7 +132,13 @@ const Profile = () => {
     if (theFile) reader.readAsDataURL(theFile);
   };
   return (
-    <div className="container" style={{ border: '2px solid black' }}>
+    <div
+      style={{
+        transform: 'translateX(150%)',
+        border: '2px solid black',
+        width: '300px',
+      }}
+    >
       {PhotoURL ? (
         <img className="profile__img" alt="프로필 이미지" src={PhotoURL} />
       ) : (
@@ -166,9 +173,12 @@ const Profile = () => {
           style={{ marginTop: 10 }}
         />
       </form>
-      <span className="formBtn cancelBtn logOut" onClick={onLogOutClick}>
-        로그아웃
-      </span>
+      <CustomButton
+        type="button"
+        className="blue"
+        onClick={onLogOutClick}
+        text="로그아웃"
+      />
     </div>
   );
 };

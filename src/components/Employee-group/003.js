@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Table } from "reactstrap";
+import {
+  Table,
+  FormGroup,
+  Label,
+  Input,
+  Row,
+  Col,
+  Button,
+  Pagination,
+} from "reactstrap";
 function EmployeeManagement() {
   const [rows, setRows] = useState([]);
   const [users, setUsers] = useState([]);
@@ -35,7 +44,7 @@ function EmployeeManagement() {
   }
 
   const tableColumns = [
-    "사원번호",
+    "사원번호이다",
     "이름",
     "유급휴가일수",
     "실제근로일수",

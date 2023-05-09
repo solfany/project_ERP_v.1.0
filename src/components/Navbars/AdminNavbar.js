@@ -15,7 +15,9 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { authService, firebaseInstance } from "/project02/src/Loginbase"
+import { useHistory } from "react-router-dom";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 
@@ -71,6 +73,29 @@ function AdminNavbar(props) {
   const toggleModalSearch = () => {
     setmodalSearch(!modalSearch);
   };
+  const [user, setUser] = useState(null);
+
+
+  // 로그인 정보 불러오기
+useEffect(() => {
+  const unsubscribe = authService.onAuthStateChanged((user) => {
+    if (user) {
+      setUser(user);
+    } else {
+      setUser(null);
+    }
+  });
+  return unsubscribe;
+}, []);
+// 로그인 정보 불러오기 끝
+
+// 로그아웃 작업
+const history = useHistory();
+const onLogOutClick = () => {
+  authService.signOut();
+  history.push("/MainLogin");
+};
+//로그아웃 작업 끝
   return (
     <>
       <Navbar className={classNames("navbar-absolute", color)} expand="lg">
@@ -142,14 +167,23 @@ function AdminNavbar(props) {
                   nav
                   onClick={(e) => e.preventDefault()}
                 >
-                  <div className="photo">
+            {/* 로그인 정보 랜더링 */}
+              <div>
+                {user && (
+                  <div>
+              <b>{user.email} 님 환영합니다.</b>
+              </div>
+                )}
+               </div>
+                  {/* <div className="photo">
+                    sdafasd
                     <img alt="..." src={require("assets/img/anime3.png")} />
-                  </div>
-                  <b className="caret d-none d-lg-block d-xl-block" />
-                  <p className="d-lg-none">Log out</p>
+                  </div> */}
+                  {/* <b className="caret d-none d-lg-block d-xl-block" />
+                  <p className="d-lg-none">Log out</p> */}
                 </DropdownToggle>
                 <DropdownMenu className="dropdown-navbar" right tag="ul">
-                  <NavLink tag="li">
+                  {/* <NavLink tag="li">
                     <DropdownItem className="nav-item">
                       얘도 컴포넌트 네비바
                     </DropdownItem>
@@ -158,11 +192,13 @@ function AdminNavbar(props) {
                     <DropdownItem className="nav-item">
                       로 오면 변경
                     </DropdownItem>
-                  </NavLink>
-                  <DropdownItem divider tag="li" />
+                  </NavLink> */}
+                  {/* <DropdownItem divider tag="li" /> */}
+                  
+                  {/* 로그아웃 버튼  */}
                   <NavLink tag="li">
                     <DropdownItem className="nav-item">
-                      Log out 가능
+                      <button onClick={onLogOutClick}>로그아웃</button>
                     </DropdownItem>
                   </NavLink>
                 </DropdownMenu>

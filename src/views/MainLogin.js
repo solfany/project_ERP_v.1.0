@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import AppRouter from "../components/login/Router";
 import { authService } from '../Loginbase';
-import Auth from '../components/login/Auth';
+import Main from "../views/Main"
+// import Auth from '../components/login/Auth';
 // import Auth from "../components/login/Auth";
 // import Auth from "../components/login/Auth"
 // import "../components/login/Login.css";

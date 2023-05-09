@@ -1,5 +1,6 @@
 // 여기가 사이드바 메뉴 조종
-import Dashboard from 'views/Dashboard.js';
+import Main from 'views/Main';
+// import Dashboard from 'views/Dashboard.js';
 import MainLogin from 'views/MainLogin';
 import Icons from 'views/Icons.js';
 import Map from 'views/Map.js';
@@ -11,21 +12,27 @@ import Bulletin from 'views/Bulletin.js';
 
 var routes = [
   {
+    path: '/Main',
+    name: '홈',
+    icon: 'tim-icons icon-chart-pie-36',
+    component: Main,
+    layout: '/admin',
+  },
+  {
     path: '/MainLogin',
     name: '로그인',
     icon: 'tim-icons icon-chart-pie-36',
     component: MainLogin,
     layout: '/admin',
-    props: true,
   },
-  {
-    path: '/dashboard',
-    name: '근무일정',
-    icon: 'tim-icons icon-chart-pie-36',
-    component: Dashboard,
-    layout: '/admin',
-    props: true,
-  },
+  // {
+  //   path: '/dashboard',
+  //   name: '근무일정',
+  //   icon: 'tim-icons icon-chart-pie-36',
+  //   component: Dashboard,
+  //   layout: '/admin',
+  //   props: true,
+  // },
   {
     path: '/icons',
     name: '출퇴근 기록',

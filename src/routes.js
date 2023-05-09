@@ -1,4 +1,7 @@
 import Dashboard from 'views/Dashboard.js';
+// 여기가 사이드바 메뉴 조종
+import Main from 'views/Main';
+// import Dashboard from 'views/Dashboard.js';
 import MainLogin from 'views/MainLogin';
 import Icons from 'views/Icons.js';
 import Map from 'views/Map.js';
@@ -12,6 +15,13 @@ import Attendance from 'views/Attendance';
 import Payroll from 'views/Payroll';
 
 var routes = [
+  {
+    path: '/Main',
+    name: '홈',
+    icon: 'tim-icons icon-chart-pie-36',
+    component: Main,
+    layout: '/admin',
+  },
   {
     path: '/MainLogin',
     name: '로그인',
@@ -29,6 +39,14 @@ var routes = [
     props: true,
     //여기 props로 인해 다른 곳에서도 props로 사용 가능한것인가?
   },
+  // {
+  //   path: '/dashboard',
+  //   name: '근무일정',
+  //   icon: 'tim-icons icon-chart-pie-36',
+  //   component: Dashboard,
+  //   layout: '/admin',
+  //   props: true,
+  // },
   {
     path: '/icons',
     name: '출퇴근 기록',

@@ -145,7 +145,7 @@ const NoticeFactory = ({ userObj }) => {
             </div>
           )}
         </div>
-        <div className="box boxInnerFactory" onClick={onSubmit}>
+        <div className="bulletin_box boxInnerFactory" onClick={onSubmit}>
           <FontAwesomeIcon icon={faPenNib} className="noticeTitleWriteBtn" />
           <span></span>
           <span></span>

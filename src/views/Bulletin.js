@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 import 'components/Bulletin/Bulletin.css';
 import BulletinTab from 'components/Bulletin/Tabs/BulletinTab';
 import { Route, Switch } from 'react-router-dom';
-import Auth from 'components/Auth';
+import Auth from 'components/login/Auth';
 
 function Bulletin() {
   const history = useHistory();

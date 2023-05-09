@@ -1,4 +1,4 @@
-import AppRouter from '../components/Router';
+import AppRouter from '../components/login/Router';
 import Loader from '../components/Loader/Loader';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';

@@ -10,7 +10,7 @@ function Notification({ userObj, notices, noticeCommentList, isOwner }) {
       <div className="noticeTitle">
         <h2 className="noticeTitleH2">공지사항</h2>
         <Link to="/admin/bulletin/공지사항/글쓰기">
-          <div className="box">
+          <div className="bulletin_box">
             <FontAwesomeIcon icon={faPenNib} className="noticeTitleWriteBtn" />
             <span></span>
             <span></span>

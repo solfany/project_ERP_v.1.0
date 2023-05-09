@@ -303,7 +303,7 @@ body {
 }
 
 
-.box {
+.bulletin_box {
     position: absolute;
     right: 20px;
     bottom: 0;
@@ -319,7 +319,7 @@ body {
     cursor: pointer;
 }
 
-.box:before {
+.bulletin_box:before {
     content: '';
     position: absolute;
     top: 0;
@@ -331,12 +331,12 @@ body {
     pointer-events: none;
 }
 
-.box:hover:before {
+.bulletin_box:hover:before {
     left: 0%;
     transform: skewX(-5deg);
 }
 
-.box .content {
+.bulletin_box .content {
     position: absolute;
     top: 15px;
     left: 15px;
@@ -349,7 +349,7 @@ body {
 
 }
 
-.box span {
+.bulletin_box span {
     position: absolute;
     top: 0;
     left: 0;
@@ -360,23 +360,23 @@ body {
 
 }
 
-.box span:nth-child(1) {
+.bulletin_box span:nth-child(1) {
     transform: rotate(0deg);
 }
 
-.box span:nth-child(2) {
+.bulletin_box span:nth-child(2) {
     transform: rotate(90deg);
 }
 
-.box span:nth-child(3) {
+.bulletin_box span:nth-child(3) {
     transform: rotate(180deg);
 }
 
-.box span:nth-child(4) {
+.bulletin_box span:nth-child(4) {
     transform: rotate(270deg);
 }
 
-.box span:before {
+.bulletin_box span:before {
     content: '';
     position: absolute;
     width: 100%;

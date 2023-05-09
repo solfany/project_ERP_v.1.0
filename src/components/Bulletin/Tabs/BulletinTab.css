@@ -20,7 +20,7 @@
     display: block;
     width: 150px;
     position: fixed;
-    transform: translateY(-10px);
+    /* transform: translateY(0px); */
 }
 
 .tab button {
@@ -54,10 +54,12 @@
 
 /* Style the tab content */
 .tabcontent {
-    padding: 0px 12px;
-    width: 100%;
+    float: right;
+    padding: 12px 12px;
+    width: 87%;
     border-left: none;
     height: auto;
+    background-color: white;
 }
 
 .profile__img {

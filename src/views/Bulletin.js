@@ -45,7 +45,7 @@ function Bulletin() {
   // 댓글가져오는 useEffect
   useEffect(() => {
     const q = query(
-      collection(dbService, 'noticeComments'),
+      collection(dbService, 'NoticeComments'),
       orderBy('createdAt', 'asc')
     );
     const onCommentListener = onSnapshot(q, (querySnapshot) => {

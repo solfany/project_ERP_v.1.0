@@ -15,7 +15,7 @@ function TextOptions({
   IsPublic,
 }) {
   return (
-    <div style={{ fontSize: '20px' }}>
+    <div className="textOptionActions">
       {IsPublic || isCreator || isOwner ? (
         <Tooltip title="댓글">
           <span>

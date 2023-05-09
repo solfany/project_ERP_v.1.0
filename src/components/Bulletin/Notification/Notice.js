@@ -8,6 +8,7 @@ const Notice = ({ noticeObj }) => {
   const email = noticeObj.email.split('@')[0];
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+
   return (
     <div className="Text__container">
       <h4 className="Text__displayName">
@@ -71,9 +72,10 @@ const Notice = ({ noticeObj }) => {
         </div>
         <div>
           <Collapse isOpen={isOpen}>
-            <div className="Notice__noticeContent">
-              <h4>{noticeObj.noticeContent}</h4>
-            </div>
+            <div
+              className="Notice__noticeContent"
+              dangerouslySetInnerHTML={{ __html: noticeObj.noticeContent }}
+            ></div>
           </Collapse>
         </div>
         <div>

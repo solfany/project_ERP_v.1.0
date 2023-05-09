@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
-import './calendar2.css';
+// import './calendar2.css';
 import './calendar.css';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+
 import CustomButton from 'components/Button/CustomButton';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Table } from 'reactstrap';
 

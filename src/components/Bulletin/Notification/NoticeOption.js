@@ -1,7 +1,7 @@
 import React from 'react';
-import ReplyOption from '../Option/ReplyOption';
-import DeleteOption from '../Option/DeleteOption';
-import EditOption from '../Option/EditOption';
+import ReplyOption from './Option/ReplyOption';
+import DeleteOption from './Option/DeleteOption';
+import EditOption from './Option/EditOption';
 import { Tooltip } from 'antd';
 
 function NoticeOption({
@@ -11,7 +11,7 @@ function NoticeOption({
   toggleComment,
 }) {
   return (
-    <div style={{ fontSize: '20px' }}>
+    <div className="OptionContainer" style={{ fontSize: '20px' }}>
       <Tooltip title="댓글">
         <span>
           <ReplyOption toggleComment={toggleComment} />

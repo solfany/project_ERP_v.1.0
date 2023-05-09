@@ -1,18 +1,18 @@
 /*eslint-disable*/
-import React from "react";
-import { NavLink, Link, useLocation } from "react-router-dom";
+import React from 'react';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 // nodejs library to set properties for components
-import { PropTypes } from "prop-types";
+import { PropTypes } from 'prop-types';
 
 // javascript plugin used to create scrollbars on windows
-import PerfectScrollbar from "perfect-scrollbar";
+import PerfectScrollbar from 'perfect-scrollbar';
 
 // reactstrap components
-import { Nav, NavLink as ReactstrapNavLink } from "reactstrap";
+import { Nav, NavLink as ReactstrapNavLink } from 'reactstrap';
 import {
   BackgroundColorContext,
   backgroundColors,
-} from "contexts/BackgroundColorContext";
+} from 'contexts/BackgroundColorContext';
 
 var ps;
 
@@ -21,10 +21,10 @@ function Sidebar(props) {
   const sidebarRef = React.useRef(null);
   // verifies if routeName is the one active (in browser input)
   const activeRoute = (routeName) => {
-    return location.pathname === routeName ? "active" : "";
+    return location.pathname === routeName ? 'active' : '';
   };
   React.useEffect(() => {
-    if (navigator.platform.indexOf("Win") > -1) {
+    if (navigator.platform.indexOf('Win') > -1) {
       ps = new PerfectScrollbar(sidebarRef.current, {
         suppressScrollX: true,
         suppressScrollY: false,
@@ -32,13 +32,13 @@ function Sidebar(props) {
     }
     // Specify how to clean up after this effect:
     return function cleanup() {
-      if (navigator.platform.indexOf("Win") > -1) {
+      if (navigator.platform.indexOf('Win') > -1) {
         ps.destroy();
       }
     };
   });
   const linkOnClick = () => {
-    document.documentElement.classList.remove("nav-open");
+    document.documentElement.classList.remove('nav-open');
   };
   const { routes, rtlActive, logo } = props;
   let logoImg = null;
@@ -107,7 +107,7 @@ function Sidebar(props) {
                 return (
                   <li
                     className={
-                      activeRoute(prop.path) + (prop.pro ? " active-pro" : "")
+                      activeRoute(prop.path) + (prop.pro ? ' active-pro' : '')
                     }
                     key={key}
                   >
@@ -124,12 +124,6 @@ function Sidebar(props) {
                   </li>
                 );
               })}
-              <li className="naver.com">
-                <ReactstrapNavLink href="https://www.naver.com">
-                  <i className="tim-icons icon-spaceship" />
-                  <p>naver.com</p>
-                </ReactstrapNavLink>
-              </li>
             </Nav>
           </div>
         </div>

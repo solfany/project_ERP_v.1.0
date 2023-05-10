@@ -91,6 +91,10 @@ function Admin(props) {
       {({ color, changeColor }) => (
         <React.Fragment>
           <div className="wrapper">
+          {/* <Switch>
+                {getRoutes(routes)}
+                <Redirect from="*" to="/MainLogin" />
+              </Switch> */}
             <Sidebar
               routes={routes}
               // logo={{
@@ -111,7 +115,7 @@ function Admin(props) {
               {/* 아래의 스위치가 중요한 역할을 한다 로딩이 안됨 */}
               <Switch>
                 {getRoutes(routes)}
-                <Redirect from="*" to="/admin/001" />
+                <Redirect from="*" to="/admin/011" />
               </Switch>
 
               {

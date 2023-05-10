@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import { authService, firebaseInstance } from './../../Loginbase';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
+import {
+  Button,
+  Form,
+  FormGroup,
+  //  FormGroup,
+  Input,
+  Label,
+} from 'reactstrap';
 import { useHistory } from 'react-router-dom';
 // import { event } from "jquery";
 
@@ -28,14 +35,14 @@ const Auth = () => {
     try {
       // let data;
       if (newAccount) {
-        await authService.createUserWithEmailAndPassword(email, password);
-      } else {
         await authService.signInWithEmailAndPassword(email, password);
+        // } else {
+        //     await authService.signInWithEmailAndPassword(email, password)
       }
       history.push('/Main');
       // console.log(data)
     } catch (error) {
-      setError(error.message);
+      alert('사원아님');
     }
   };
 

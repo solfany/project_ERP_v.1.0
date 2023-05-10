@@ -1,15 +1,12 @@
-import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Userlsit from "./routes/Userlist.js";
-import Apple from "./routes/Apple.js";
-import { Table } from "reactstrap";
-
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Userlsit from '../components/Userlist-group/Userlist.js';
 // detail import
 
 function Attendance() {
   return (
     <Route>
-      {" "}
+      {' '}
       <Router>
         {/* 라우터를 만들어주고  */}
         <Userlsit />

@@ -1,83 +1,83 @@
 import React, { useState } from "react";
 import "./Map.css";
 
+
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter,Label } from "reactstrap";
+
 // 모달창
-
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-// import { Children } from "react/cjs/react.production.min";
-
 function Example({ data, setData }) {
   // 모달창 토글 방식
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
   //모달창 내부 이름 텍스트 입력
   const [userId, setUserId] = useState("");
+  if(userId===null){
+    alert('아이디를 입력하세요')
+  }
   const onChangeUserId = (e) => {
     console.log(e.target.value);
     setUserId(e.target.value);
   };
   // 모달창 내부 입력값 table로 전송
-  //select option value 값
-  const [optionValue, setOptionValue] = useState("");
+  //선택창 
+  const [teamNameOptionValue, setTeamNameOptionValue] = useState("");
+  const [positionValue, setPositionValue] = useState("");
+  const [vacationTypeValue, setVacationTypeValue] = useState("");
+  const [dayValue, setDayValue] = useState("");
+  const [reasonValue, setReasonValue] =useState('')
 
   //checkBox value 값
-  const [checkboxValue, setCheckboxValue] = useState(false);
- 
+  const [checkboxValue, setCheckboxValue] = useState([])
+    
+
   //checkBox value 값중복 막기
   
-  const checkOnly = (checkThis) => {
-    const checkboxes = document.getElementsByName("Day");
-    for (let i = 0; i < checkboxes.length; i++) {
-      if (checkboxes[i] !== checkThis) {
-        checkboxes[i].checked = false;
-      }
-    }
-  };
+  // const checkOnly = (checkThis) => {
+  //   const checkboxes = document.getElementsByName("Day");
+  //   for (let i = 0; i < checkboxes.length; i++) {
+  //     if (checkboxes[i] !== checkThis) {
+  //       checkboxes[i].checked = false;
+  //     }
+  //   }
+  // };
 
-  {
-    /* <input
-                    name="Day"
-                    type="checkbox"
-                    id="check1"
-                    checked={checkboxValue}
-                    onChange={(e) => setCheckboxValue(e.target.checked)}
-                  ></input>
-                  <label style={{ width: "40px" }}>하루</label>
+//checkbox
 
-                  <input
-                    type="checkbox"
-                    id="check2"
-                    
-                    
-                  ></input> */
-  }
+
+//조건문 걸어놓기
+
 
   const handleSubmit = (e) => {
+    setUserId('')
+    setTeamNameOptionValue('')
+    setPositionValue('')
+    setVacationTypeValue('')
+    setDayValue()
+    setReasonValue()
     console.log("s");
     e.preventDefault();
+
     const newData = {
-      code: "#",
-      name: e.target.elements.Name.value,
-      class: e.target.elements.Class.value,
-      classType: e.target.elements.check1.checked,
-      vacationType: e.target.elements.vacationType.checked,
-      day: "",
-      etc: "",
-      reason: "why",
+      
+      code: '#',
+      // e.target.value.Math(), 코드 관련 메세지
+      name: e.target.elements.Name.value,   //이름
+      teamName: e.target.elements.teamName.value,   //부서명
+      position: e.target.elements.position.value,  //직무
+      vacationType: e.target.elements.vacationType.value, //휴가종류
+      day: e.target.elements.day.value,   //기간
+      etc: e.target.checked,   //기타
+      reason: e.target.elements.reason.value,  //사유
+      
     };
     setData([...data, newData]);
+    
     console.log(data);
     console.log(newData);
-    
   };
-  //  }
-
-  // setOptionValue(e.target.value)
-  // setCheckboxValue(e.target.checked)
-
   return (
     <div>
-      {/* 아래에 있는 컴포넌트들은 다 style관련된 css일뿐 일반 tag랑 같고 기능적 의미는 1도 없는 상태이다 (가정) */}
+     
       <Button color="danger" onClick={toggle}>
         Click Me
       </Button>
@@ -93,20 +93,18 @@ function Example({ data, setData }) {
                   <input
                     type="id"
                     name="Name"
-                    //   id={onChange}
                     placeholder="이름을 입력하세요"
                     value={userId}
                     onChange={onChangeUserId}
                   ></input>
-                  {/* 별 의미 없는 하위 <span> */}
                 </li>
                 <li>
-                  <label>부서 : </label>
+                  <Label style={{width:'70px'}}>부서 : </Label>
                   <select
-                    name="Class"
-                    class="Class"
-                    value={optionValue}
-                    onChange={(e) => setOptionValue(e.target.value)}
+                    name="teamName"
+                    value={teamNameOptionValue}
+                    onChange={(e) => setTeamNameOptionValue(e.target.value)}
+                    
                   >
                     <option value="">부서를 고르세요</option>
                     <option value="인사팀">인사팀</option>
@@ -116,11 +114,11 @@ function Example({ data, setData }) {
                   </select>
                 </li>
                 <li>
-                  <label>직무 : </label>
+                  <label style={{width:'70px'}}>직무 : </label>
                   <select
-
-                  // value={optionValue}
-                  // onChange={(e) => setOptionValue(e.target.value)}
+                  name="position"
+                  value={positionValue}
+                  onChange={(e) => setPositionValue(e.target.value)}
                   >
                     <option value="">직무를 고르세요</option>
                     <option value="부장">부장</option>
@@ -132,8 +130,11 @@ function Example({ data, setData }) {
                   </select>
                 </li>
                 <li>
-                  <label>휴가 종류 : </label>
-                  <select name="vacationType" vacationType="vacationType">
+                  <label style={{width:'70px'}}>휴가 종류 : </label>
+                  <select 
+                  name="vacationType"
+                  value={vacationTypeValue}
+                  onChange={(e) => setVacationTypeValue(e.target.value)} >
                     <option value="">휴가 종류를 고르세요</option>
                     <option value="연차">연차 휴가</option>
                     <option value="특별 휴가">특별 휴가</option>
@@ -141,24 +142,35 @@ function Example({ data, setData }) {
                     <option value="기타">기타</option>
                   </select>
                 </li>
-
                 <li>
+                  <label style={{width:'70px'}}>휴가 기간 :</label>
+                  <select
+                  name="day"
+                  value={dayValue}
+                  onChange={(e) => setDayValue(e.target.value)}>
+                    <option value=''>휴가 기간을 입력해 주세요</option>
+                    <option value='하루'>하루</option>
+                    <option value='오전'>오전</option>
+                    <option value='오후'>오후</option>
+                  </select>
+                </li>
+                {/* <li>
                   <label>기간 : </label>
                   <label HTMLfor="check1">
                     <input
-                      name="Day"
+                      name="day"
                       type="checkbox"
                       id="check1"
                       value={''}
                       checked={checkboxValue}
                       // checked={checkboxValue}
                       onChange={(e) => {
-                        checkOnly(e.target);
+                        // checkOnly(e.target);
                         setCheckboxValue(e.target.checked);
                       }}
                     ></input>하루</label>
                     
-
+                      
                   <label htmlFor="check2">
                   
                     <input
@@ -169,7 +181,7 @@ function Example({ data, setData }) {
                       checked={checkboxValue}
                       // checked={checkboxValue}
                       onChange={(e) => {
-                        checkOnly(e.target);
+                        // checkOnly(e.target);
                         setCheckboxValue(e.target.checked);
                       }}
                     />오전</label>
@@ -177,38 +189,66 @@ function Example({ data, setData }) {
 
                   <label htmlFor="check3">
                     <input
-                      name="Day"
+                      name="day"
                       type="checkbox"
                       id="check3"
                       value={''}
                       checked={checkboxValue}
                       // checked={checkboxValue}
                       onChange={(e) => {
-                        checkOnly(e.target);
+                        // checkOnly(e.target);
                         setCheckboxValue(e.target.checked);
                       }}
                     ></input>오후</label>
                     
                   
-                </li>
-                <li>
+                </li> */}
+                {/* <li>
                   <label>유급 시간 : </label>
                   <input type="number"></input>
                 </li>
                 <li>
                   <label>차감 시간 : </label>
                   <input type="number"></input>
+                </li> */}
+                <li>
+                <label htmlFor="etc">
+    Checkbox 1
+    <input
+      type="checkbox"
+      name="etc"
+      checked={checkboxValue.checkbox1}
+      onChange={(e)=>setCheckboxValue(e.target.value)}
+    />
+  </label>
+  <br />
+  <label htmlFor="etc">
+    Checkbox 2
+    <input
+      type="checkbox"
+      name="etc"
+      checked={checkboxValue.checkbox2}
+      onChange={(e)=>setCheckboxValue(e.target.value)}
+    />
+  </label>
+  <br />
+  <label htmlFor="etc">
+    Checkbox 3
+    <input
+      type="checkbox"
+      name="etc"
+      checked={checkboxValue.checkbox3}
+      onChange={(e)=>setCheckboxValue(e.target.value)}
+    />
+  </label>
+  
                 </li>
                 <li>
-                  <label>특별 옵션 : </label>
-                  <input type="checkbox" id="check4"></input>
-                  <label>해당 없음</label>
-                  <input type="checkbox" id="check5"></input>
-                  <label>휴일</label>
-                </li>
-                <li>
-                  <label>메모</label>
+                  <label style={{width:'70px'}}>메모</label>
                   <textarea
+                  name="reason"
+                  value={reasonValue}
+                  onChange={(e) => {setReasonValue(e.target.value)}}
                     style={{ width: "95%" }}
                     placeholder="내용을 입력하세요"
                   ></textarea>
@@ -227,7 +267,6 @@ function Example({ data, setData }) {
         </ModalBody>
         <ModalFooter></ModalFooter>
       </Modal>
-      {userId}
     </div>
   );
 }

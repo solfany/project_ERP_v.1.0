@@ -35,14 +35,14 @@ const Auth = () => {
         try {
             // let data;
             if (newAccount) {
-                await authService.createUserWithEmailAndPassword(email, password)
-            } else {
                 await authService.signInWithEmailAndPassword(email, password)
+            // } else {
+            //     await authService.signInWithEmailAndPassword(email, password)
             }
             history.push('/Main')
             // console.log(data)
         } catch (error) {
-            setError(error.message);
+            alert("사원아님");
         }
     };
     

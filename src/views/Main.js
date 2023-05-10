@@ -7,6 +7,7 @@ import React from 'react';
 
 import { Row, Col } from 'reactstrap';
 import '../assets/css/styles.css';
+// import Attendance from './Attendance';
 
 // core components
 
@@ -33,6 +34,7 @@ function Main() {
           <div className="box">
             <div className="box-content">
               <h1>공지사항</h1>
+              {/* <Attendance /> */}
             </div>
           </div>
         </Col>

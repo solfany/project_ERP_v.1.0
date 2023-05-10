@@ -15,7 +15,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
+import React from 'react';
 
 // reactstrap components
 // import {
@@ -34,7 +34,7 @@ import React from "react";
 
 function UserProfile() {
   return (
-    <>
+    <div>
       {/* <div className="content">
         <Row>
           <Col md="8">
@@ -203,7 +203,7 @@ function UserProfile() {
           </Col>
         </Row>
       </div> */}
-    </>
+    </div>
   );
 }
 

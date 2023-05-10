@@ -79,6 +79,11 @@ const Factory = ({ userObj }) => {
 
   const onChangeScope = () => {
     setIsPublic(!IsPublic);
+    if (IsPublic) {
+      return message.info('게시글이 모두에게 공개됩니다.');
+    } else {
+      return message.info('게시글이 관리자에게만 공개됩니다.');
+    }
   };
   return (
     <div className="factoryContainer">

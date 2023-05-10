@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import './BulletinTab.css';
 import Notification from '../Route/Notification';
 import Unknown from '../Route/Unknown';
-import Profile from 'components/Bulletin/Profile';
 import NoticeFactory from '../Notification/NoticeFactory';
 import { Route, Switch } from 'react-router-dom/cjs/react-router-dom.min';
 import { useHistory } from 'react-router-dom';

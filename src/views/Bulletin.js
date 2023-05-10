@@ -105,24 +105,26 @@ function Bulletin() {
 
   return (
     <div className="content">
-      <Switch>
-        {userObj ? (
-          <>
-            <BulletinTab
-              userObj={userObj}
-              texts={texts}
-              commentList={commentList}
-              notices={notices}
-              noticeCommentList={noticeCommentList}
-              isOwner={isOwner}
-            />
-          </>
-        ) : (
-          <Route>
-            <Auth exact path="/auth" />
-          </Route>
-        )}
-      </Switch>
+      <div className="card">
+        <Switch>
+          {userObj ? (
+            <>
+              <BulletinTab
+                userObj={userObj}
+                texts={texts}
+                commentList={commentList}
+                notices={notices}
+                noticeCommentList={noticeCommentList}
+                isOwner={isOwner}
+              />
+            </>
+          ) : (
+            <Route>
+              <Auth exact path="/auth" />
+            </Route>
+          )}
+        </Switch>
+      </div>
     </div>
   );
 }

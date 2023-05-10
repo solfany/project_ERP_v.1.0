@@ -3,7 +3,7 @@ import Dashboard from 'views/Dashboard.js';
 import Main from 'views/Main';
 // import Dashboard from 'views/Dashboard.js';
 import MainLogin from 'views/MainLogin';
-import Icons from 'views/Icons.js';
+import AttendanceManagement from 'views/AttendanceManagement.js';
 import Map from 'views/Map.js';
 import TableList from 'views/TableList.js';
 import Typography from 'views/Typography.js';
@@ -48,10 +48,10 @@ var routes = [
   //   props: true,
   // },
   {
-    path: '/icons',
+    path: '/attendanceManagement',
     name: '출퇴근 기록',
     icon: 'tim-icons icon-atom',
-    component: Icons,
+    component: AttendanceManagement,
     layout: '/admin',
   },
   {

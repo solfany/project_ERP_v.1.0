@@ -57,6 +57,10 @@ body {
     cursor: pointer;
 }
 
+.Notice__notice h4 {
+    font-size: 14px;
+}
+
 /* photo 첨부파일 input, lable */
 .factoryInput__label {
     padding: 3px 10px;
@@ -129,12 +133,13 @@ body {
 .Text__displayName,
 .noticeComment__displayName {
     font-weight: 700;
+    font-size: 14px;
     text-align: right;
 }
 
 .Text__author {
     margin-right: 15px;
-    font-size: 15px;
+    font-size: 12px;
     color: gray;
 }
 
@@ -142,7 +147,7 @@ body {
 .noticeComment__email {
     display: inline;
     margin-left: 15px;
-    font-size: 14px;
+    font-size: 12px;
     color: gray;
 }
 
@@ -195,14 +200,16 @@ body {
 
 .noticeCommentActions,
 .textOptionActions {
+    position: relative;
     display: flex;
     cursor: pointer;
     font-size: 20px;
+    margin-top: 8px;
 }
 
 .noticeCommentActions span,
 .textOptionActions span {
-    margin-right: 5px;
+    margin-right: 8px;
 }
 
 .noticeCommentActions span:hover {
@@ -265,6 +272,7 @@ body {
 
 .OptionContainer {
     display: flex;
+    position: relative;
 }
 
 .Edit {
@@ -302,7 +310,21 @@ body {
     cursor: pointer;
 }
 
+.commentBadge {
+    display: inline-block;
+    background-color: tomato;
+    padding: 2px 8px;
+    border-radius: 12px;
+    color: white;
+    font-size: 12px;
+    z-index: 2;
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}
 
+
+/* ------------------------------------------- */
 .bulletin_box {
     position: absolute;
     right: 20px;

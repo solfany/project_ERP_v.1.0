@@ -2,12 +2,20 @@
     display: flex;
     justify-content: space-between;
     height: 50px;
-    padding: 10px 0;
+
     margin: 15px 0;
 }
 
+.calendarTitle {
+    margin: 5px 1%;
+    font-size: 30px;
+    font-weight: 700;
+    font-family: 'Nanum Barun Gothic';
+}
 
 .calendarBtnWrapper {
     display: flex;
     justify-content: flex-end;
+    position: relative;
+    top: 5px;
 }

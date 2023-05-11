@@ -3,15 +3,16 @@ import './BulletinTab.css';
 import Notification from '../Route/Notification';
 import Unknown from '../Route/Unknown';
 import Profile from 'components/Bulletin/Profile';
+import NoticeFactory from '../Notification/NoticeFactory';
+import { Route, Switch } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory } from 'react-router-dom';
 // Data array
 const tabTitle = [
   {
     tabname: '공지사항',
-    descr: 'qwer',
   },
   {
     tabname: '익명게시판',
-    descr: 'asdf',
   },
 ];
 
@@ -25,37 +26,67 @@ function BulletinTab({
 }) {
   const [tabIndex, setTabIndex] = useState(0);
   const [tabObj, setTabObj] = useState(tabTitle[tabIndex]);
+  const history = useHistory();
 
-  // When tabIndex updates, this updates tabObj then renders
+  useEffect(() => {
+    history.push('/admin/bulletin/공지사항');
+  }, [history]);
+
   useEffect(() => {
     setTabObj(tabTitle[tabIndex]);
   }, [tabIndex]);
 
   function handleBtnClick(e) {
     setTabIndex(parseInt(e.target.id));
+    history.push(
+      `/admin/bulletin/${tabTitle[parseInt(e.target.id)].tabname.toLowerCase()}`
+    );
   }
 
   const btnLabels = tabTitle.map((obj) => obj.tabname);
 
   return (
-    <div className="tabContainer">
-      <div className="navWrapper">
-        <Nav
-          btnLabels={btnLabels}
-          tabIndex={tabIndex}
-          handleBtnClick={handleBtnClick}
-        />
+    <>
+      <div className="tabContainer">
+        <div className="navWrapper">
+          <Nav
+            btnLabels={btnLabels}
+            tabIndex={tabIndex}
+            handleBtnClick={handleBtnClick}
+          />
+        </div>
+        <div className="tabcontent">
+          <Switch>
+            <Route
+              path="/admin/bulletin/공지사항/글쓰기"
+              render={() => <NoticeFactory userObj={userObj} />}
+            />
+            <Route
+              path="/admin/bulletin/공지사항"
+              render={() => (
+                <Notification
+                  userObj={userObj}
+                  notices={notices}
+                  noticeCommentList={noticeCommentList}
+                  isOwner={isOwner}
+                />
+              )}
+            />
+            <Route
+              path="/admin/bulletin/익명게시판"
+              render={() => (
+                <Unknown
+                  userObj={userObj}
+                  texts={texts}
+                  commentList={commentList}
+                  isOwner={isOwner}
+                />
+              )}
+            />
+          </Switch>
+        </div>
       </div>
-      <Display
-        tabObj={tabObj}
-        userObj={userObj}
-        texts={texts}
-        commentList={commentList}
-        notices={notices}
-        noticeCommentList={noticeCommentList}
-        isOwner={isOwner}
-      />
-    </div>
+    </>
   );
 }
 
@@ -89,34 +120,4 @@ function Button({ tabname, id, tabIndex, handleBtnClick }) {
   );
 }
 
-function Display({
-  tabObj,
-  userObj,
-  texts,
-  commentList,
-  notices,
-  noticeCommentList,
-  isOwner,
-}) {
-  return (
-    <div className="tabcontent">
-      <Profile userObj={userObj} />
-      {tabObj.tabname === '공지사항' ? (
-        <Notification
-          userObj={userObj}
-          notices={notices}
-          noticeCommentList={noticeCommentList}
-          isOwner={isOwner}
-        />
-      ) : (
-        <Unknown
-          userObj={userObj}
-          texts={texts}
-          commentList={commentList}
-          isOwner={isOwner}
-        />
-      )}
-    </div>
-  );
-}
 export default BulletinTab;

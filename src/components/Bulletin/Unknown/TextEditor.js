@@ -2,18 +2,16 @@ import React from 'react';
 import { dbService } from '../../../Loginbase';
 import { message } from 'antd';
 import { doc, updateDoc } from 'firebase/firestore';
+import { Input } from 'reactstrap';
 
-const TextEditor = ({
-  textObj,
-  toggleEditing,
-  NewText,
-  setNewText,
-  setIsEditing,
-}) => {
+const TextEditor = ({ textObj, newText, setNewText, setIsEditing }) => {
+  const textRef = doc(dbService, 'Texts', `${textObj.id}`);
+
   const onUpdateSubmit = async (event) => {
     event.preventDefault();
-    const textRef = doc(dbService, `Texts/${textObj.id}`);
-    await updateDoc(textRef, { text: NewText });
+
+    await updateDoc(textRef, { text: newText });
+
     setIsEditing((prev) => !prev);
     return message.success('게시글이 업데이트 되었습니다.');
   };
@@ -24,11 +22,11 @@ const TextEditor = ({
   };
   return (
     <>
-      <h4>{textObj.displayName}</h4>
-      <form onSubmit={onUpdateSubmit} className="container nweetEdit">
-        <input
+      <h4 className="noticeComment__displayName">{textObj.displayName}</h4>
+      <form onSubmit={onUpdateSubmit} className="Edit">
+        <Input
           type="text"
-          value={NewText}
+          value={newText}
           placeholder="Edit Your Text"
           onChange={onEditingText}
           autoFocus
@@ -36,7 +34,10 @@ const TextEditor = ({
           className="formInput"
         />
         <input type="submit" value="Edit Text" className="formBtn" />
-        <span onClick={toggleEditing} className="formBtn cancelBtn">
+        <span
+          onClick={() => setIsEditing((prev) => !prev)}
+          className="formBtn cancelBtn"
+        >
           Cancel
         </span>
       </form>

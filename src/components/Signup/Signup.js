@@ -252,6 +252,21 @@ import 'firebase/compat/firestore';
 function SignupModal() {
   const [showSignupModal, setShowSignupModal] = useState(false);
   const [users, setUsers] = useState([]);
+// import React, { useState } from 'react';
+// import { authService } from './../../Loginbase';
+// import {
+//   Row,
+//   Col,
+//   Card,
+//   CardHeader,
+//   CardBody,
+//   CardTitle,
+//   Input,
+//   Button,
+//   Label,
+//   Form,
+//   Container,
+// } from 'reactstrap';
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -269,7 +284,10 @@ function SignupModal() {
     
 
     try {
-      const userCredential = await authService.createUserWithEmailAndPassword(email, password);
+      const userCredential = await authService.createUserWithEmailAndPassword(
+        email,
+        password
+      );
       await userCredential.user.updateProfile({ displayName: name });
       setSuccess(true);
       await authService.signOut(); // 로그 아웃 수행

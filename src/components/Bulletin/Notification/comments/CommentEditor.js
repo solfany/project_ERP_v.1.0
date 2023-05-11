@@ -1,16 +1,16 @@
 import React from 'react';
-import { dbService } from './../../../Loginbase';
+import { dbService } from '../../../../Loginbase';
 import { message } from 'antd';
 import { doc, updateDoc } from 'firebase/firestore';
 import { Input } from 'reactstrap';
 
 const CommentEditor = ({
-  comment,
+  commentObject,
   onToggleCommentEditMode,
   NewComment,
   setNewComment,
 }) => {
-  const CommentRef = doc(dbService, 'Comments', `${comment.id}`);
+  const CommentRef = doc(dbService, 'NoticeComments', `${commentObject.id}`);
 
   const onUpdateSubmit = async (event) => {
     event.preventDefault();
@@ -18,7 +18,6 @@ const CommentEditor = ({
     await updateDoc(CommentRef, {
       text: NewComment,
     });
-
     onToggleCommentEditMode((prev) => !prev);
     return message.success('댓글이 업데이트 되었습니다.');
   };
@@ -30,7 +29,9 @@ const CommentEditor = ({
 
   return (
     <>
-      <h4>{comment.displayName}</h4>
+      <h4 className="noticeComment__displayName">
+        {commentObject.displayName}
+      </h4>
       <form onSubmit={onUpdateSubmit} className="Edit">
         <Input
           type="text"

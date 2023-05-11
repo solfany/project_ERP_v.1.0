@@ -1,7 +1,7 @@
+import Dashboard from 'views/Dashboard.js';
 // 여기가 사이드바 메뉴 조종
 import Main from 'views/Main';
 // import Dashboard from 'views/Dashboard.js';
-import Dashboard from 'views/Dashboard.js';
 import MainLogin from 'views/MainLogin';
 import Icons from 'views/Icons.js';
 import Map from 'views/Map.js';
@@ -10,12 +10,11 @@ import Typography from 'views/Typography.js';
 import UserProfile from 'views/UserProfile.js';
 import Bulletin from 'views/Bulletin.js';
 // import Message from 'views/Message';
-import Chat from "views/Chat";
-import Attendance from "views/Attendance";
-import Payroll from "views/Payroll";
+import Chat from 'views/Chat';
+import Attendance from 'views/Attendance';
+import Payroll from 'views/Payroll';
 
 var routes = [
-
   {
     path: "/Main",
     name: "홈",

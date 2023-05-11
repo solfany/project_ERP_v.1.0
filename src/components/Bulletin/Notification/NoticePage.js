@@ -6,8 +6,8 @@ import { message } from 'antd';
 import NoticeOption from './NoticeOption';
 import NoticeEditor from './NoticeEditor';
 import Notice from './Notice';
-import CommentForm from '../comments/CommentForm';
-import Comment from '../comments/Comment';
+import CommentForm from './comments/CommentForm';
+import Comment from './comments/Comment';
 
 const TextPage = ({
   isCreator,
@@ -18,7 +18,6 @@ const TextPage = ({
 }) => {
   const [IsEditing, setIsEditing] = useState(false);
   const [CommentToggle, setCommentToggle] = useState(false);
-  const [newText, setNewText] = useState(noticeObj.text);
 
   //삭제하려는 이미지 파일 가리키는 ref 생성하기
   // nweetObj의 attachmentUrl이 바로 삭제하려는 그 url임
@@ -56,8 +55,6 @@ const TextPage = ({
         <NoticeEditor
           noticeObj={noticeObj}
           toggleEditing={toggleEditing}
-          newText={newText}
-          setNewText={setNewText}
           setIsEditing={setIsEditing}
         />
       ) : (

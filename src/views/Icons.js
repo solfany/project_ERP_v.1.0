@@ -1,3 +1,4 @@
+import QuillEditor from 'components/Bulletin/Editor/QuillEditor';
 import React from 'react';
 
 // reactstrap components
@@ -14,6 +15,7 @@ function Icons() {
   return (
     <>
       <div className="content">
+        <QuillEditor />
         <Row>
           <Col xs="12">
             <Card className="card-chart">

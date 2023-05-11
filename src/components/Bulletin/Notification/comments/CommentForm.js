@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { dbService } from './../../../Loginbase';
+import { dbService } from '../../../../Loginbase';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock, faLockOpen } from '@fortawesome/free-solid-svg-icons';
 import { addDoc, collection } from 'firebase/firestore';
 import { Input } from 'reactstrap';
 
-const CommentForm = ({ userObj, textObj, toggleComment }) => {
+const CommentForm = ({ userObj, noticeObj, toggleComment }) => {
   const [Comment, setComment] = useState('');
   const [IsPublic, setIsPublic] = useState(true);
 
@@ -19,10 +19,10 @@ const CommentForm = ({ userObj, textObj, toggleComment }) => {
       createdAt: new Date(),
       creatorId: userObj.uid,
       IsPublic,
-      responseTo: textObj.id,
+      responseTo: noticeObj.id,
     };
 
-    await addDoc(collection(dbService, 'Comments'), commentObject);
+    await addDoc(collection(dbService, 'NoticeComments'), commentObject);
     setComment('');
   };
 
@@ -45,7 +45,7 @@ const CommentForm = ({ userObj, textObj, toggleComment }) => {
         ) : (
           <>
             <FontAwesomeIcon icon={faLock} />
-            <span>댓글이 {textObj.displayName} 님에게만 공개됩니다.</span>
+            <span>댓글이 {noticeObj.displayName} 님에게만 공개됩니다.</span>
           </>
         )}
       </div>

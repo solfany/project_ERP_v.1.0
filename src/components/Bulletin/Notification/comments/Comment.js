@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
-import DeleteOption from './../Option/DeleteOption';
-import EditOption from './../Option/EditOption';
-import ScopeOption from './../Option/ScopeOption';
-import { dbService } from './../../../Loginbase';
+import DeleteOption from '../Option/DeleteOption';
+import EditOption from '../Option/EditOption';
+import ScopeOption from '../Option/ScopeOption';
+import { dbService } from '../../../../Loginbase';
 import CommentEditor from './CommentEditor';
 import { message } from 'antd';
 import { deleteDoc, doc, updateDoc } from 'firebase/firestore';
 
 const PRIVATE_COMMENT = '비공개 댓글 입니다.';
 
-const Comment = ({ userObj, textObj, commentObject }) => {
-  const CommentRef = doc(dbService, 'Comments', `${commentObject.id}`);
+const Comment = ({ userObj, noticeObj, commentObject }) => {
   const isCommentWriter = userObj.uid === commentObject.creatorId;
   const creatorEmail = commentObject.email.split('@')[0];
   const [CommentEditMode, setCommentEditMode] = useState(false);
   const [NewComment, setNewComment] = useState(commentObject.text);
   const [CommentScope, setCommentScope] = useState(commentObject.IsPublic);
+  const CommentRef = doc(dbService, 'NoticeComments', `${commentObject.id}`);
 
   const onToggleCommentEditMode = () => {
     setCommentEditMode((prev) => !prev);
@@ -44,7 +44,7 @@ const Comment = ({ userObj, textObj, commentObject }) => {
     <div className="noticeComment">
       {CommentEditMode ? (
         <CommentEditor
-          comment={commentObject}
+          commentObject={commentObject}
           onToggleCommentEditMode={onToggleCommentEditMode}
           NewComment={NewComment}
           setNewComment={setNewComment}
@@ -58,7 +58,7 @@ const Comment = ({ userObj, textObj, commentObject }) => {
           {commentObject.IsPublic ? (
             <h4 className="noticeComment__text">{commentObject.text}</h4>
           ) : userObj.uid === commentObject.creatorId ||
-            textObj.creatorId === userObj.uid ? (
+            noticeObj.creatorId === userObj.uid ? (
             <>
               <span className="noticeComment__scope">{PRIVATE_COMMENT}</span>
               <h4 className="noticeComment__text">{commentObject.text}</h4>
@@ -68,7 +68,7 @@ const Comment = ({ userObj, textObj, commentObject }) => {
           )}
           {isCommentWriter && (
             <div className="noticeCommentActions">
-              <DeleteOption onDeleteTweet={onDeleteComment} />
+              <DeleteOption onDeleteClick={onDeleteComment} />
               <EditOption toggleEditing={onToggleCommentEditMode} />
               <ScopeOption
                 IsPublic={CommentScope}
@@ -89,7 +89,7 @@ export default Comment;
     > comment 공개/비공개에 따라 comment 출력
       - comment.IsPublic ? 공개 : 비공개
     > 비공개일 경우 로그인 유저의 정보에 따라 공개/비공개
-      - 원글 작성자 : userObj.uid === textObj.creatorId
+      - 원글 작성자 : userObj.uid === noticeObj.creatorId
       - 댓글 작성자 : userObj.uid === comment.creatorId
       - 이 외 유저에 대해서는 비공개
 

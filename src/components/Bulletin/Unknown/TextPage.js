@@ -66,7 +66,6 @@ const TextPage = ({ isCreator, isOwner, textObj, commentsObject, userObj }) => {
           toggleEditing={toggleEditing}
           newText={newText}
           setNewText={setNewText}
-          setIsEditing={setIsEditing}
         />
       ) : (
         <>

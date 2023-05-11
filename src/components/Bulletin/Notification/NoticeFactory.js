@@ -88,6 +88,11 @@ const NoticeFactory = ({ userObj }) => {
   };
   const onChangeScope = () => {
     setIsImportant(!IsImportant);
+    if (IsImportant) {
+      return message.info('[필독]을 표시합니다.');
+    } else {
+      return message.info('[필독]을 표시하지 않습니다.');
+    }
   };
 
   return (

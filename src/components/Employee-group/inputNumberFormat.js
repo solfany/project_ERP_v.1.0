@@ -3,3 +3,5 @@ function inputNumberFormat(number) {
 }
 
 export default inputNumberFormat;
+
+// 급여관리

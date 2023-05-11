@@ -15,7 +15,7 @@ const NoticeEditor = ({ noticeObj, toggleEditing, setIsEditing }) => {
     event.preventDefault();
     const noticeRef = doc(dbService, `Notices/${noticeObj.id}`);
     await updateDoc(noticeRef, { noticeContent: newNotice });
-    setIsEditing((prev) => !prev);
+    toggleEditing();
     scrollToTop();
     return message.success('게시글이 업데이트 되었습니다.');
   };
@@ -62,9 +62,14 @@ const NoticeEditor = ({ noticeObj, toggleEditing, setIsEditing }) => {
           newNotice={newNotice}
           setNewNotice={setNewNotice}
         />
-        <input type="submit" value="Edit Notice" className="formBtn" />
+        <input
+          type="submit"
+          value="수정하기"
+          className="formBtn"
+          onClick={onUpdateSubmit}
+        />
         <span onClick={toggleEditing} className="formBtn cancelBtn">
-          Cancel
+          취소
         </span>
       </form>
     </>

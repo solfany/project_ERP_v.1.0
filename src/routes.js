@@ -1,18 +1,17 @@
-import Dashboard from 'views/Dashboard.js';
+import Dashboard from "views/Dashboard.js";
 // 여기가 사이드바 메뉴 조종
-import Main from 'views/Main';
-// import Dashboard from 'views/Dashboard.js';
-import MainLogin from 'views/MainLogin';
-import Icons from 'views/Icons.js';
-import Map from 'views/Map.js';
-import TableList from 'views/TableList.js';
-import Typography from 'views/Typography.js';
-import UserProfile from 'views/UserProfile.js';
-import Bulletin from 'views/Bulletin.js';
+import Main from "views/Main";
+import MainLogin from "views/MainLogin";
+import AttendanceManagement from "views/AttendanceManagement.js";
+import Map from "views/Map.js";
+import TableList from "views/TableList.js";
+import Typography from "views/Typography.js";
+import UserProfile from "views/UserProfile.js";
+import Bulletin from "views/Bulletin.js";
 // import Message from 'views/Message';
-import Chat from 'views/Chat';
-import Attendance from 'views/Attendance';
-import Payroll from 'views/Payroll';
+import Chat from "views/Chat";
+import Attendance from "views/Attendance";
+import Payroll from "views/Payroll";
 
 var routes = [
   {
@@ -20,9 +19,10 @@ var routes = [
     name: "홈",
     icon: "tim-icons icon-chart-pie-36",
     component: Main,
-    layout: '/admin',
+    layout: "/admin",
     props: true,
   },
+
   {
     path: "/dashboard",
     name: "근무일정",
@@ -30,13 +30,12 @@ var routes = [
     component: Dashboard,
     layout: "/admin",
     props: true,
-    //여기 props로 인해 다른 곳에서도 props로 사용 가능한것인가?
   },
   {
-    path: "/icons",
+    path: "/attendanceManagement",
     name: "출퇴근 기록",
     icon: "tim-icons icon-atom",
-    component: Icons,
+    component: AttendanceManagement,
     layout: "/admin",
   },
   {
@@ -61,12 +60,11 @@ var routes = [
     layout: "/admin",
   },
   {
-    path: "/Signup",
-    name: "회사 관리",
-    // rtlName: "قائمة الجدول",
-    icon: "tim-icons icon-puzzle-10",
+    path: '/Signup',
+    name: '회사 관리',
+    icon: 'tim-icons icon-puzzle-10',
     component: TableList,
-    layout: "/admin",
+    layout: '/admin',
   },
   {
     path: "/typography",
@@ -78,22 +76,20 @@ var routes = [
   {
     path: "/Chat",
     name: "메신저",
-    icon: "tim-icons icon-world",
+    icon: "tim-icons icon-spaceship",
     component: Chat,
     layout: "/admin",
   },
   {
     path: "/bulletin",
     name: "게시판",
-    icon: "tim-icons icon-world",
+    icon: "tim-icons icon-paper",
     component: Bulletin,
-    layout: '/admin',
+    layout: "/admin",
     props: true,
   },
   {
-    path: "/MainLogin",
-    // name: "게시판",
-    // icon: "tim-icons icon-world",
+    path: '/MainLogin',
     component: MainLogin,
     layout: '/admin',
     props: true,

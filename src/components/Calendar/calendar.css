@@ -13,6 +13,10 @@
     font-family: 'Nanum Barun Gothic';
 }
 
+.ant-message-custom-content {
+    z-index: 1500 !important;
+}
+
 .calendarBtnWrapper {
     display: flex;
     justify-content: flex-end;

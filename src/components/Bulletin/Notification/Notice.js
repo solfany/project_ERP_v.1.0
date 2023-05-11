@@ -16,8 +16,11 @@ const Notice = ({ noticeObj }) => {
         {noticeObj.displayName}
         <span className="Text__email">{email}</span>
         <img
-          src={noticeObj.creatorPhoto}
-          alt="프로필사진"
+          src={
+            noticeObj.creatorPhoto !== null
+              ? noticeObj.creatorPhoto
+              : 'https://blog.kakaocdn.net/dn/GdHjR/btq89DKny2f/IJ4P7CpSp6KYYbkGkXpKa1/img.png'
+          }
           className="Text__Pusa"
         />
       </h4>

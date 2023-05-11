@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import './BulletinTab.css';
 import Notification from '../Route/Notification';
 import Unknown from '../Route/Unknown';
-import Profile from 'components/Bulletin/Profile';
 import NoticeFactory from '../Notification/NoticeFactory';
 import { Route, Switch } from 'react-router-dom/cjs/react-router-dom.min';
 import { useHistory } from 'react-router-dom';
@@ -12,7 +11,7 @@ const tabTitle = [
     tabname: '공지사항',
   },
   {
-    tabname: '익명게시판',
+    tabname: '사내게시판',
   },
 ];
 
@@ -73,7 +72,7 @@ function BulletinTab({
               )}
             />
             <Route
-              path="/admin/bulletin/익명게시판"
+              path="/admin/bulletin/사내게시판"
               render={() => (
                 <Unknown
                   userObj={userObj}

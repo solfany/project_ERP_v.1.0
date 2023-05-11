@@ -9,12 +9,19 @@ function NoticeOption({
   onDeleteClick,
   toggleEditing,
   toggleComment,
+  commentsObject,
 }) {
   return (
     <div className="OptionContainer" style={{ fontSize: '20px' }}>
       <Tooltip title="댓글">
         <span>
           <ReplyOption toggleComment={toggleComment} />
+          {commentsObject.length > 0 && (
+            <span
+              className="commentBadge"
+              onClick={toggleComment}
+            >{`${commentsObject.length}`}</span>
+          )}
         </span>
       </Tooltip>
       {isCreator ? (

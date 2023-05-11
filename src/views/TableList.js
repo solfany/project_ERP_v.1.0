@@ -15,12 +15,12 @@
 // * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 // */
-import React, { useState, useEffect } from "react";
-import { db } from '/project02/src/Loginbase';
+import React, { useState, useEffect } from 'react';
+import { db } from './../Loginbase';
 import 'firebase/compat/firestore';
 // import { dbService } from './../Loginbase';
 // import { collection, onSnapshot } from 'firebase/firestore';
-import SignupModal from "../components/Signup/Signup";
+import SignupModal from '../components/Signup/Signup';
 import {
   Card,
   CardHeader,
@@ -32,48 +32,47 @@ import {
 } from 'reactstrap';
 
 // function Tables() {
-  const Tables = () => {
+const Tables = () => {
+  const [users, setUsers] = useState([]);
 
-    const [users, setUsers] = useState([]);
-  
-    useEffect(() => {
-      // Firestore의 'users' 컬렉션에서 데이터를 가져옵니다.
-      const unsubscribe = db.collection('users').onSnapshot((snapshot) => {
-        const userList = [];
-        snapshot.forEach((doc) => {
-          userList.push({
-            // id: doc.id,
-            name: doc.data().name,
-            email: doc.data().email,
-            city: doc.data().city,
-            // 필요한 데이터가 있다면 여기에 추가합니다.
-          });
+  useEffect(() => {
+    // Firestore의 'users' 컬렉션에서 데이터를 가져옵니다.
+    const unsubscribe = db.collection('users').onSnapshot((snapshot) => {
+      const userList = [];
+      snapshot.forEach((doc) => {
+        userList.push({
+          // id: doc.id,
+          name: doc.data().name,
+          email: doc.data().email,
+          city: doc.data().city,
+          // 필요한 데이터가 있다면 여기에 추가합니다.
         });
-        setUsers(userList);
       });
-      return () => unsubscribe();
-    }, []);
-      // --------------------------------
-    //   db.collection('users').add({
-    //     name: '',
-    //     email: '',
-    //     city: '',
-    //     salary: 30000
-    //   })
-    //   .then((docRef) => {
-    //     console.log('Document written with ID: ', docRef.id);
-    //   })
-    //   .catch((error) => {
-    //     console.error('Error adding document: ', error);
-    //   });
-    // });
-  
+      setUsers(userList);
+    });
+    return () => unsubscribe();
+  }, []);
+  // --------------------------------
+  //   db.collection('users').add({
+  //     name: '',
+  //     email: '',
+  //     city: '',
+  //     salary: 30000
+  //   })
+  //   .then((docRef) => {
+  //     console.log('Document written with ID: ', docRef.id);
+  //   })
+  //   .catch((error) => {
+  //     console.error('Error adding document: ', error);
+  //   });
+  // });
+
   return (
     <>
       <div className="content">
         <Row>
           <Col md="12">
-          <Card>
+            <Card>
               <CardHeader>
                 <CardTitle tag="h1">직원관리</CardTitle>
               </CardHeader>
@@ -92,13 +91,12 @@ import {
                   </thead>
                   <tbody>
                     {users.map((users) => (
-
-                    <tr key={users.id}>
-                      <td>{users.name}</td>
-                      <td>{users.email}</td>
-                      <td>{users.city}</td>
-                      <td className="text-center">{users.salary}</td>
-                    </tr>
+                      <tr key={users.id}>
+                        <td>{users.name}</td>
+                        <td>{users.email}</td>
+                        <td>{users.city}</td>
+                        <td className="text-center">{users.salary}</td>
+                      </tr>
                     ))}
                     {/* <tr>
                       <td>Minerva Hooper</td>
@@ -208,13 +206,10 @@ import {
         </Row>
       </div>
     </>
-  
   );
-}
+};
 
 export default Tables;
-
-
 
 // 다른코드
 //   const [showSignupModal, setShowSignupModal] = useState(false);
@@ -245,7 +240,8 @@ export default Tables;
 
 // export default Tables;
 
-{/* // import Signup from '../components/Signup/Signup'
+{
+  /* // import Signup from '../components/Signup/Signup'
 // import React from 'react'
 
 
@@ -255,4 +251,5 @@ export default Tables;
 //   )
 // }
 
-// export default TableList; */}
+// export default TableList; */
+}

@@ -11,7 +11,7 @@ function MainLogin(props) {
   const dispatch = useDispatch();
   const init = useSelector((state) => state.init);
   const userObj = useSelector((state) => state.userObj);
-
+  console.log(Boolean(userObj));
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
       if (user) {

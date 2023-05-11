@@ -124,12 +124,6 @@ function Sidebar(props) {
                   </li>
                 );
               })}
-              {/* <li className="naver.com">
-                <ReactstrapNavLink href="https://www.naver.com">
-                  <i className="tim-icons icon-spaceship" />
-                  <p>naver.com</p>
-                </ReactstrapNavLink>
-              </li> */}
             </Nav>
           </div>
         </div>

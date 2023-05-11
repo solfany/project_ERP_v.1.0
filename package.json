@@ -6,9 +6,6 @@
   "dependencies": {
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
-    "@fortawesome/fontawesome-free": "6.1.1",
-    "@fortawesome/free-solid-svg-icons": "^6.4.0",
-    "@fortawesome/react-fontawesome": "^0.2.0",
     "@grapecity/wijmo.pdf": "^5.20222.877",
     "@grapecity/wijmo.styles": "^5.20222.877",
     "axios": "^1.4.0",
@@ -22,7 +19,6 @@
     "@react-pdf-viewer/core": "^3.12.0",
     "@react-pdf-viewer/default-layout": "^3.12.0",
     "antd": "^5.4.7",
-    "antd": "^5.4.6",
     "bootstrap": "4.5.3",
     "chart.js": "3.4.1",
     "classnames": "2.3.1",

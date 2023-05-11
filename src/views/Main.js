@@ -1,5 +1,6 @@
-import React from 'react';
-
+import React, { useEffect, useState } from 'react';
+import Calendar from './../components/Calendar/Calendar';
+// import moment from 'moment';
 // reactstrap components
 // import { Card, CardHeader, CardBody, Row, Col } from 'reactstrap';
 // reactstrap components
@@ -13,42 +14,60 @@ import '../assets/css/styles.css';
 
 // css 참고 사이트
 // https://runebook.dev/ko/docs/react_bootstrap/components/buttons/index
+function fetchData() {
+  return fetch('https://raw.githubusercontent.com/solfany/project02/master/src/components/Calendar/Calendar.js')
+    .then(response => response.json())
+    .then(data => data.events);
+}
 
 function Main() {
+  // 첫번째 div박스 
   const currentDate = new Date(); // 현재 시간을 나타내는 Date 객체 생성
   const year = currentDate.getFullYear(); // 현재 년도를 구함
   const month = currentDate.getMonth() + 1; // 현재 월을 구함 (getMonth()는 0부터 시작하므로 1을 더함)
   const day = currentDate.getDate(); // 현재 일을 구함
+  // 첫번째 div 박스
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    fetchData().then(events => {
+      setEvents(events);
+    });
+  }, []);
+  // 두번째 div 박스
+  
   return (
-    <>
+    // <>
       <div className="content">
       <Row>
         <Col xs={6} className="box-container">
-          <div className="box">
+          <div className="box" >
             <div className="box-content">
             <h1>{`${year}년 ${month}월 ${day}일`}</h1>
             </div>
           </div>
         </Col>
         <Col xs={6} className="box-container">
-          <div className="box">
+          <div className="box" >
             <div className="box-content">
-              <h1>공지사항</h1>
-              {/* <Attendance /> */}
+              <h1>근무일정</h1>
+              <div style={{height: '100%', overflow: 'hidden'}}>
+                <Calendar events={events} setEvents={setEvents} style={{height: '100%'}} />
+              </div>
             </div>
           </div>
         </Col>
       </Row>
       <Row>
         <Col xs={6} className="box-container">
-          <div className="box">
+          <div className="box" >
             <div className="box-content">
               DashBoard
             </div>
           </div>
         </Col>
         <Col xs={6} className="box-container">
-          <div className="box">
+          <div className="box" >
             <div className="box-content">
               <h1>휴가 현황</h1>
             </div>
@@ -111,7 +130,7 @@ function Main() {
           </Col>
         </Row> */}
       </div>
-    </>
+    // </>
   );
 }
 

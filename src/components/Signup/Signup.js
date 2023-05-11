@@ -1,16 +1,16 @@
 // import React, { useState } from 'react';
 // import { authService } from '/project02/src/Loginbase';
 
-// import {
+// import { 
 //     Button,
 //     Form,
-//     FormGroup,
-//     Label,
-//     Input,
-//     Modal,
-//     ModalHeader,
-//     ModalBody,
-//     ModalFooter }
+//     FormGroup, 
+//     Label, 
+//     Input, 
+//     Modal, 
+//     ModalHeader, 
+//     ModalBody, 
+//     ModalFooter } 
 //     from 'reactstrap';
 
 // function Signup() {
@@ -107,6 +107,7 @@
 
 // export default Signup;
 
+
 // function SignupModal() {
 //     const [name, setName] = useState('');
 //     const [email, setEmail] = useState('');
@@ -115,16 +116,16 @@
 //     const [error, setError] = useState(null);
 //     const [success, setSuccess] = useState(false);
 //     const [modal, setModal] = useState(false);
-
+  
 //     const toggle = () => setModal(!modal);
-
+  
 //     const handleSignup = async (event) => {
 //       event.preventDefault();
 //       if (password !== confirmPassword) {
 //         setError('비밀번호가 일치하지 않습니다');
 //         return;
 //       }
-
+  
 //       try {
 //         const userCredential = await authService.createUserWithEmailAndPassword(email, password);
 //         await userCredential.user.updateProfile({ displayName: name });
@@ -134,7 +135,7 @@
 //       }
 //       setSuccess(false);
 //     }
-
+  
 //     return (
 //       <div>
 //         <Button color="primary" onClick={toggle}>사원추가</Button>
@@ -165,12 +166,12 @@
 //               </Form>
 //             }
 //           </ModalBody>
-
+          
 //         </Modal>
 //       </div>
 //     );
 //   }
-
+  
 //   export default SignupModal;
 
 // import React, { useState } from 'react';
@@ -242,14 +243,30 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
-  ModalFooter,
+  ModalFooter
 } from 'reactstrap';
-import { authService, db } from './../../Loginbase';
+import { authService,db } from '/project02/src/Loginbase';
 import 'firebase/compat/firestore';
+
 
 function SignupModal() {
   const [showSignupModal, setShowSignupModal] = useState(false);
   const [users, setUsers] = useState([]);
+// import React, { useState } from 'react';
+// import { authService } from './../../Loginbase';
+// import {
+//   Row,
+//   Col,
+//   Card,
+//   CardHeader,
+//   CardBody,
+//   CardTitle,
+//   Input,
+//   Button,
+//   Label,
+//   Form,
+//   Container,
+// } from 'reactstrap';
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -264,6 +281,7 @@ function SignupModal() {
       setError('Passwords do not match');
       return;
     }
+    
 
     try {
       const userCredential = await authService.createUserWithEmailAndPassword(
@@ -276,19 +294,18 @@ function SignupModal() {
     } catch (error) {
       setError(error.message);
     }
-    db.collection('users')
-      .add({
-        name: name,
-        email: email,
-        password: password,
-      })
-      .then((docRef) => {
-        console.log('Document written with ID: ', docRef.id);
-        setSuccess(true);
-      })
-      .catch((error) => {
-        console.error('Error adding document: ', error);
-      });
+    db.collection('users').add({
+      name: name,
+      email: email,
+      password: password,
+    })
+    .then((docRef) => {
+      console.log("Document written with ID: ", docRef.id);
+      setSuccess(true);
+    })
+    .catch((error) => {
+      console.error("Error adding document: ", error);
+    });
     // ----------------다른코드 -----------------
     // authService.createUserWithEmailAndPassword(email, password)
     // .then((userCredential) => {
@@ -301,13 +318,13 @@ function SignupModal() {
     // });
 
     // ----------------다른코드 ------------------
-    //   await authService.createUserWithEmailAndPassword(email, password);
-    //   await authService.currentUser.updateProfile({ displayName: name });
-    //   setSuccess(true);
-    // } catch (error) {
-    //   setError(error.message);
-    // }
-  };
+  //   await authService.createUserWithEmailAndPassword(email, password);
+  //   await authService.currentUser.updateProfile({ displayName: name });
+  //   setSuccess(true);
+  // } catch (error) {
+  //   setError(error.message);
+  // }
+  }
 
   // const handleSubmit = (event) => {
   //   event.preventDefault();
@@ -336,7 +353,7 @@ function SignupModal() {
     setConfirmPassword('');
     setError(null);
     setSuccess(false);
-  };
+  }
 
   const toggleSignupModal = () => setShowSignupModal(!showSignupModal);
 
@@ -358,7 +375,7 @@ function SignupModal() {
         <ModalBody>
           {success && <p>사원등록 완료</p>}
           {!success && (
-            <Form id="signup-form" onSubmit={handleSignup}>
+            <Form id="signup-form"onSubmit={handleSignup}>
               {error && <p>{error}</p>}
               <FormGroup>
                 <Label for="name">이름:</Label>
@@ -405,24 +422,23 @@ function SignupModal() {
         </ModalBody>
         <ModalFooter>
           {success && (
-            <Button color="primary" onClick={handleSignupSuccess}>
-              OK
+          <Button color="primary" onClick={handleSignupSuccess}>
+            OK
+          </Button>
+        )}
+        {!success && (
+          <>
+            <Button color="primary" type="submit" form="signup-form">
+              등록하기
             </Button>
-          )}
-          {!success && (
-            <>
-              <Button color="primary" type="submit" form="signup-form">
-                등록하기
-              </Button>
-              <Button color="secondary" onClick={toggleSignupModal}>
-                취소하기
-              </Button>
-            </>
-          )}
-        </ModalFooter>
-      </Modal>
-    </div>
-  );
-}
+            <Button color="secondary" onClick={toggleSignupModal}>
+              취소하기
+            </Button>
+          </>
+        )}
+    </ModalFooter>
+  </Modal>
+</div>
+  )}
 
 export default SignupModal;

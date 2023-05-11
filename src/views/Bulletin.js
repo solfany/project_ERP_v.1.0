@@ -3,7 +3,7 @@ import { query, orderBy, collection, onSnapshot } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import 'components/Bulletin/Bulletin.css';
+import './../components/Bulletin/Bulletin.css';
 import BulletinTab from 'components/Bulletin/Tabs/BulletinTab';
 import { Route, Switch } from 'react-router-dom';
 import Auth from '../components/login/Auth';

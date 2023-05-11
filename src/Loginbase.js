@@ -6,6 +6,9 @@ import 'firebase/compat/firestore';
 
 import 'firebase/compat/storage';
 
+//메신저용
+import { getAuth } from 'firebase/auth';
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -31,4 +34,8 @@ export const authService = firebase.auth();
 
 export const dbService = getFirestore();
 export const storageService = getStorage();
+
+//메신저용
+
 export const db = firebase.firestore()
+

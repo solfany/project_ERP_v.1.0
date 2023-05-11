@@ -1,13 +1,14 @@
-// 여기가 사이드바 메뉴 조종
-import Dashboard from "views/Dashboard.js";
-import MainLogin from "views/MainLogin";
-import Icons from "views/Icons.js";
-import Map from "views/Map.js";
-// import Notifications from 'views/Notifications.js';
-import Typography from "views/Typography.js";
-import Bulletin from "views/Bulletin.js";
+import Dashboard from 'views/Dashboard.js';
+import MainLogin from 'views/MainLogin';
+import Icons from 'views/Icons.js';
+import Map from 'views/Map.js';
+import TableList from 'views/TableList.js';
+import Typography from 'views/Typography.js';
+import UserProfile from 'views/UserProfile.js';
+import Bulletin from 'views/Bulletin.js';
 // import Message from 'views/Message';
 import Chat from "views/Chat";
+import RealChat from "views/RealChat";
 import Attendance from "views/Attendance";
 import Payroll from "views/Payroll";
 
@@ -19,7 +20,6 @@ var routes = [
     component: MainLogin,
     layout: '/admin',
     props: true,
-    layout: "/admin",
   },
   {
     path: "/dashboard",
@@ -58,14 +58,14 @@ var routes = [
     component: Payroll,
     layout: "/admin",
   },
-  // {
-  //   path: "/tables",
-  //   name: "회사 설정",
-  //   // rtlName: "قائمة الجدول",
-  //   icon: "tim-icons icon-puzzle-10",
-  //   component: TableList,
-  //   layout: "/admin",
-  // },
+  {
+    path: "/tables",
+    name: "회사 설정",
+    // rtlName: "قائمة الجدول",
+    icon: "tim-icons icon-puzzle-10",
+    component: TableList,
+    layout: "/admin",
+  },
   {
     path: "/typography",
     name: "프로필",
@@ -76,8 +76,8 @@ var routes = [
   {
     path: "/Chat",
     name: "메신저",
-    icon: "tim-icons icon-world",
-    component: Chat,
+    icon: "tim-icons icon-spaceship",
+    component: RealChat,
     layout: "/admin",
   },
   {
@@ -85,8 +85,8 @@ var routes = [
     name: "게시판",
     icon: "tim-icons icon-world",
     component: Bulletin,
-    layout: "/admin",
-    props: { myProp: "someValue" }, // props를 전달하기 위해서는 이와같은 형식을 따라야 함
+    layout: '/admin',
+    props: true,
   },
 ];
 export default routes;

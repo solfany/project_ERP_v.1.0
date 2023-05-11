@@ -15,15 +15,15 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
+import React from 'react';
 
 // reactstrap components
 import { Card, CardHeader, CardBody, CardTitle, Row, Col } from "reactstrap";
 
 function Typography() {
   return (
-    <>
-      <div className="content">
+    <div>
+      {/* <div className="content">
         <Row>
           <Col md="12">
             <Card>
@@ -205,10 +205,9 @@ function Typography() {
               </CardBody>
             </Card>
           </Col>
-        </Row>
-      </div>
-      */}
-    </>
+        </Row> 
+      </div>*/}
+    </div>
   );
 }
 

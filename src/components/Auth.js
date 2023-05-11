@@ -60,7 +60,7 @@ const Auth = () => {
   return (
     <div className="content">
       <Form onSubmit={onSubmit}>
-        <Label>로그인</Label>
+        <Label>로그인 </Label>
         <Input
           name="email"
           type="email"

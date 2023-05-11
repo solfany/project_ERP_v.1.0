@@ -8,7 +8,7 @@ const AppRouter = (props) => {
     <Router>
       {props.isLoggedIn && <Icons />}
       <Switch>
-        {props.isLoggedIn ? (
+        {props.isLoggedIn ?  (
           <div
             style={{
               maxWidth: 890,

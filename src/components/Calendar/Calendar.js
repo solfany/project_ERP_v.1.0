@@ -4,14 +4,7 @@ import moment from 'moment';
 import './calendar2.css';
 import './calendar.css';
 import CustomButton from 'components/Button/CustomButton';
-import {
-  Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Table,
-} from 'reactstrap';
+import { Modal, ModalHeader, ModalBody, ModalFooter, Table } from 'reactstrap';
 
 moment.locale('ko');
 BigCalendar.momentLocalizer(moment);

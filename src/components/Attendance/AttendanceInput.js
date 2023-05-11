@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import Clock from './Clock';
-import { message } from 'antd';
-import Checkbtn from './Checkbtn';
+import CheckButton from './CheckButton';
 
 function AttendanceInput() {
   const [attendanceStatus, setAttendanceStatus] = useState('');
   const [time, setTime] = useState(moment().format('HH:mm'));
-  const [IsChecked, setIsChecked] = useState(false);
 
   useEffect(() => {
     const currentTime = moment();
@@ -21,21 +19,20 @@ function AttendanceInput() {
   }, [time]);
 
   console.log(attendanceStatus);
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // 서버로 출결 상태 전송
-    console.log(`출결 상태 ${attendanceStatus} 전송`);
-  };
 
   return (
     <div className="attendContainer">
       <Clock time={time} setTime={setTime} />
-      {attendanceStatus}
-      <div className={IsChecked ? 'blue_circle' : 'white_circle'}>
-        <div className="checkboxContainer">
-          <Checkbtn IsChecked={IsChecked} setIsChecked={setIsChecked} />
-        </div>
-        {/* <span className="attendBtn">{IsChecked ? '출근' : '퇴근'}</span> */}
+      <span
+        className="attStatus"
+        style={
+          attendanceStatus === '출근' ? { color: 'blue' } : { color: 'red' }
+        }
+      >
+        {attendanceStatus}
+      </span>
+      <div className="blue_circle">
+        <CheckButton />
       </div>
     </div>
   );

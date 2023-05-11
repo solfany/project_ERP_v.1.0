@@ -11,7 +11,7 @@ const tabTitle = [
     tabname: '공지사항',
   },
   {
-    tabname: '익명게시판',
+    tabname: '사내게시판',
   },
 ];
 
@@ -72,7 +72,7 @@ function BulletinTab({
               )}
             />
             <Route
-              path="/admin/bulletin/익명게시판"
+              path="/admin/bulletin/사내게시판"
               render={() => (
                 <Unknown
                   userObj={userObj}

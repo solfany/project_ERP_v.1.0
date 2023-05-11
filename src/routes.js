@@ -30,16 +30,7 @@ var routes = [
     component: Dashboard,
     layout: '/admin',
     props: true,
-    //여기 props로 인해 다른 곳에서도 props로 사용 가능한것인가?
   },
-  // {
-  //   path: '/dashboard',
-  //   name: '근무일정',
-  //   icon: 'tim-icons icon-chart-pie-36',
-  //   component: Dashboard,
-  //   layout: '/admin',
-  //   props: true,
-  // },
   {
     path: '/attendanceManagement',
     name: '출퇴근 기록',
@@ -68,14 +59,13 @@ var routes = [
     component: Payroll,
     layout: '/admin',
   },
-  // {
-  //   path: "/tables",
-  //   name: "회사 설정",
-  //   // rtlName: "قائمة الجدول",
-  //   icon: "tim-icons icon-puzzle-10",
-  //   component: TableList,
-  //   layout: "/admin",
-  // },
+  {
+    path: '/Signup',
+    name: '회사 관리',
+    icon: 'tim-icons icon-puzzle-10',
+    component: TableList,
+    layout: '/admin',
+  },
   {
     path: '/typography',
     name: '프로필',
@@ -95,6 +85,12 @@ var routes = [
     name: '게시판',
     icon: 'tim-icons icon-paper',
     component: Bulletin,
+    layout: '/admin',
+    props: true,
+  },
+  {
+    path: '/MainLogin',
+    component: MainLogin,
     layout: '/admin',
     props: true,
   },

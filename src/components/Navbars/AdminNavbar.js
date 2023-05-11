@@ -92,7 +92,7 @@ function AdminNavbar(props) {
   const history = useHistory();
   const onLogOutClick = () => {
     authService.signOut();
-    history.push('/MainLogin');
+    history.push('/admin/MainLogin');
   };
   //로그아웃 작업 끝
   return (

@@ -1,16 +1,8 @@
 import React, { useState } from 'react';
 import { authService, firebaseInstance } from './../../Loginbase';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {
-  Button,
-  Form,
-  FormGroup,
-  //  FormGroup,
-  Input,
-  Label,
-} from 'reactstrap';
+import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
-// import { event } from "jquery";
 
 const Auth = () => {
   const [email, setEmail] = useState('');
@@ -28,25 +20,19 @@ const Auth = () => {
     } else if (name === 'password') {
       setPassword(value);
     }
-    // console.log(event.target.name);
   };
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
-      // let data;
       if (newAccount) {
         await authService.signInWithEmailAndPassword(email, password);
-        // } else {
-        //     await authService.signInWithEmailAndPassword(email, password)
       }
       history.push('/Main');
-      // console.log(data)
     } catch (error) {
       alert('사원아님');
     }
   };
 
-  // const toggleAccount = () => setNewAccount((prev) => !prev);
   const onSocialClick = async (event) => {
     const {
       target: { name },
@@ -95,9 +81,6 @@ const Auth = () => {
         {error}
       </Form>
       <br />
-      {/* <span onClick={toggleAccount}>
-        {newAccount ? "Sign in" : "Create Account"} 
-    </span> */}
       <div>
         <Button onClick={onSocialClick} name="google">
           구글 로그인

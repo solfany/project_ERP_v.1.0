@@ -38,7 +38,7 @@ function Bulletin() {
 
       return () => onTextListener();
     } else {
-      history.push('/admin/bulletin');
+      history.push('/admin/MainLogin');
     }
   }, [init, userObj, history]);
 
@@ -80,7 +80,7 @@ function Bulletin() {
 
       return () => onTextListener();
     } else {
-      history.push('/admin/bulletin');
+      history.push('/admin/MainLogin');
     }
   }, [init, userObj, history]);
 

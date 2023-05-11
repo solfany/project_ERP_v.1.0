@@ -7,13 +7,12 @@ import PerfectScrollbar from 'perfect-scrollbar';
 import AdminNavbar from 'components/Navbars/AdminNavbar.js';
 import Footer from 'components/Footer/Footer.js';
 import Sidebar from 'components/Sidebar/Sidebar.js';
-import FixedPlugin from 'components/FixedPlugin/FixedPlugin.js';
 
 import routes from 'routes.js';
 
 // import logo from 'assets/img/react-logo.png';
 import { BackgroundColorContext } from 'contexts/BackgroundColorContext';
-import NoticeFactory from 'components/Bulletin/Notification/NoticeFactory';
+import MainLogin from 'views/MainLogin';
 
 var ps;
 
@@ -91,7 +90,7 @@ function Admin(props) {
       {({ color, changeColor }) => (
         <React.Fragment>
           <div className="wrapper">
-          {/* <Switch>
+            {/* <Switch>
                 {getRoutes(routes)}
                 <Redirect from="*" to="/MainLogin" />
               </Switch> */}
@@ -115,7 +114,8 @@ function Admin(props) {
               {/* 아래의 스위치가 중요한 역할을 한다 로딩이 안됨 */}
               <Switch>
                 {getRoutes(routes)}
-                <Redirect from="*" to="/admin/011" />
+                <Route path="/admin/MainLogin" component={MainLogin} />
+                <Redirect from="*" to="/admin/MainLogin" />
               </Switch>
 
               {

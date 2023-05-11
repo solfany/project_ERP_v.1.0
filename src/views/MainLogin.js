@@ -3,11 +3,6 @@ import Loader from '../components/Loader/Loader';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { authService } from '../Loginbase';
-import Main from "../views/Main"
-// import Auth from '../components/login/Auth';
-// import Auth from "../components/login/Auth";
-// import Auth from "../components/login/Auth"
-// import "../components/login/Login.css";
 import { updateProfile } from '@firebase/auth';
 import { SET_USER } from '../actions';
 import { setInitAction } from '../actions';
@@ -16,7 +11,7 @@ function MainLogin(props) {
   const dispatch = useDispatch();
   const init = useSelector((state) => state.init);
   const userObj = useSelector((state) => state.userObj);
-
+  console.log(Boolean(userObj));
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
       if (user) {

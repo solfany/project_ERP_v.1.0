@@ -17,8 +17,10 @@ const Clock = ({ time, setTime }) => {
   return (
     <div className="container">
       <section className="clock-container">
-        <time className="time">{time}</time>
-        <time className="seconds">{seconds}</time>
+        <time className="time">
+          {time}
+          <time className="seconds">{seconds}</time>
+        </time>
       </section>
     </div>
   );

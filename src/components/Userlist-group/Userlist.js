@@ -11,9 +11,8 @@ import {
 import { useState, useEffect } from "react";
 import TableToExcel from "./TableToExcel";
 import TotalExcel from "./TotalExcel";
-
 // ---------
-
+import GetThisMonth from "./getThisMonth";
 function Userlist() {
   const [users, setUsers] = useState([]);
   const [sortDirection, setSortDirection] = useState("asc");
@@ -26,15 +25,10 @@ function Userlist() {
   const [tableData, setTableData] = useState([]);
 
   // --------------
-  function getThisMonth() {
-    const today = new Date();
-    const year = today.getFullYear();
-    const month = today.getMonth() + 1;
-    return `${year}년 ${month}월`;
-  }
+
   //엑셀 양식
   const tableColumns = [
-    `${getThisMonth()} 근태정산`,
+    `당월 근태정산`,
     "사원번호",
     "이름",
     "나이",
@@ -175,7 +169,7 @@ function Userlist() {
 
   return (
     <div className="content">
-      <h1>{getThisMonth()}</h1>
+      <GetThisMonth />
       <h3>근태정산</h3>
 
       <Row>
@@ -258,28 +252,6 @@ function Userlist() {
         }}
       >
         <Col>
-          <Pagination></Pagination>
-          <nav aria-label="pagination">
-            <ul cclass="pagination">
-              <li class="active page-item">
-                <a aria-label="Previous" href="" class="page-link">
-                  1
-                </a>
-              </li>
-              <li className="page-item">
-                <a href="" class="page-link">
-                  2
-                </a>
-              </li>
-              <a href="" class="page-link">
-                3
-              </a>
-              <a href="" class="page-link">
-                4
-              </a>
-            </ul>
-          </nav>
-
           <Button size="sm" onClick={goToPrevPage}>
             이전
           </Button>
@@ -331,14 +303,6 @@ function Userlist() {
               취소
             </Button>
           </div>
-          {/* <Button
-            color="primary"
-            onClick={() =>
-              alert(`선택된 직원: ${currentItems[checkedIndex].name}`)
-            }
-          >
-            승인
-          </Button>{" "} */}
         </>
       )}
     </div>

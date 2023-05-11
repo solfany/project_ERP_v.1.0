@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
-import './calendar2.css';
 import './calendar.css';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+import { message } from 'antd';
+
 import CustomButton from 'components/Button/CustomButton';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Table } from 'reactstrap';
 
@@ -48,6 +50,7 @@ const Calendar = ({ isWhiteContent, events, setEvents }) => {
     newEvents.splice(index, 1);
     setEvents(newEvents);
     toggleModal();
+    return message.error('일정이 삭제되었습니다.');
   };
 
   return (

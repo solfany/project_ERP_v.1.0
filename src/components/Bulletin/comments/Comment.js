@@ -5,11 +5,12 @@ import ScopeOption from './../Option/ScopeOption';
 import { dbService } from './../../../Loginbase';
 import CommentEditor from './CommentEditor';
 import { message } from 'antd';
-import { deleteDoc, doc } from 'firebase/firestore';
+import { deleteDoc, doc, updateDoc } from 'firebase/firestore';
 
 const PRIVATE_COMMENT = '비공개 댓글 입니다.';
 
 const Comment = ({ userObj, textObj, commentObject }) => {
+  const CommentRef = doc(dbService, 'Comments', `${commentObject.id}`);
   const isCommentWriter = userObj.uid === commentObject.creatorId;
   const creatorEmail = commentObject.email.split('@')[0];
   const [CommentEditMode, setCommentEditMode] = useState(false);
@@ -23,14 +24,14 @@ const Comment = ({ userObj, textObj, commentObject }) => {
   const onDeleteComment = async () => {
     const check = window.confirm('댓글을 삭제하시겠습니까?');
     if (check) {
-      await deleteDoc(doc(dbService, `Comments/${commentObject.id}`));
+      await deleteDoc(CommentRef);
       return message.success('댓글이 삭제되었습니다.');
     }
   };
 
   const onChangeCommentScope = async () => {
     setCommentScope(!CommentScope);
-    await dbService.doc(`comments/${commentObject.id}`).update({
+    await updateDoc(CommentRef, {
       IsPublic: !CommentScope,
     });
     const result = !CommentScope
@@ -40,7 +41,7 @@ const Comment = ({ userObj, textObj, commentObject }) => {
   };
 
   return (
-    <div className="nweet">
+    <div className="noticeComment">
       {CommentEditMode ? (
         <CommentEditor
           comment={commentObject}
@@ -50,23 +51,23 @@ const Comment = ({ userObj, textObj, commentObject }) => {
         />
       ) : (
         <>
-          <h4 className="nweet__displayName">
+          <h4 className="noticeComment__displayName">
             {commentObject.displayName}
-            <span className="nweet__email">{creatorEmail}</span>
+            <span className="noticeComment__email">{creatorEmail}</span>
           </h4>
           {commentObject.IsPublic ? (
-            <h4 className="nweet__text">{commentObject.text}</h4>
+            <h4 className="noticeComment__text">{commentObject.text}</h4>
           ) : userObj.uid === commentObject.creatorId ||
             textObj.creatorId === userObj.uid ? (
             <>
-              <span className="nweet__scope">{PRIVATE_COMMENT}</span>
-              <h4 className="nweet__text">{commentObject.text}</h4>
+              <span className="noticeComment__scope">{PRIVATE_COMMENT}</span>
+              <h4 className="noticeComment__text">{commentObject.text}</h4>
             </>
           ) : (
-            <h4 className="nweet__text private">{PRIVATE_COMMENT}</h4>
+            <h4 className="noticeComment__text private">{PRIVATE_COMMENT}</h4>
           )}
           {isCommentWriter && (
-            <div className="nweet__actions">
+            <div className="noticeCommentActions">
               <DeleteOption onDeleteTweet={onDeleteComment} />
               <EditOption toggleEditing={onToggleCommentEditMode} />
               <ScopeOption

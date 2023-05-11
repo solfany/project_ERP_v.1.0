@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import CustomButton from 'components/Button/CustomButton';
+import { DatePicker, TimePicker } from 'antd';
+import moment from 'moment';
+import 'moment/locale/ko';
 import {
   Modal,
   ModalHeader,
@@ -11,36 +14,59 @@ import {
   Label,
   Input,
 } from 'reactstrap';
-import PropTypes from 'prop-types';
+import { message } from 'antd';
 
 function RunModal({ events, setEvents, className }) {
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const [selectedStartTime, setSelectedStartTime] = useState(null);
+  const [selectedEndTime, setSelectedEndTime] = useState(null);
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
 
   const sendData = (e) => {
-    e.preventDefault(); // 기본 동작 방지
+    e.preventDefault();
+
+    const name = e.target.elements.Name.value;
+    const desc = e.target.elements.desc.value;
+    const date = moment(startDate).format('YYYY-MM-DD');
+    const endDay = moment(endDate).format('YYYY-MM-DD');
+    const startTime = moment(selectedStartTime, 'HH:mm').format('HH:mm');
+    const endTime = moment(selectedEndTime, 'HH:mm').format('HH:mm');
+
+    // 필드가 모두 채워져 있는지 확인
+    if (!name || !desc || !date || !startTime || !endTime || !endDay) {
+      toggle();
+      return message.error('모든 필드를 입력해주세요.');
+    }
 
     const newEvent = {
-      title: e.target.elements.Name.value + ' ' + e.target.elements.desc.value, // 입력 필드에서 값을 가져와 이벤트 객체에 추가
-      name: e.target.elements.Name.value,
+      title: name + ' ' + desc,
+      name: name,
       start: new Date(
-        e.target.elements.date.value +
-          'T' +
-          e.target.elements.startTime.value +
-          ':00'
-      ), // 시작일과 시간을 결합해 Date 객체 생성하여 이벤트 객체에 추가
+        startDate.year(),
+        startDate.month(),
+        startDate.date(),
+        selectedStartTime.hour(),
+        selectedStartTime.minute()
+      ),
       end: new Date(
-        e.target.elements.endDate.value +
-          'T' +
-          e.target.elements.endTime.value +
-          ':00'
-      ), // 종료일과 시간을 결합해 Date 객체 생성하여 이벤트 객체에 추가
-      desc: e.target.elements.desc.value, // 입력 필드에서 값을 가져와 이벤트 객체에 추가
+        endDate.year(),
+        endDate.month(),
+        endDate.date(),
+        selectedEndTime.hour(),
+        selectedEndTime.minute()
+      ),
+      desc: desc,
     };
-    setEvents([...events, newEvent]); // 이벤트 상태 배열에 새 이벤트 객체 추가
-    console.log(events);
+
+    setEvents([...events, newEvent]);
+    console.log(selectedStartTime);
+    console.log(selectedEndTime);
     console.log(newEvent);
+    console.log(events);
     toggle();
+    return message.success('일정이 추가되었습니다.');
   };
   return (
     <div>
@@ -69,49 +95,38 @@ function RunModal({ events, setEvents, className }) {
               </Col>
             </Row>
             <Row>
-              <Col md={6}>
+              <Col>
                 <FormGroup>
-                  <Label for="startDate">시작날짜</Label>
-                  <Input
-                    id="startDate"
-                    name="date"
-                    placeholder="date placeholder"
-                    type="date"
-                  />
-                </FormGroup>
-              </Col>
-              <Col md={6}>
-                <FormGroup>
-                  <Label for="endDate">종료날짜</Label>
-                  <Input
-                    id="endDate"
-                    name="endDate"
-                    placeholder="date placeholder"
-                    type="date"
+                  <Label for="startDate">기간</Label>
+                  <br />
+                  <DatePicker.RangePicker
+                    style={{
+                      width: '450px',
+                      borderColor: 'rgba(29, 37, 59, 0.5)',
+                    }}
+                    onChange={(dates) => {
+                      setStartDate(dates[0]);
+                      setEndDate(dates[1]);
+                    }}
                   />
                 </FormGroup>
               </Col>
             </Row>
             <Row>
-              <Col md={6}>
+              <Col>
                 <FormGroup>
-                  <Label for="startTime">시작시간</Label>
-                  <Input
-                    id="startTime"
-                    name="startTime"
-                    placeholder="time placeholder"
-                    type="time"
-                  />
-                </FormGroup>
-              </Col>
-              <Col md={6}>
-                <FormGroup>
-                  <Label for="endTime">종료시간</Label>
-                  <Input
-                    id="endTime"
-                    name="endTime"
-                    placeholder="time placeholder"
-                    type="time"
+                  <Label for="startTime">시간</Label>
+                  <br />
+                  <TimePicker.RangePicker
+                    style={{
+                      width: '450px',
+                      borderColor: 'rgba(29, 37, 59, 0.5)',
+                    }}
+                    format="HH:mm"
+                    onChange={(times) => {
+                      setSelectedStartTime(times[0]);
+                      setSelectedEndTime(times[1]);
+                    }}
                   />
                 </FormGroup>
               </Col>
@@ -144,9 +159,5 @@ function RunModal({ events, setEvents, className }) {
     </div>
   );
 }
-
-RunModal.propTypes = {
-  className: PropTypes.string,
-};
 
 export default RunModal;

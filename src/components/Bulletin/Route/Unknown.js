@@ -4,6 +4,9 @@ import TextPage from '../Unknown/TextPage';
 function Unknown({ userObj, texts, commentList, isOwner }) {
   return (
     <>
+      <div className="noticeTitle">
+        <h2 className="noticeTitleH2">공지사항</h2>
+      </div>
       <Factory userObj={userObj} />
       <hr />
       <div className="notice">{` ${texts.length}개의 게시글이 있습니다.`}</div>

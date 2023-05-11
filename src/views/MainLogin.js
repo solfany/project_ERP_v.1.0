@@ -1,4 +1,4 @@
-import AppRouter from '../components/Router';
+import AppRouter from '../components/login/Router';
 import Loader from '../components/Loader/Loader';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,7 +11,7 @@ function MainLogin(props) {
   const dispatch = useDispatch();
   const init = useSelector((state) => state.init);
   const userObj = useSelector((state) => state.userObj);
-
+  console.log(Boolean(userObj));
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
       if (user) {

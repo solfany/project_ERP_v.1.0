@@ -12,7 +12,6 @@ import Comment from '../comments/Comment';
 const TextPage = ({ isCreator, isOwner, textObj, commentsObject, userObj }) => {
   const [IsEditing, setIsEditing] = useState(false);
   const [CommentToggle, setCommentToggle] = useState(false);
-  const [newText, setNewText] = useState(textObj.text);
   const [IsPublic, setIsPublic] = useState(textObj.IsPublic);
   // const TextRef = doc(dbService, 'Texts', `${textObj.id}`);
   // const deleteRef = ref(storageService, textObj.attachmentUrl);
@@ -61,13 +60,7 @@ const TextPage = ({ isCreator, isOwner, textObj, commentsObject, userObj }) => {
   return (
     <div className="TextPage__container">
       {IsEditing ? (
-        <TextEditor
-          textObj={textObj}
-          toggleEditing={toggleEditing}
-          newText={newText}
-          setNewText={setNewText}
-          setIsEditing={setIsEditing}
-        />
+        <TextEditor textObj={textObj} toggleEditing={toggleEditing} />
       ) : (
         <>
           <Text textObj={textObj} userObj={userObj} />
@@ -78,12 +71,11 @@ const TextPage = ({ isCreator, isOwner, textObj, commentsObject, userObj }) => {
             onDeleteClick={onDeleteClick}
             toggleEditing={toggleEditing}
             toggleComment={toggleComment}
+            commentsObject={commentsObject}
             onChangeScope={onChangeScope}
             IsPublic={IsPublic}
           />
-          {isCreator && commentsObject.length > 0 && (
-            <div className="notice">{`${commentsObject.length}개의 댓글이 있습니다 :)`}</div>
-          )}
+
           {CommentToggle &&
             commentsObject.map((comment) => (
               <Comment

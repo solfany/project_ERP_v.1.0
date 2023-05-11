@@ -3,6 +3,7 @@ import { dbService } from './../../../Loginbase';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock, faLockOpen } from '@fortawesome/free-solid-svg-icons';
 import { addDoc, collection } from 'firebase/firestore';
+import { Input } from 'reactstrap';
 
 const CommentForm = ({ userObj, textObj, toggleComment }) => {
   const [Comment, setComment] = useState('');
@@ -34,7 +35,7 @@ const CommentForm = ({ userObj, textObj, toggleComment }) => {
   };
 
   return (
-    <>
+    <div className="noticeCommentForm">
       <div className="form__scope" onClick={onChangeCommentScope}>
         {IsPublic ? (
           <>
@@ -48,8 +49,8 @@ const CommentForm = ({ userObj, textObj, toggleComment }) => {
           </>
         )}
       </div>
-      <form onSubmit={onSubmitComment} className="container nweetEdit">
-        <input
+      <form onSubmit={onSubmitComment} className="Edit">
+        <Input
           type="text"
           value={Comment}
           placeholder="댓글을 입력하세요."
@@ -59,7 +60,7 @@ const CommentForm = ({ userObj, textObj, toggleComment }) => {
         />
         <input type="submit" value="답글달기" className="formBtn" />
       </form>
-    </>
+    </div>
   );
 };
 

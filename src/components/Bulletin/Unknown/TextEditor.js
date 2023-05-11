@@ -1,20 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { dbService } from '../../../Loginbase';
 import { message } from 'antd';
 import { doc, updateDoc } from 'firebase/firestore';
+import { Input } from 'reactstrap';
 
-const TextEditor = ({
-  textObj,
-  toggleEditing,
-  NewText,
-  setNewText,
-  setIsEditing,
-}) => {
+const TextEditor = ({ textObj, setIsEditing, toggleEditing }) => {
+  const textRef = doc(dbService, 'Texts', `${textObj.id}`);
+  const [newText, setNewText] = useState(textObj.text);
   const onUpdateSubmit = async (event) => {
     event.preventDefault();
-    const textRef = doc(dbService, `Texts/${textObj.id}`);
-    await updateDoc(textRef, { text: NewText });
-    setIsEditing((prev) => !prev);
+
+    await updateDoc(textRef, { text: newText });
+
+    toggleEditing();
     return message.success('게시글이 업데이트 되었습니다.');
   };
 
@@ -24,20 +22,24 @@ const TextEditor = ({
   };
   return (
     <>
-      <h4>{textObj.displayName}</h4>
-      <form onSubmit={onUpdateSubmit} className="container nweetEdit">
-        <input
+      <h4 className="noticeComment__displayName">{textObj.displayName}</h4>
+      <form onSubmit={onUpdateSubmit} className="Edit">
+        <Input
           type="text"
-          value={NewText}
-          placeholder="Edit Your Text"
+          value={newText}
           onChange={onEditingText}
           autoFocus
           required
           className="formInput"
         />
-        <input type="submit" value="Edit Text" className="formBtn" />
+        <input
+          type="submit"
+          value="수정하기"
+          className="formBtn"
+          onClick={onUpdateSubmit}
+        />
         <span onClick={toggleEditing} className="formBtn cancelBtn">
-          Cancel
+          취소
         </span>
       </form>
     </>

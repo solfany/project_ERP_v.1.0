@@ -4,7 +4,7 @@ import { Image } from 'antd';
 const Text = ({ textObj, userObj }) => {
   const OWNER_UID = process.env.REACT_APP_OWNER_UID;
   const email = textObj.email.split('@')[0];
-
+  const unknownProfile = './../../../assets/img/default-avatar.png';
   return (
     <div className="Text__container">
       <h4 className="Text__displayName">
@@ -12,8 +12,11 @@ const Text = ({ textObj, userObj }) => {
         {textObj.displayName}
         <span className="Text__email">{email}</span>
         <img
-          src={textObj.creatorPhoto}
-          alt="프로필사진"
+          src={
+            textObj.creatorPhoto !== null
+              ? textObj.creatorPhoto
+              : 'https://blog.kakaocdn.net/dn/GdHjR/btq89DKny2f/IJ4P7CpSp6KYYbkGkXpKa1/img.png'
+          }
           className="Text__Pusa"
         />
       </h4>

@@ -3,10 +3,10 @@ import { query, orderBy, collection, onSnapshot } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import 'components/Bulletin/Bulletin.css';
+import './../components/Bulletin/Bulletin.css';
 import BulletinTab from 'components/Bulletin/Tabs/BulletinTab';
 import { Route, Switch } from 'react-router-dom';
-import Auth from 'components/Auth';
+import Auth from '../components/login/Auth';
 
 function Bulletin() {
   const history = useHistory();
@@ -38,14 +38,14 @@ function Bulletin() {
 
       return () => onTextListener();
     } else {
-      history.push('/admin/bulletin');
+      history.push('/admin/MainLogin');
     }
   }, [init, userObj, history]);
 
   // 댓글가져오는 useEffect
   useEffect(() => {
     const q = query(
-      collection(dbService, 'noticeComments'),
+      collection(dbService, 'NoticeComments'),
       orderBy('createdAt', 'asc')
     );
     const onCommentListener = onSnapshot(q, (querySnapshot) => {
@@ -80,7 +80,7 @@ function Bulletin() {
 
       return () => onTextListener();
     } else {
-      history.push('/admin/bulletin');
+      history.push('/admin/MainLogin');
     }
   }, [init, userObj, history]);
 
@@ -105,24 +105,26 @@ function Bulletin() {
 
   return (
     <div className="content">
-      <Switch>
-        {userObj ? (
-          <>
-            <BulletinTab
-              userObj={userObj}
-              texts={texts}
-              commentList={commentList}
-              notices={notices}
-              noticeCommentList={noticeCommentList}
-              isOwner={isOwner}
-            />
-          </>
-        ) : (
-          <Route>
-            <Auth exact path="/auth" />
-          </Route>
-        )}
-      </Switch>
+      <div className="card">
+        <Switch>
+          {userObj ? (
+            <>
+              <BulletinTab
+                userObj={userObj}
+                texts={texts}
+                commentList={commentList}
+                notices={notices}
+                noticeCommentList={noticeCommentList}
+                isOwner={isOwner}
+              />
+            </>
+          ) : (
+            <Route>
+              <Auth exact path="/auth" />
+            </Route>
+          )}
+        </Switch>
+      </div>
     </div>
   );
 }

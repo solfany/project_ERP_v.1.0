@@ -12,14 +12,21 @@ function TextOptions({
   toggleEditing,
   toggleComment,
   onChangeScope,
+  commentsObject,
   IsPublic,
 }) {
   return (
-    <div style={{ fontSize: '20px' }}>
+    <div className="textOptionActions">
       {IsPublic || isCreator || isOwner ? (
         <Tooltip title="댓글">
           <span>
             <ReplyOption toggleComment={toggleComment} />
+            {commentsObject.length > 0 && (
+              <span
+                className="commentBadge"
+                onClick={toggleComment}
+              >{`${commentsObject.length}`}</span>
+            )}
           </span>
         </Tooltip>
       ) : null}

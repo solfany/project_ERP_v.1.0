@@ -4,13 +4,16 @@ import { dbService, storageService } from '../../../Loginbase';
 import { ref, uploadString, getDownloadURL } from '@firebase/storage';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faPenNib, faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
 // import TextEditor from './TextEditor';
 import { message } from 'antd';
 import { Input } from 'reactstrap';
 import NoticeScope from './NoticeScope';
+import QuillEditor from '../Editor/QuillEditor';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const NoticeFactory = ({ userObj }) => {
+  const history = useHistory();
   const [notice, setNotice] = useState('');
   const [noticeContent, setNoticeContent] = useState('');
   const [attachment, setAttachment] = useState('');
@@ -51,6 +54,7 @@ const NoticeFactory = ({ userObj }) => {
     setNotice('');
     setNoticeContent('');
     onClearAttachment();
+    history.push(`/admin/bulletin/공지사항`);
 
     return message.success('공지사항이 업로드 되었습니다.');
   };
@@ -84,7 +88,13 @@ const NoticeFactory = ({ userObj }) => {
   };
   const onChangeScope = () => {
     setIsImportant(!IsImportant);
+    if (IsImportant) {
+      return message.info('[필독]을 표시합니다.');
+    } else {
+      return message.info('[필독]을 표시하지 않습니다.');
+    }
   };
+
   return (
     <div className="factoryContainer">
       <NoticeScope IsImportant={IsImportant} onChangeScope={onChangeScope} />
@@ -103,20 +113,11 @@ const NoticeFactory = ({ userObj }) => {
               border: '2px solid #04AAFF',
             }}
           />
-          <Input
-            className="factoryInput__input"
-            type="textarea"
-            placeholder="공지사항 내용을 입력해주세요"
-            maxLength={1000}
+          <QuillEditor
             value={noticeContent}
-            style={{
-              border: '2px solid #04AAFF',
-              padding: '10px',
-              marginTop: '10px',
-            }}
-            onChange={onNoticeContentChange}
+            noticeContent={noticeContent}
+            setNoticeContent={setNoticeContent}
           />
-          <input type="submit" value="&rarr;" className="factoryInput__arrow" />
         </div>
         <div className="factoryInput__attach">
           <label htmlFor="attach-file" className="factoryInput__label">
@@ -148,6 +149,14 @@ const NoticeFactory = ({ userObj }) => {
               </div>
             </div>
           )}
+        </div>
+        <div className="bulletin_box boxInnerFactory" onClick={onSubmit}>
+          <FontAwesomeIcon icon={faPenNib} className="noticeTitleWriteBtn" />
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </form>
     </div>

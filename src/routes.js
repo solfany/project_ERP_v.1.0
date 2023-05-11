@@ -1,11 +1,11 @@
-import Dashboard from 'views/Dashboard.js';
-import MainLogin from 'views/MainLogin';
-import Icons from 'views/Icons.js';
-import Map from 'views/Map.js';
-import TableList from 'views/TableList.js';
-import Typography from 'views/Typography.js';
-import UserProfile from 'views/UserProfile.js';
-import Bulletin from 'views/Bulletin.js';
+import Dashboard from "views/Dashboard.js";
+import MainLogin from "views/MainLogin";
+import Icons from "views/Icons.js";
+import Map from "views/Map.js";
+import TableList from "views/TableList.js";
+import Typography from "views/Typography.js";
+import UserProfile from "views/UserProfile.js";
+import Bulletin from "views/Bulletin.js";
 // import Message from 'views/Message';
 import Chat from "views/Chat";
 import Attendance from "views/Attendance";
@@ -17,7 +17,7 @@ var routes = [
     name: "로그인",
     icon: "tim-icons icon-chart-pie-36",
     component: MainLogin,
-    layout: '/admin',
+    layout: "/admin",
     props: true,
   },
   {
@@ -84,7 +84,7 @@ var routes = [
     name: "게시판",
     icon: "tim-icons icon-world",
     component: Bulletin,
-    layout: '/admin',
+    layout: "/admin",
     props: true,
   },
 ];

@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { authService, firebaseInstance } from './../Loginbase';
+import {
+  authService,
+  firebaseInstance,
+} from '/react-main/project02-master/src/Loginbase';
 import {
   Button,
   Form,
@@ -31,12 +34,13 @@ const Auth = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
+      // let data;
       if (newAccount) {
         await authService.createUserWithEmailAndPassword(email, password);
       } else {
         await authService.signInWithEmailAndPassword(email, password);
       }
-      history.push('/icons');
+      history.push('/admin');
       // console.log(data)
     } catch (error) {
       setError(error.message);

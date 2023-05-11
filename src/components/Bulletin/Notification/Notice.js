@@ -8,6 +8,7 @@ const Notice = ({ noticeObj }) => {
   const email = noticeObj.email.split('@')[0];
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+
   return (
     <div className="Text__container">
       <h4 className="Text__displayName">
@@ -15,8 +16,11 @@ const Notice = ({ noticeObj }) => {
         {noticeObj.displayName}
         <span className="Text__email">{email}</span>
         <img
-          src={noticeObj.creatorPhoto}
-          alt="프로필사진"
+          src={
+            noticeObj.creatorPhoto !== null
+              ? noticeObj.creatorPhoto
+              : 'https://blog.kakaocdn.net/dn/GdHjR/btq89DKny2f/IJ4P7CpSp6KYYbkGkXpKa1/img.png'
+          }
           className="Text__Pusa"
         />
       </h4>
@@ -71,9 +75,10 @@ const Notice = ({ noticeObj }) => {
         </div>
         <div>
           <Collapse isOpen={isOpen}>
-            <div className="Notice__noticeContent">
-              <h4>{noticeObj.noticeContent}</h4>
-            </div>
+            <div
+              className="Notice__noticeContent"
+              dangerouslySetInnerHTML={{ __html: noticeObj.noticeContent }}
+            ></div>
           </Collapse>
         </div>
         <div>

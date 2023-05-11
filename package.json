@@ -11,6 +11,10 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@grapecity/wijmo.pdf": "^5.20222.877",
     "@grapecity/wijmo.styles": "^5.20222.877",
+    "axios": "^1.4.0",
+    "@fortawesome/fontawesome-free": "6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@inovua/reactdatagrid-community": "^5.9.1",
     "@mikecousins/react-pdf": "^6.1.1",
     "@mui/icons-material": "^5.11.16",
@@ -18,6 +22,8 @@
     "@react-pdf-viewer/core": "^3.12.0",
     "@react-pdf-viewer/default-layout": "^3.12.0",
     "antd": "^5.4.7",
+    "antd": "^5.4.6",
+    "axios": "^1.4.0",
     "bootstrap": "4.5.3",
     "chart.js": "3.4.1",
     "classnames": "2.3.1",
@@ -34,6 +40,7 @@
     "react-bootstrap": "^2.7.4",
     "react-dom": "18.2.0",
     "react-notification-alert": "0.0.13",
+    "react-quill": "^2.0.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^5.2.0",
     "react-scripts": "5.0.1",
@@ -75,8 +82,12 @@
     "typescript": "4.7.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "babel-loader": "^9.1.2",
     "@types/react-router-dom": "^5.3.3",
     "gulp": "4.0.2",
-    "gulp-append-prepend": "1.0.9"
+    "gulp-append-prepend": "1.0.9",
+    "webpack": "^5.82.0"
   }
 }

@@ -7,7 +7,7 @@ export default function CustomButton(props) {
         onClick={props.onClick}
         className={props.className}
       >
-        {props.text}
+        <span className={props.spanClass}>{props.text}</span>
       </button>
     </>
   );

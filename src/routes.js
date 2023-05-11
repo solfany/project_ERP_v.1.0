@@ -1,6 +1,8 @@
 import Dashboard from "views/Dashboard.js";
+// 여기가 사이드바 메뉴 조종
+import Main from "views/Main";
 import MainLogin from "views/MainLogin";
-import Icons from "views/Icons.js";
+import AttendanceManagement from "views/AttendanceManagement.js";
 import Map from "views/Map.js";
 import TableList from "views/TableList.js";
 import Typography from "views/Typography.js";
@@ -13,13 +15,14 @@ import Payroll from "views/Payroll";
 
 var routes = [
   {
-    path: "/MainLogin",
-    name: "로그인",
+    path: "/Main",
+    name: "홈",
     icon: "tim-icons icon-chart-pie-36",
-    component: MainLogin,
+    component: Main,
     layout: "/admin",
     props: true,
   },
+
   {
     path: "/dashboard",
     name: "근무일정",
@@ -29,11 +32,19 @@ var routes = [
     props: true,
     //여기 props로 인해 다른 곳에서도 props로 사용 가능한것인가?
   },
+  // {
+  //   path: '/dashboard',
+  //   name: '근무일정',
+  //   icon: 'tim-icons icon-chart-pie-36',
+  //   component: Dashboard,
+  //   layout: '/admin',
+  //   props: true,
+  // },
   {
-    path: "/icons",
+    path: "/attendanceManagement",
     name: "출퇴근 기록",
     icon: "tim-icons icon-atom",
-    component: Icons,
+    component: AttendanceManagement,
     layout: "/admin",
   },
   {
@@ -75,14 +86,14 @@ var routes = [
   {
     path: "/Chat",
     name: "메신저",
-    icon: "tim-icons icon-world",
+    icon: "tim-icons icon-spaceship",
     component: Chat,
     layout: "/admin",
   },
   {
     path: "/bulletin",
     name: "게시판",
-    icon: "tim-icons icon-world",
+    icon: "tim-icons icon-paper",
     component: Bulletin,
     layout: "/admin",
     props: true,

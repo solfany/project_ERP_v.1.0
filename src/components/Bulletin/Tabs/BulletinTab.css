@@ -1,4 +1,5 @@
 .tab {
+    padding-top: 20px;
     float: left;
     position: relative;
     padding: -1px;
@@ -20,7 +21,7 @@
     display: block;
     width: 150px;
     position: fixed;
-    transform: translateY(-10px);
+    /* transform: translateY(0px); */
 }
 
 .tab button {
@@ -28,7 +29,8 @@
     color: #e2e2e2;
     padding: 10px 16px;
     border: none;
-    margin: 5px 0;
+    margin-top: 5px;
+    margin-bottom: 18px;
     width: 100%;
     outline: none;
     text-align: left;
@@ -54,10 +56,12 @@
 
 /* Style the tab content */
 .tabcontent {
-    padding: 0px 12px;
-    width: 100%;
+    float: right;
+    padding: 12px 12px;
+    width: 87%;
     border-left: none;
     height: auto;
+    background-color: white;
 }
 
 .profile__img {

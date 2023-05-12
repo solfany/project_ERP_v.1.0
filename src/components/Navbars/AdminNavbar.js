@@ -20,7 +20,7 @@ import { authService, firebaseInstance } from './../../Loginbase';
 import { useHistory } from 'react-router-dom';
 // nodejs library that concatenates classes
 import classNames from 'classnames';
-
+import image from './로고1.jpg';
 // reactstrap components
 import {
   Button,
@@ -111,8 +111,26 @@ function AdminNavbar(props) {
                 <span className="navbar-toggler-bar bar3" />
               </NavbarToggler>
             </div>
-            <NavbarBrand href="#pablo" onClick={(e) => e.preventDefault()}>
-              {props.brandText}
+            <NavbarBrand
+              href="#pablo"
+              onClick={(e) => e.preventDefault()}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-evenly',
+              }}
+            >
+              <img
+                src={image}
+                className="logos"
+                alt="로고"
+                width="80px"
+                height="30px"
+                style={{}}
+              />
+              <span className="logos" style={{}}>
+                {props.brandText}
+              </span>
             </NavbarBrand>
           </div>
           <NavbarToggler onClick={toggleCollapse}>

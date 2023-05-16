@@ -66,7 +66,6 @@ function Main() {
         <Col xs={6} className="box-container">
           <div className="box">
             <div className="box-content">
-            <h1>휴가 일정</h1>
             <div style={{height: '100%', overflow: 'hidden'}}>
               <Maps events={vacation} setEvents={setVacation} style={{height: '100%'}} />
             </div>
@@ -76,7 +75,6 @@ function Main() {
         <Col xs={6} className="box-container">
           <div className="box">
             <div className="box-content">
-              <h1>근무일정</h1>
               <div style={{height: '100%', overflow: 'hidden'}}>
                 <Dashboard events={dashboard} setEvents={setDashboard} style={{height: '100%'}} />
               </div>

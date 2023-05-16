@@ -15,10 +15,13 @@
 // * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 // */
-import React, { useState, useEffect, useSelector, useHistory, message } from 'react';
+import React, { useState, useEffect } from 'react';
 import { db } from './../Loginbase';
 import 'firebase/compat/firestore';
 import SignupModal from '../components/Signup/Signup';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { message } from 'antd';
 import {
   Card,
   CardHeader,

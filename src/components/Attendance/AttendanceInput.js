@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import Clock from './Clock';
 import CheckButton from './CheckButton';
+// import Welcome from './Welcome';
 
 function AttendanceInput() {
   const [attendanceStatus, setAttendanceStatus] = useState('');
@@ -34,6 +35,7 @@ function AttendanceInput() {
       <div className="blue_circle">
         <CheckButton />
       </div>
+        {/* <Welcome/> */}
     </div>
   );
 }

@@ -1,70 +1,70 @@
 .tab {
-    padding-top: 20px;
-    float: left;
-    position: relative;
-    padding: -1px;
-    border: none;
-    background: linear-gradient(0deg, #335af4eb 0%, #1d8bf8ef 100%);
-    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    width: 150px;
-    height: 87vh;
+  padding-top: 20px;
+  float: left;
+  position: relative;
+  padding: -1px;
+  border: none;
+  background: linear-gradient(0deg, #335af4eb 0%, #1d8bf8ef 100%);
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  width: 150px;
+  height: 87vh;
 }
 
 .tabContainer {
-    position: relative;
-    left: -8px;
+  position: relative;
+  left: -8px;
 }
 
 .navWrapper {
-    height: 339px;
-    display: block;
-    width: 150px;
-    position: fixed;
-    /* transform: translateY(0px); */
+  height: 339px;
+  display: block;
+  width: 150px;
+  position: fixed;
+  /* transform: translateY(0px); */
 }
 
 .tab button {
-    display: block;
-    color: #e2e2e2;
-    padding: 10px 16px;
-    border: none;
-    margin-top: 5px;
-    margin-bottom: 18px;
-    width: 100%;
-    outline: none;
-    text-align: left;
-    cursor: pointer;
-    transition: 0.3s;
-    font-size: 0.62475rem;
-    font-weight: 700;
-    background: transparent;
+  display: block;
+  color: #e2e2e2;
+  padding: 10px 16px;
+  border: none;
+  margin-top: 5px;
+  margin-bottom: 18px;
+  width: 100%;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 0.62475rem;
+  font-weight: 700;
+  background: transparent;
 }
 
 /* Change background color of buttons on hover */
 .tab button:hover,
 .tab button:focus {
-    background-color: #04AAFF;
-    outline: none;
-    color: white;
+  background-color: #04aaff;
+  outline: none;
+  color: white;
 }
 
 /* Create an active/current "tab button" class */
 .tab button.active {
-    background-color: #04AAFF;
+  background-color: #04aaff;
 }
 
 /* Style the tab content */
 .tabcontent {
-    float: right;
-    padding: 12px 12px;
-    width: 87%;
-    border-left: none;
-    height: auto;
-    background-color: white;
+  float: right;
+  padding: 12px 12px;
+  width: 87%;
+  border-left: none;
+  height: auto;
+  background-color: white;
 }
 
 .profile__img {
-    width: 200px;
-    height: 200px;
+  width: 200px;
+  height: 200px;
 }

@@ -62,10 +62,10 @@ const TextPage = ({
           <Notice noticeObj={noticeObj} />
           <NoticeOption
             isCreator={isCreator}
-            noticeObj={noticeObj}
+            isOwner={isOwner}
             onDeleteClick={onDeleteClick}
-            toggleEditing={toggleEditing}
             commentsObject={commentsObject}
+            toggleEditing={toggleEditing}
             toggleComment={toggleComment}
           />
 

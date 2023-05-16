@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './CheckButton.css';
 import { message } from 'antd';
+import Welcome from './Welcome';
 
 function CheckButton() {
   const [isClicked, setIsClicked] = useState(false);

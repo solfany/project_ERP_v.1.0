@@ -11,9 +11,8 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
-  ModalFooter
+  ModalFooter,
 } from 'reactstrap';
-
 
 function SignupModal() {
   const [showSignupModal, setShowSignupModal] = useState(false);

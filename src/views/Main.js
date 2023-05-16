@@ -64,7 +64,7 @@ function Main() {
       <div className="content">
       <Row>
         <Col xs={6} className="box-container">
-          <div className="box" >
+          <div className="box">
             <div className="box-content">
             <h1>휴가 일정</h1>
             <div style={{height: '100%', overflow: 'hidden'}}>
@@ -74,7 +74,7 @@ function Main() {
           </div>
         </Col>
         <Col xs={6} className="box-container">
-          <div className="box" >
+          <div className="box">
             <div className="box-content">
               <h1>근무일정</h1>
               <div style={{height: '100%', overflow: 'hidden'}}>
@@ -95,7 +95,7 @@ function Main() {
           </div>
         </Col>
         <Col xs={6} className="box-container">
-          <div className="box" >
+          <div className="box">
             <div className="box-content">
               <h1>출퇴근 현황</h1>
               <div style={{height: '100%', overflow:'hidden'}}>

@@ -1,95 +1,106 @@
 import React, { useState } from "react";
 import "./Map.css";
 
-
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter,Label } from "reactstrap";
+import {
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Label,
+} from "reactstrap";
+import { number } from "prop-types";
 
 // 모달창
-function Example({ data, setData }) {
+function Example({ data, setData}) {
   // 모달창 토글 방식
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
   //모달창 내부 이름 텍스트 입력
   const [userId, setUserId] = useState("");
-  if(userId===null){
-    alert('아이디를 입력하세요')
-  }
+
   const onChangeUserId = (e) => {
     console.log(e.target.value);
     setUserId(e.target.value);
   };
+
   // 모달창 내부 입력값 table로 전송
-  //선택창 
+  //선택창
   const [teamNameOptionValue, setTeamNameOptionValue] = useState("");
   const [positionValue, setPositionValue] = useState("");
   const [vacationTypeValue, setVacationTypeValue] = useState("");
   const [dayValue, setDayValue] = useState("");
-  const [reasonValue, setReasonValue] =useState('')
+  const [reasonValue, setReasonValue] = useState("");
 
-  //checkBox value 값
-  const [checkboxValue, setCheckboxValue] = useState([])
-    
+  //휴가 일정 시작
+  const [vacationStartValue, setVacationStartValue] = useState(
+    new Date().toISOString()
+  );
+  const [vacationEndValue, setVacationEndValue] = useState(
+    new Date().toISOString()
+  );
 
-  //checkBox value 값중복 막기
-  
-  // const checkOnly = (checkThis) => {
-  //   const checkboxes = document.getElementsByName("Day");
-  //   for (let i = 0; i < checkboxes.length; i++) {
-  //     if (checkboxes[i] !== checkThis) {
-  //       checkboxes[i].checked = false;
-  //     }
-  //   }
-  // };
-
-//checkbox
-
-
-//조건문 걸어놓기
-
+  console.log(
+    (new Date(vacationEndValue) - new Date(vacationStartValue)) /
+      (1000 * 60 * 60 * 24)
+  );
+  //조건문 걸어놓기
 
   const handleSubmit = (e) => {
-    setUserId('')
-    setTeamNameOptionValue('')
-    setPositionValue('')
-    setVacationTypeValue('')
-    setDayValue()
-    setReasonValue()
-    console.log("s");
+    //초기값 설정
     e.preventDefault();
-
+    setUserId("");
+    setTeamNameOptionValue("");
+    setPositionValue("");
+    setVacationTypeValue("");
+    setDayValue("");
+    setVacationStartValue();
+    setVacationEndValue();
+    setReasonValue();
+    console.log("s");
+    
+    if (userId === "") {
+      alert("id 입력하세요");
+      //토글안되게 막아야되고
+    }
     const newData = {
-      
-      code: '#',
+      code: "#",
       // e.target.value.Math(), 코드 관련 메세지
-      name: e.target.elements.Name.value,   //이름
-      teamName: e.target.elements.teamName.value,   //부서명
-      position: e.target.elements.position.value,  //직무
+      name: e.target.elements.Name.value, //이름
+      teamName: e.target.elements.teamName.value, //부서명
+      position: e.target.elements.position.value, //직무
       vacationType: e.target.elements.vacationType.value, //휴가종류
-      day: e.target.elements.day.value,   //기간
-      etc: e.target.checked,   //기타
-      reason: e.target.elements.reason.value,  //사유
-      
+      day: e.target.elements.day.value, //기간
+      etc:
+        // `휴가기간 : ` +
+        (vacationStartValue + ` ~ ` + vacationEndValue) +
+        ` , 총 : ` +
+        (new Date(vacationEndValue) - new Date(vacationStartValue)) /
+          (1000 * 60 * 60 * 24) +
+        ` 일 `, //휴가 일수
+      reason: e.target.elements.reason.value, //사유
     };
     setData([...data, newData]);
-    
     console.log(data);
     console.log(newData);
   };
   return (
     <div>
-     
       <Button color="danger" onClick={toggle}>
-        Click Me
+        휴가 신청
+      </Button>
+      <Button color="" >
+        휴가 신청 조회
       </Button>
       <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+        <ModalHeader toggle={toggle}>휴가 신청</ModalHeader>
         <ModalBody>
           <div>
             {/* {Mmodal && 의미 */}
             <form onSubmit={handleSubmit}>
               <ul>
                 <li>
-                  <label>이름 : </label>
+                  <Label style={{ width: "70px" }}>이름 : </Label>
                   <input
                     type="id"
                     name="Name"
@@ -99,12 +110,11 @@ function Example({ data, setData }) {
                   ></input>
                 </li>
                 <li>
-                  <Label style={{width:'70px'}}>부서 : </Label>
+                  <Label style={{ width: "70px" }}>부서 : </Label>
                   <select
                     name="teamName"
                     value={teamNameOptionValue}
                     onChange={(e) => setTeamNameOptionValue(e.target.value)}
-                    
                   >
                     <option value="">부서를 고르세요</option>
                     <option value="인사팀">인사팀</option>
@@ -114,11 +124,11 @@ function Example({ data, setData }) {
                   </select>
                 </li>
                 <li>
-                  <label style={{width:'70px'}}>직무 : </label>
+                  <Label style={{ width: "70px" }}>직무 : </Label>
                   <select
-                  name="position"
-                  value={positionValue}
-                  onChange={(e) => setPositionValue(e.target.value)}
+                    name="position"
+                    value={positionValue}
+                    onChange={(e) => setPositionValue(e.target.value)}
                   >
                     <option value="">직무를 고르세요</option>
                     <option value="부장">부장</option>
@@ -130,12 +140,13 @@ function Example({ data, setData }) {
                   </select>
                 </li>
                 <li>
-                  <label style={{width:'70px'}}>휴가 종류 : </label>
-                  <select 
-                  name="vacationType"
-                  value={vacationTypeValue}
-                  onChange={(e) => setVacationTypeValue(e.target.value)} >
-                    <option value="">휴가 종류를 고르세요</option>
+                  <Label style={{ width: "70px" }}>휴가 종류 : </Label>
+                  <select
+                    name="vacationType"
+                    value={vacationTypeValue}
+                    onChange={(e) => setVacationTypeValue(e.target.value)}
+                  >
+                    <option value="">휴가 종류</option>
                     <option value="연차">연차 휴가</option>
                     <option value="특별 휴가">특별 휴가</option>
                     <option value="조퇴">조퇴</option>
@@ -143,112 +154,74 @@ function Example({ data, setData }) {
                   </select>
                 </li>
                 <li>
-                  <label style={{width:'70px'}}>휴가 기간 :</label>
+                  <Label style={{ width: "70px" }}>휴가 기간 :</Label>
                   <select
-                  name="day"
-                  value={dayValue}
-                  onChange={(e) => setDayValue(e.target.value)}>
-                    <option value=''>휴가 기간을 입력해 주세요</option>
-                    <option value='하루'>하루</option>
-                    <option value='오전'>오전</option>
-                    <option value='오후'>오후</option>
+                    name="day"
+                    value={dayValue}
+                    onChange={(e) => setDayValue(e.target.value)}
+                  >
+                    <option value="">휴가 기간</option>
+                    <option value="하루">하루</option>
+                    <option value="오전">오전</option>
+                    <option value="오후">오후</option>
                   </select>
                 </li>
-                {/* <li>
-                  <label>기간 : </label>
-                  <label HTMLfor="check1">
-                    <input
-                      name="day"
-                      type="checkbox"
-                      id="check1"
-                      value={''}
-                      checked={checkboxValue}
-                      // checked={checkboxValue}
-                      onChange={(e) => {
-                        // checkOnly(e.target);
-                        setCheckboxValue(e.target.checked);
-                      }}
-                    ></input>하루</label>
-                    
-                      
-                  <label htmlFor="check2">
-                  
-                    <input
-                      name="Day"
-                      type="checkbox"
-                      id="check2"
-                      value={''}
-                      checked={checkboxValue}
-                      // checked={checkboxValue}
-                      onChange={(e) => {
-                        // checkOnly(e.target);
-                        setCheckboxValue(e.target.checked);
-                      }}
-                    />오전</label>
-                    
+                <li>
+                  <Label style={{ width: "70px" }}>날짜 입력 :</Label>
+                  <input
+                    type="date"
+                    name="dayStart"
+                    value={vacationStartValue}
+                    onChange={(e) => setVacationStartValue(e.target.value)}
+                  ></input>
 
-                  <label htmlFor="check3">
-                    <input
-                      name="day"
-                      type="checkbox"
-                      id="check3"
-                      value={''}
-                      checked={checkboxValue}
-                      // checked={checkboxValue}
-                      onChange={(e) => {
-                        // checkOnly(e.target);
-                        setCheckboxValue(e.target.checked);
-                      }}
-                    ></input>오후</label>
-                    
-                  
-                </li> */}
+                  <input
+                    type="date"
+                    name="dayEnd"
+                    value={vacationEndValue}
+                    onChange={(e) => setVacationEndValue(e.target.value)}
+                  ></input>
+                </li>
+
                 {/* <li>
-                  <label>유급 시간 : </label>
-                  <input type="number"></input>
-                </li>
-                <li>
-                  <label>차감 시간 : </label>
-                  <input type="number"></input>
+                  <label htmlFor="etc">
+                    Checkbox 1
+                    <input
+                      type="checkbox"
+                      name="etc"
+                      checked={checkboxValue.checkbox1}
+                      onChange={(e) => setCheckboxValue(e.target.value)}
+                    />
+                  </label>
+                  <br />
+                  <label htmlFor="etc">
+                    Checkbox 2
+                    <input
+                      type="checkbox"
+                      name="etc"
+                      checked={checkboxValue.checkbox2}
+                      onChange={(e) => setCheckboxValue(e.target.value)}
+                    />
+                  </label>
+                  <br />
+                  <label htmlFor="etc">
+                    Checkbox 3
+                    <input
+                      type="checkbox"
+                      name="etc"
+                      checked={checkboxValue.checkbox3}
+                      onChange={(e) => setCheckboxValue(e.target.value)}
+                    />
+                  </label>
                 </li> */}
                 <li>
-                <label htmlFor="etc">
-    Checkbox 1
-    <input
-      type="checkbox"
-      name="etc"
-      checked={checkboxValue.checkbox1}
-      onChange={(e)=>setCheckboxValue(e.target.value)}
-    />
-  </label>
-  <br />
-  <label htmlFor="etc">
-    Checkbox 2
-    <input
-      type="checkbox"
-      name="etc"
-      checked={checkboxValue.checkbox2}
-      onChange={(e)=>setCheckboxValue(e.target.value)}
-    />
-  </label>
-  <br />
-  <label htmlFor="etc">
-    Checkbox 3
-    <input
-      type="checkbox"
-      name="etc"
-      checked={checkboxValue.checkbox3}
-      onChange={(e)=>setCheckboxValue(e.target.value)}
-    />
-  </label>
-  
-                </li>
-                <li>
-                  <label style={{width:'70px'}}>메모</label>
+                  <label style={{ width: "70px" }}>메모</label>
                   <textarea
-                  name="reason"
-                  value={reasonValue}
-                  onChange={(e) => {setReasonValue(e.target.value)}}
+                    name="reason"
+                    value={reasonValue}
+                    onChange={(e) => {
+                      setReasonValue(e.target.value);
+                    }}
                     style={{ width: "95%" }}
                     placeholder="내용을 입력하세요"
                   ></textarea>

@@ -28,7 +28,6 @@ const Calendar = ({ isWhiteContent, events, setEvents }) => {
       end: event.end,
       desc: event.desc,
     });
-    console.log(selectedEvent);
     setShowModal(true);
   };
 

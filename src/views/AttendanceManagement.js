@@ -4,6 +4,8 @@ import AttendanceInput from './../components/Attendance/AttendanceInput';
 import AttendCalendar from 'components/Attendance/AttendCalendar';
 import { Switch, Route } from 'react-router-dom';
 import './../components/Attendance/Attendance.css';
+import { useSelector } from 'react-redux';
+import { message } from 'antd';
 
 const tabTitle = [
   {
@@ -17,11 +19,20 @@ const tabTitle = [
 function AttendanceManagement() {
   const [tabIndex, setTabIndex] = useState(0);
   const [tabObj, setTabObj] = useState(tabTitle[tabIndex]);
-  const history = useHistory();
 
+  const init = useSelector((state) => state.init);
+  const userObj = useSelector((state) => state.userObj);
+  const history = useHistory();
   useEffect(() => {
-    history.push('/admin/attendanceManagement/출결입력');
-  }, [history]);
+    if (init && userObj) {
+      history.push('/admin/attendanceManagement/출결입력');
+    } else {
+      message.error('로그인 정보가 없습니다. 다시 로그인 해주세요.')
+      history.push('/admin/MainLogin');
+    }
+  }, [init, userObj, history]);
+
+
 
   useEffect(() => {
     setTabObj(tabTitle[tabIndex]);
@@ -40,6 +51,7 @@ function AttendanceManagement() {
 
   return (
     <div className="content">
+      {init && userObj && 
       <div className="card">
         <div className="tabContainer">
           <div className="navWrapper">
@@ -68,6 +80,7 @@ function AttendanceManagement() {
           </div>
         </div>
       </div>
+      }
     </div>
   );
 }

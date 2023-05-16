@@ -6,17 +6,19 @@ import 'firebase/compat/firestore';
 
 import 'firebase/compat/storage';
 
+//메신저용
+import { getAuth } from 'firebase/auth';
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-  databaseURL: process.env.REACT_APP_DATABASE_URL,
-  projectId: process.env.REACT_APP_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGIN_ID,
-  appId: process.env.REACT_APP_APP_ID,
+  apiKey: "AIzaSyAYV8YrdUjqD2HS8vmZJ_-KAEWMpjuOZng",
+  authDomain: "project02-44a94.firebaseapp.com",
+  projectId: "project02-44a94",
+  storageBucket: "project02-44a94.appspot.com",
+  messagingSenderId: "231391389225",
+  appId: "1:231391389225:web:cd72aa1c6681a9090ede38"
 };
 
 // Initialize Firebase
@@ -31,4 +33,8 @@ export const authService = firebase.auth();
 
 export const dbService = getFirestore();
 export const storageService = getStorage();
+
+//메신저용
+
 export const db = firebase.firestore()
+

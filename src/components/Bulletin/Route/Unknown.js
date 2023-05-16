@@ -5,7 +5,7 @@ function Unknown({ userObj, texts, commentList, isOwner }) {
   return (
     <>
       <div className="noticeTitle">
-        <h2 className="noticeTitleH2">공지사항</h2>
+        <h2 className="noticeTitleH2">사내게시판</h2>
       </div>
       <Factory userObj={userObj} />
       <hr />

@@ -11,7 +11,7 @@ const tabTitle = [
     tabname: "공지사항",
   },
   {
-    tabname: "익명게시판",
+    tabname: "사내게시판",
   },
 ];
 

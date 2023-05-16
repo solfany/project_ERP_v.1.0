@@ -6,10 +6,8 @@ import AttendanceManagement from "views/AttendanceManagement.js";
 import Map from "views/Map.js";
 import TableList from "views/TableList.js";
 import Typography from "views/Typography.js";
-import UserProfile from "views/UserProfile.js";
 import Bulletin from "views/Bulletin.js";
-// import Message from 'views/Message';
-import Chat from "views/Chat";
+
 import RealChat from "views/RealChat";
 import Attendance from "views/Attendance";
 import Payroll from "views/Payroll";

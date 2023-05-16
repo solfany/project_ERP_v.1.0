@@ -1,0 +1,47 @@
+.AuthMain {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+  
+  .AuthInput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+  }
+  
+  input[type="email"], input[type="password"] {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+  
+  input[type="submit"] {
+    background-color: #2e88ee;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 500px;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #7598f1;
+  }
+  
+  .Auth_Sub_Btn {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .Button {
+    width: 500px;
+  }

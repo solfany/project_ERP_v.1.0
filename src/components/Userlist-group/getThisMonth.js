@@ -1,5 +1,5 @@
 import React from "react";
-import listStyle from "./listStyle.css";
+import "./listStyle.css";
 
 function GetThisMonth() {
   const today = new Date();
@@ -7,7 +7,7 @@ function GetThisMonth() {
   const month = today.getMonth() + 1;
 
   const options = [];
-  for (let i = 1; i <= 4; i++) {
+  for (let i = 1; i < 4; i++) {
     options.push(
       <option key={month - i} value={month - i}>
         {month - i}
@@ -18,7 +18,7 @@ function GetThisMonth() {
   return (
     <div className="d-flex month">
       <h1>{year} 년</h1>
-      <select>{options}</select>
+      <select value={month}>{options}</select>
       <h1> 월</h1>
     </div>
   );

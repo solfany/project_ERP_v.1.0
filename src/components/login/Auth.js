@@ -3,7 +3,7 @@ import { authService, firebaseInstance } from './../../Loginbase';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
-
+import "./../login/Auth.css"
 const Auth = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -25,11 +25,13 @@ const Auth = () => {
     event.preventDefault();
     try {
       if (newAccount) {
-        await authService.signInWithEmailAndPassword(email, password);
+        // await authService.signInWithEmailAndPassword(email, password);
+        await authService.createUserWithEmailAndPassword(email, password);
       }
+
       history.push('/Main');
     } catch (error) {
-      alert('사원아님');
+      alert('등록된 이메일이 아닙니다.');
     }
   };
 
@@ -49,9 +51,9 @@ const Auth = () => {
   return (
     <div className="content">
       <Form onSubmit={onSubmit}>
-        <FormGroup floating>
-          <Label>
-            로그인
+        <FormGroup className="AuthMain">
+          <Label className="AuthInput">
+            <h3>아이디</h3>
             <Input
               name="email"
               type="email"
@@ -62,10 +64,10 @@ const Auth = () => {
             />
           </Label>
         </FormGroup>
-        <br />
-        <FormGroup floating>
-          <Label>
-            비밀번호
+        {/* <br /> */}
+        <FormGroup className="AuthMain">
+          <Label className="AuthInput">
+            <h3>비밀번호</h3>
             <Input
               name="password"
               type="password"
@@ -76,19 +78,23 @@ const Auth = () => {
             />
           </Label>
         </FormGroup>
-        <br />
-        <Input type="submit" value={newAccount ? '로그인' : 'Sign In'} />
-        {error}
+        {/* <br /> */}
+        <Label className="AuthMain">
+          <Input className="AuthInput"
+            type="submit"
+            value={newAccount ? '로그인' : 'Sign In'} />
+          {error}
+        </Label>
       </Form>
       <br />
-      <div>
-        <Button onClick={onSocialClick} name="google">
-          구글 로그인
+      <div className="Auth_Sub_Btn">
+        <Button onClick={onSocialClick} name="google" style={{ width: "500px" }}>
+          Google 로그인
         </Button>
       </div>
-      <div>
-        <Button onClick={onSocialClick} name="github">
-          깃 로그인
+      <div className="Auth_Sub_Btn">
+        <Button onClick={onSocialClick} name="github" style={{ width: "500px" }}>
+          github 로그인
         </Button>
       </div>
     </div>

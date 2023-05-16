@@ -15,11 +15,11 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React, { useEffect, useState } from 'react';
-import { authService, firebaseInstance } from './../../Loginbase';
-import { useHistory } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { authService, firebaseInstance } from "./../../Loginbase";
+import { useHistory } from "react-router-dom";
 // nodejs library that concatenates classes
-import classNames from 'classnames';
+import classNames from "classnames";
 import image from './로고1.jpg';
 // reactstrap components
 import {
@@ -39,33 +39,33 @@ import {
   Modal,
   NavbarToggler,
   ModalHeader,
-} from 'reactstrap';
+} from "reactstrap";
 
 function AdminNavbar(props) {
   const [collapseOpen, setcollapseOpen] = React.useState(false);
   const [modalSearch, setmodalSearch] = React.useState(false);
-  const [color, setcolor] = React.useState('navbar-transparent');
+  const [color, setcolor] = React.useState("navbar-transparent");
   React.useEffect(() => {
-    window.addEventListener('resize', updateColor);
+    window.addEventListener("resize", updateColor);
     // Specify how to clean up after this effect:
     return function cleanup() {
-      window.removeEventListener('resize', updateColor);
+      window.removeEventListener("resize", updateColor);
     };
   });
   // function that adds color white/transparent to the navbar on resize (this is for the collapse)
   const updateColor = () => {
     if (window.innerWidth < 993 && collapseOpen) {
-      setcolor('bg-white');
+      setcolor("bg-white");
     } else {
-      setcolor('navbar-transparent');
+      setcolor("navbar-transparent");
     }
   };
   // this function opens and closes the collapse on small devices
   const toggleCollapse = () => {
     if (collapseOpen) {
-      setcolor('navbar-transparent');
+      setcolor("navbar-transparent");
     } else {
-      setcolor('bg-white');
+      setcolor("bg-white");
     }
     setcollapseOpen(!collapseOpen);
   };
@@ -78,11 +78,11 @@ function AdminNavbar(props) {
   // 로그인 정보 불러오기
   useEffect(() => {
     const unsubscribe = authService.onAuthStateChanged((user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser(null);
-      }
+      // if (user) {
+        setUser(user || null);
+      // } else {
+      //   setUser(null);
+      // }
     });
     return unsubscribe;
   }, []);
@@ -92,16 +92,16 @@ function AdminNavbar(props) {
   const history = useHistory();
   const onLogOutClick = () => {
     authService.signOut();
-    history.push('/admin/MainLogin');
+    history.push("/MainLogin");
   };
   //로그아웃 작업 끝
   return (
     <>
-      <Navbar className={classNames('navbar-absolute', color)} expand="lg">
+      <Navbar className={classNames("navbar-absolute", color)} expand="lg">
         <Container fluid>
           <div className="navbar-wrapper">
             <div
-              className={classNames('navbar-toggle d-inline', {
+              className={classNames("navbar-toggle d-inline", {
                 toggled: props.sidebarOpened,
               })}
             >
@@ -115,15 +115,15 @@ function AdminNavbar(props) {
               href="#pablo"
               onClick={(e) => e.preventDefault()}
               style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-evenly',
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-evenly",
               }}
             >
               <img
                 src={image}
                 className="logos"
-                alt="로고"
+                alt=""
                 width="80px"
                 height="30px"
                 style={{}}
@@ -215,7 +215,7 @@ function AdminNavbar(props) {
                   {/* 로그아웃 버튼  */}
                   <NavLink tag="li">
                     <DropdownItem className="nav-item">
-                      <button onClick={onLogOutClick}>로그아웃</button>
+                      <button onClick= {onLogOutClick}>로그아웃</button>
                     </DropdownItem>
                   </NavLink>
                 </DropdownMenu>

@@ -1,17 +1,17 @@
-import { useEffect, useState } from 'react';
-import './BulletinTab.css';
-import Notification from '../Route/Notification';
-import Unknown from '../Route/Unknown';
-import NoticeFactory from '../Notification/NoticeFactory';
-import { Route, Switch } from 'react-router-dom/cjs/react-router-dom.min';
-import { useHistory } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import "./BulletinTab.css";
+import Notification from "../Route/Notification";
+import Unknown from "../Route/Unknown";
+import NoticeFactory from "../Notification/NoticeFactory";
+import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router-dom";
 // Data array
 const tabTitle = [
   {
-    tabname: '공지사항',
+    tabname: "공지사항",
   },
   {
-    tabname: '사내게시판',
+    tabname: "익명게시판",
   },
 ];
 
@@ -29,7 +29,7 @@ function BulletinTab({
   const isOwner = userObj.uid === OWNER_UID;
 
   useEffect(() => {
-    history.push('/admin/bulletin/공지사항');
+    history.push("/admin/bulletin/공지사항");
   }, [history]);
 
   useEffect(() => {
@@ -111,7 +111,7 @@ function Nav({ btnLabels, tabIndex, handleBtnClick }) {
 function Button({ tabname, id, tabIndex, handleBtnClick }) {
   return (
     <button
-      className={id === tabIndex ? 'tablinks active' : 'tablinks'}
+      className={id === tabIndex ? "tablinks active" : "tablinks"}
       id={id}
       onClick={(e) => handleBtnClick(e)}
     >

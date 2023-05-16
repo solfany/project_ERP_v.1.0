@@ -16,7 +16,7 @@
 
 */
 import React, { useEffect, useState } from 'react';
-import { authService, firebaseInstance } from './../../Loginbase';
+import { authService, } from './../../Loginbase';
 import { useHistory } from 'react-router-dom';
 // nodejs library that concatenates classes
 import classNames from 'classnames';
@@ -78,11 +78,11 @@ function AdminNavbar(props) {
   // 로그인 정보 불러오기
   useEffect(() => {
     const unsubscribe = authService.onAuthStateChanged((user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser(null);
-      }
+      // if (user) {
+        setUser(user || null);
+      // } else {
+      //   setUser(null);
+      // }
     });
     return unsubscribe;
   }, []);
@@ -197,7 +197,7 @@ function AdminNavbar(props) {
                   {/* 로그아웃 버튼  */}
                   <NavLink tag="li">
                     <DropdownItem className="nav-item">
-                      <button onClick={onLogOutClick}>로그아웃</button>
+                      <button onClick= {onLogOutClick}>로그아웃</button>
                     </DropdownItem>
                   </NavLink>
                 </DropdownMenu>

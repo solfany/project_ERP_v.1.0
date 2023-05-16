@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faTimes } from "@fortawesome/free-solid-svg-icons";
 // import TextEditor from './TextEditor';
 import TextScope from "./TextScope";
-import { message } from "";
+import { message } from "antd";
 import { Input } from "reactstrap";
 
 const Factory = ({ userObj }) => {
@@ -15,7 +15,7 @@ const Factory = ({ userObj }) => {
   const [attachment, setAttachment] = useState("");
   //사진 첨부 없이 텍스트만 트윗하고 싶을 때도 있으므로 기본 값을 ""로 해야한다.
   //트윗할 때 텍스트만 입력시 이미지 url ""로 비워두기 위함
-  // const [IsPublic, setIsPublic] = useState(true);
+  const [IsPublic, setIsPublic] = useState(true);
 
   const onSubmit = async (e) => {
     e.preventDefault();

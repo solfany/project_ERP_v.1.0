@@ -3,13 +3,14 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
+    background-color: #FFF;
     /* border: 1px solid black; */
   }
   
   .box {
     width: 800px;
-    height: 400px;
-    background-color: #FFF;
+    height: 800px;
+    background-color: #fffefefe;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     transition: all 0.3s ease;
@@ -23,21 +24,21 @@
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
   }
   
-  .box:before, .box:after {
+  /* .box:after {
     content: "";
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
+  } */
   
-  .box:before {
+  /* .box:before {
     width: 80%;
     height: 80%;
     border-radius: 10px;
     border: 2px solid #FFF;
     z-index: 1;
-  }
+  } */
   
   .box:after {
     width: 90%;

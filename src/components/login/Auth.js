@@ -80,8 +80,9 @@ const Auth = () => {
         </FormGroup>
         {/* <br /> */}
         <Label className="AuthMain">
-          <Input className="AuthInput"
+          <Input className="LoginBtn"
             type="submit"
+            name="LoginBtn"
             value={newAccount ? '로그인' : 'Sign In'} />
           {error}
         </Label>

@@ -6,6 +6,9 @@ import { Row, Col } from 'reactstrap';
 import '../assets/css/styles.css';
 import Attendance from './Attendance';
 import AttendCalendar from './../components/Attendance/AttendCalendar'
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { message } from 'antd';
 
 function dashboardData() {
   return fetch('https://raw.githubusercontent.com/solfany/project02/master/src/views/Dashboard.js')
@@ -34,6 +37,17 @@ function Main() {
   const [dashboard, setDashboard] = useState([]); // 메인페이지 달력 박스
   const [attendance, setAttendance] = useState([]); // 메인페이지 근태정산 박스
   const [attendCalendar,setAttendCalendar] = useState([]);
+  const init = useSelector((state) => state.init);
+  const userObj = useSelector((state) => state.userObj);
+  const history = useHistory();
+  useEffect(() => {
+    if (init && userObj) {
+      // 처음 렌더링할 거 있으면 넣는 곳
+    } else {
+      message.error('로그인 정보가 없습니다. 다시 로그인 해주세요.')
+      history.push('/admin/MainLogin');
+    }
+  }, [init, userObj, history]);
   // 휴가관리 박스
   useEffect(() => {
     dashboardData().then(events => {
@@ -61,7 +75,9 @@ function Main() {
   })
 
   return (
-      <div className="content">
+    <div className="content">
+      {init && userObj &&
+      <>
       <Row>
         <Col xs={6} className="box-container">
           <div className="box">
@@ -103,6 +119,8 @@ function Main() {
           </div>
         </Col>
       </Row>
+      </>
+}
       </div>
   );
 }

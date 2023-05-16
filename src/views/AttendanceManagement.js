@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import AttendanceInput from './../components/Attendance/AttendanceInput';
 import AttendCalendar from 'components/Attendance/AttendCalendar';
 import { Switch, Route } from 'react-router-dom';
 import './../components/Attendance/Attendance.css';
 import { useSelector } from 'react-redux';
 import { message } from 'antd';
-
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 const tabTitle = [
   {
     tabname: '출결입력',

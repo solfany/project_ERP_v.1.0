@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import Signout from "components/Chatting/Signout";
+// import Signout from "components/Chatting/Signout";
 import { db, authService } from "Loginbase";
 import SendMessage from 'components/Chatting/SendMessage'
 // import { onSnapshot } from 'firebase/firestore'
-import "./Chat.css";
+import "components/Chatting/Chat.css";
 //useEffect 쓰는 이유는 페이지가 로드 될떄 사용효과가 한번 실행
 //사용효과가 내부의 변수중 하나가 변경될떄마다 사용효과가  실행? 뭔개소리?
 const Chat = () => {

@@ -21,7 +21,7 @@ import { useHistory } from "react-router-dom";
 import image from './로고1.jpg';
 // nodejs library that concatenates classes
 import classNames from "classnames";
-
+import image from './로고1.jpg';
 // reactstrap components
 import {
   Button,
@@ -124,7 +124,7 @@ function AdminNavbar(props) {
               <img
                 src={image}
                 className="logos"
-                alt="로고"
+                alt=""
                 width="80px"
                 height="30px"
                 style={{}}

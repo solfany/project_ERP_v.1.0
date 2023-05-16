@@ -1,11 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink, Link, Switch, Route } from "react-router-dom";
 import { Nav } from "reactstrap";
 import EmployeeCalculator from "./001";
 import EmployeeStatemenst from "./002";
 import EmployeeManagement from "./003";
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { message } from "antd";
 
 function Employee() {
+  const init = useSelector((state) => state.init);
+  const userObj = useSelector((state) => state.userObj);
+  const history = useHistory();
+  useEffect(() => {
+    if (init && userObj) {
+      // 처음 렌더링할 거 있으면 넣는 곳
+    } else {
+      message.error("로그인 정보가 없습니다. 다시 로그인 해주세요.");
+      history.push("/admin/MainLogin");
+    }
+  }, [init, userObj, history]);
   const [showCalculator, setShowCalculator] = useState(true);
 
   const handleComponentChange = () => {

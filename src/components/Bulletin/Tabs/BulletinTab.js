@@ -21,11 +21,12 @@ function BulletinTab({
   commentList,
   notices,
   noticeCommentList,
-  isOwner,
 }) {
   const [tabIndex, setTabIndex] = useState(0);
   const [tabObj, setTabObj] = useState(tabTitle[tabIndex]);
   const history = useHistory();
+  const { REACT_APP_OWNER_UID: OWNER_UID } = process.env;
+  const isOwner = userObj.uid === OWNER_UID;
 
   useEffect(() => {
     history.push('/admin/bulletin/공지사항');

@@ -29,14 +29,14 @@ const initialEvents = [
     desc: '취업특강',
   },
   {
-    title: 'A',
+    title: '아주 중요한 일정',
     name: '홍준이',
     start: new Date(2023, 4, 12, 10, 30, 0, 0),
     end: new Date(2023, 4, 12, 12, 30, 0, 0),
     desc: '몰?루...',
   },
   {
-    title: 'A',
+    title: '중요한 일정',
     name: '홍준이',
     start: new Date(2023, 4, 12, 10, 30, 0, 0),
     end: new Date(2023, 4, 12, 12, 30, 0, 0),
@@ -78,7 +78,7 @@ const initialEvents = [
     desc: '휴가',
   },
   {
-    title: '정보처리기사 시험',
+    title: '아주 아주 중요한 일정',
     name: '홍준이',
     start: new Date(2023, 4, 30, 9, 30, 0),
     end: new Date(2023, 4, 30, 17, 0, 0),

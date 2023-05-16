@@ -61,10 +61,6 @@ function RunModal({ events, setEvents, className }) {
     };
 
     setEvents([...events, newEvent]);
-    console.log(selectedStartTime);
-    console.log(selectedEndTime);
-    console.log(newEvent);
-    console.log(events);
     toggle();
     return message.success('일정이 추가되었습니다.');
   };

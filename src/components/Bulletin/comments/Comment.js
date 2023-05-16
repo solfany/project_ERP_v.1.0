@@ -20,7 +20,7 @@ const Comment = ({ userObj, textObj, commentObject }) => {
   const onToggleCommentEditMode = () => {
     setCommentEditMode((prev) => !prev);
   };
-
+  console.log(isCommentWriter)
   const onDeleteComment = async () => {
     const check = window.confirm('댓글을 삭제하시겠습니까?');
     if (check) {

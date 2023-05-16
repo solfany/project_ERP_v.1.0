@@ -6,11 +6,13 @@ import { Tooltip } from 'antd';
 
 function NoticeOption({
   isCreator,
+  isOwner,
   onDeleteClick,
   toggleEditing,
   toggleComment,
   commentsObject,
 }) {
+  console.log(isOwner);
   return (
     <div className="OptionContainer" style={{ fontSize: '20px' }}>
       <Tooltip title="댓글">
@@ -24,7 +26,7 @@ function NoticeOption({
           )}
         </span>
       </Tooltip>
-      {isCreator ? (
+      {isCreator || isOwner ? (
         <div style={{ fontSize: '20px' }}>
           <Tooltip title="삭제하기">
             <span>

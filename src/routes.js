@@ -59,11 +59,11 @@ var routes = [
     layout: "/admin",
   },
   {
-    path: '/Signup',
-    name: '회사 관리',
-    icon: 'tim-icons icon-puzzle-10',
+    path: "/Signup",
+    name: "회사 관리",
+    icon: "tim-icons icon-puzzle-10",
     component: TableList,
-    layout: '/admin',
+    layout: "/admin",
   },
   {
     path: "/typography",
@@ -88,11 +88,10 @@ var routes = [
     props: true,
   },
   {
-    path: '/MainLogin',
+    path: "/MainLogin",
     component: MainLogin,
-    layout: '/admin',
+    layout: "/admin",
     props: true,
   },
 ];
 export default routes;
-

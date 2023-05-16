@@ -1,8 +1,23 @@
+import { message } from "antd";
 import Employee from "components/Employee-group/Employee";
 import React from "react";
+import { useSelector } from "react-redux";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useState, useEffect } from "react";
 
 function Payrolls() {
+  const init = useSelector((state) => state.init);
+  const userObj = useSelector((state) => state.userObj);
+  const history = useHistory();
+  useEffect(() => {
+    if (init && userObj) {
+      // 처음 렌더링할 거 있으면 넣는 곳
+    } else {
+      message.error("로그인 정보가 없습니다. 다시 로그인 해주세요.");
+      history.push("/admin/MainLogin");
+    }
+  }, [init, userObj, history]);
   return (
     <>
       <Route>

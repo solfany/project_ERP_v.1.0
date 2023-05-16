@@ -19,17 +19,7 @@ function Userlist() {
   const itemsPerPage = 10; // 한 페이지에 표시할 아이템 수
   const [currentSortKey, setCurrentSortKey] = useState("");
   const [tableData, setTableData] = useState([]);
-  const init = useSelector((state) => state.init);
-  const userObj = useSelector((state) => state.userObj);
-  const history = useHistory();
-  useEffect(() => {
-    if (init && userObj) {
-      // 처음 렌더링할 거 있으면 넣는 곳
-    } else {
-      message.error("로그인 정보가 없습니다. 다시 로그인 해주세요.");
-      history.push("/admin/MainLogin");
-    }
-  }, [init, userObj, history]);
+
   const [showCalculator, setShowCalculator] = useState(true);
 
   const handleComponentChange = () => {

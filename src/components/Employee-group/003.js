@@ -15,7 +15,6 @@ import {
 import EmployeeModal from "./EmployeeModal";
 // 날짜
 import GetThisMonth from "../Userlist-group/getThisMonth";
-
 function EmployeeManagement() {
   const [rows, setRows] = useState([]);
   const [users, setUsers] = useState([]);
@@ -102,58 +101,66 @@ function EmployeeManagement() {
 
   return (
     <>
-      <h1>급여관리</h1>
-      <GetThisMonth />
-      <Table>
-        <thead>
-          <tr>
-            {tableColumns.map((column, index) => (
-              <th key={index}>{column}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row, rowIndex) => (
-            <tr key={rowIndex}>
-              {row.map((cell, cellIndex) => (
-                <td
-                  key={`${rowIndex}-${cellIndex}`}
-                  onClick={() => toggleModal(users[rowIndex])} // 테이블 칸 클릭 시 모달 열기
-                  style={{ cursor: "pointer" }} // hover 효과를 주기 위해 cursor 속성 추가
-                >
-                  {cellIndex === 6 && cell === "no" && (
-                    <Button
-                      size="sm"
-                      color="success"
-                      onClick={() => handlePayClick(rowIndex)}
+      <div className="d-flex justify-content-around ">
+        <Col md="12">
+          <GetThisMonth />
+
+          <Table>
+            <thead>
+              <tr>
+                {tableColumns.map((column, index) => (
+                  <th key={index}>{column}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row, rowIndex) => (
+                <tr key={rowIndex}>
+                  {row.map((cell, cellIndex) => (
+                    <td
+                      key={`${rowIndex}-${cellIndex}`}
+                      onClick={() => toggleModal(users[rowIndex])} // 테이블 칸 클릭 시 모달 열기
+                      style={{ cursor: "pointer" }} // hover 효과를 주기 위해 cursor 속성 추가
                     >
-                      Pay
+                      {cellIndex === 6 && cell === "no" && (
+                        <Button
+                          size="sm"
+                          color="success"
+                          onClick={() => handlePayClick(rowIndex)}
+                        >
+                          Pay
+                        </Button>
+                      )}
+                      {cellIndex === 6 && cell === "yes" && (
+                        <Button
+                          size="sm"
+                          color="secondary"
+                          onClick={clickTobtn}
+                        >
+                          Paid
+                        </Button>
+                      )}
+                      {cellIndex !== 6 && cell}
+                    </td>
+                  ))}
+                  <td>
+                    <Button size="sm" color="primary">
+                      메일로 전송
                     </Button>
-                  )}
-                  {cellIndex === 6 && cell === "yes" && (
-                    <Button size="sm" color="secondary" onClick={clickTobtn}>
-                      Paid
-                    </Button>
-                  )}
-                  {cellIndex !== 6 && cell}
-                </td>
+                  </td>
+                </tr>
               ))}
-              <td>
-                <Button size="sm" color="primary">
-                  메일로 전송
-                </Button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-      {selectedUser && (
-        <EmployeeModal
-          isOpen={modal}
-          toggle={toggleModal}
-          user={selectedUser}
-        />
-      )}
+            </tbody>
+          </Table>
+          {selectedUser && (
+            <EmployeeModal
+              isOpen={modal}
+              toggle={toggleModal}
+              user={selectedUser}
+            />
+          )}
+        </Col>
+      </div>
     </>
   );
 }

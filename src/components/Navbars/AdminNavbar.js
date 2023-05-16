@@ -120,14 +120,14 @@ function AdminNavbar(props) {
                 justifyContent: "space-evenly",
               }}
             >
-              {/* <img
+              <img
                 // src={image}
-                // className="logos"
-                // alt="로고"
+                className="logos"
+                alt="로고"
                 width="80px"
                 height="30px"
                 style={{}}
-              /> */}
+              />
               <span className="logos" style={{}}>
                 {props.brandText}
               </span>

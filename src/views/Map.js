@@ -1,46 +1,19 @@
 import React, { useEffect, useState } from "react";
-import "../components/Vacation/Map.css";
-import newData from '../components/Vacation/Modal copy'
-// import Mmodal from "../components/Vacation/Modal copy";
+import "components/Vacation/Map.css";
+// import newData from 'components/Vacation/VacationModal'
 import {
   Button,
-  //   ButtonGroup,
-  //   Card,
-  //   CardHeader,
-  //   CardBody,
-  //   CardTitle,
-  //   DropdownToggle,
-  //   DropdownMenu,
-  //   DropdownItem,
-  //   UncontrolledDropdown,
-  //   Label,
-  //   FormGroup,
-  //   Input,
   Table,
-  //   Row,
-  //   Col,
-  //   UncontrolledTooltip
 } from "reactstrap";
 
-import Example from "../components/Vacation/Modal copy";
-import baseData from "../components/Vacation/MapArray";
-import { Route } from "react-router-dom";
+import Vacation from "components/Vacation/VacationModal"
+import baseData from "components/Vacation/MapArray";
+// import { Route } from "react-router-dom";
+import { message } from "antd";
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
-
-const N = [
-  { id: 1, name: "#", value: "" },
-  { id: 2, name: "직원 이름", value: "" },
-  { id: 3, name: "부서", value: "" },
-  { id: 4, name: "직무", value: "" },
-  { id: 5, name: "휴가 종류", value: "" },
-  { id: 6, name: "기간", value: "" },
-  { id: 7, name: "차감 일수", value: "" },
-  { id: 8, name: "사유", value: "" },
-];
-// const Table = Options.map((parameter) => (
-//       <th key={Options.id}>{parameter.name}</th>
-// ));
-
+//휴가 신청란의 기본 table 값
 const Options = [
   { id: 1, name: "#", value: "" },
   { id: 2, name: "직원 이름", value: "" },
@@ -50,33 +23,41 @@ const Options = [
   { id: 6, name: "휴가 종류", value: "" },
   { id: 7, name: "휴가 일수", value: "" },
   { id: 8, name: "사유", value: "" },
+  { id: 9, name: "취소", value: "" },
 ];
 const TableSub = Options.map((parameter, index) => (
-  <th key={index}>{parameter.name}</th>
+  <th style={{fontSize:'20px',fontWeight:'bold', textAlign:'center'}} key={index}>{parameter.name}</th>
 ));
 // const Td = N.map((parameters, i) => <td key={i}>{parameters.name}</td>);
 
 function Map() {
   const onRemove = (name) =>{
     const up = data.filter((item)=>item.name !== name)
-    setData(up)
-    // prompt('휴가 신청을 삭제하시겠습니까?')
-  }
-  const onEdit =(name)=>{
-    const editItem = data.find((item) => item.name === name)
-    setData(editItem)
+    setData(up);
+    message.success('success')
   }
   const [data, setData] = useState(baseData);
-    
+  const init = useSelector((state) => state.init);
+  const userObj = useSelector((state) => state.userObj);
+  const history = useHistory();
+  useEffect(() => {
+    if (init && userObj) {
+      // 처음 렌더링할 거 있으면 넣는 곳
+    } else {
+      message.error('로그인 정보가 없습니다. 다시 로그인 해주세요.')
+      history.push('/admin/MainLogin');
+    }
+  }, [init, userObj, history]);
   return (
     <div className="content">
       <h1>휴가 관리</h1>
       <div className="Mmodal_btn">
-        <Example data={data} setData={setData} onRemove={onRemove} onEdit={onEdit}></Example>
+        <Vacation data={data} setData={setData} onRemove={onRemove} ></Vacation>
     </div>
     
         {/* {textValue} */}
-      
+      {/* if(!name && ! email*/}
+      {/* math random code 맘대로 */}
       {/* 배열을 만들어서 기본값하고  */}
       <Table>
         <thead>
@@ -95,18 +76,13 @@ function Map() {
               <td>{data.day}</td>
               <td>{data.reason}</td>
               <td>
-                <button onClick={()=> onEdit(data.name)}>🧨</button>
-                <button onClick={() => onRemove(data.name)}>⚛️</button></td>
+                <button onClick={() => onRemove(data.name)}>삭제</button></td>
             </tr>
           ))}
         </tbody>
         <tfoot>
-
         </tfoot>
       </Table>
-
-      {/* <Table></Table> */}
-      {/* <Example></Example> */}
     </div>
   );
 }

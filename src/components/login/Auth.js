@@ -25,7 +25,8 @@ const Auth = () => {
     event.preventDefault();
     try {
       if (newAccount) {
-        await authService.signInWithEmailAndPassword(email, password);
+        // await authService.signInWithEmailAndPassword(email, password);
+        await authService.createUserWithEmailAndPassword(email, password);
       }
       history.push('/Main');
     } catch (error) {

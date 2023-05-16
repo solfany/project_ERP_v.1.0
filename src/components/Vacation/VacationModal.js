@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Map.css";
-
+// import {useAuthState} from 'react-firebase-hooks/auth'
 import {
   Button,
   Modal,
@@ -9,10 +9,11 @@ import {
   ModalFooter,
   Label,
 } from "reactstrap";
-import { number } from "prop-types";
+// import { authService } from "Loginbase";
 
 // 모달창
-function FixModal({ data, setData}) {
+function Vacation({ data, setData }) {
+  // const [user]= useAuthState(authService)
   // 모달창 토글 방식
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
@@ -32,7 +33,7 @@ function FixModal({ data, setData}) {
   const [dayValue, setDayValue] = useState("");
   const [reasonValue, setReasonValue] = useState("");
 
-
+  //휴가 일정 시작
   const [vacationStartValue, setVacationStartValue] = useState(
     new Date().toISOString()
   );
@@ -44,21 +45,20 @@ function FixModal({ data, setData}) {
     (new Date(vacationEndValue) - new Date(vacationStartValue)) /
       (1000 * 60 * 60 * 24)
   );
-
   //조건문 걸어놓기
 
   const handleSubmit = (e) => {
     //초기값 설정
+    e.preventDefault();
     setUserId("");
     setTeamNameOptionValue("");
     setPositionValue("");
     setVacationTypeValue("");
     setDayValue("");
-    setVacationStartValue();
-    setVacationEndValue();
-    setReasonValue();
-    console.log("s");
-    e.preventDefault();
+    setVacationStartValue('');
+    setVacationEndValue('');
+    setReasonValue('');
+
     if (userId === "") {
       alert("id 입력하세요");
       //토글안되게 막아야되고
@@ -73,7 +73,9 @@ function FixModal({ data, setData}) {
       day: e.target.elements.day.value, //기간
       etc:
         // `휴가기간 : ` +
-        (vacationStartValue + ` ~ ` + vacationEndValue) +
+        vacationStartValue +
+        ` ~ ` +
+        vacationEndValue +
         ` , 총 : ` +
         (new Date(vacationEndValue) - new Date(vacationStartValue)) /
           (1000 * 60 * 60 * 24) +
@@ -84,16 +86,16 @@ function FixModal({ data, setData}) {
     console.log(data);
     console.log(newData);
   };
+
   return (
     <div>
       <Button color="danger" onClick={toggle}>
-        Click Me
+        휴가 신청
       </Button>
       <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+        <ModalHeader toggle={toggle}>휴가 신청</ModalHeader>
         <ModalBody>
           <div>
-            {/* {Mmodal && 의미 */}
             <form onSubmit={handleSubmit}>
               <ul>
                 <li>
@@ -171,7 +173,6 @@ function FixModal({ data, setData}) {
                     value={vacationStartValue}
                     onChange={(e) => setVacationStartValue(e.target.value)}
                   ></input>
-
                   <input
                     type="date"
                     name="dayEnd"
@@ -179,6 +180,8 @@ function FixModal({ data, setData}) {
                     onChange={(e) => setVacationEndValue(e.target.value)}
                   ></input>
                 </li>
+
+                
                 <li>
                   <label style={{ width: "70px" }}>메모</label>
                   <textarea
@@ -190,13 +193,11 @@ function FixModal({ data, setData}) {
                     style={{ width: "95%" }}
                     placeholder="내용을 입력하세요"
                   ></textarea>
-
                   <Button color="primary" type="submit" onClick={toggle}>
-                    {" "}
-                    Do Something
+                    신청하기
                   </Button>
                   <Button color="secondary" onClick={toggle}>
-                    Cancel
+                    취소하기
                   </Button>
                 </li>
               </ul>
@@ -209,5 +210,5 @@ function FixModal({ data, setData}) {
   );
 }
 
-export default FixModal;
+export default Vacation;
 

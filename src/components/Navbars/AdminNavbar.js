@@ -77,7 +77,7 @@ function AdminNavbar(props) {
     setmodalSearch(!modalSearch);
   };
   const [user, setUser] = useState(null);
-
+ console.log(user)
   // 로그인 정보 불러오기
   useEffect(() => {
     const unsubscribe = authService.onAuthStateChanged((user) => {

@@ -25,12 +25,21 @@
 
 @import url("https://fonts.googleapis.com/css?family=Roboto:300");
 
+.clock-container {
+    font-family: "Montserrat";
+    height: 10%;
+    text-align: center;
+    width: 90%;
+}
+
+.clock-containerDiv {
+    position: relative;
+
+}
+
 .container time {
     font-family: "Montserrat";
     font-weight: 300;
-    position: absolute;
-    top: 20%;
-    left: 51%;
     transform: translate(-100%, -105%);
 }
 
@@ -41,8 +50,23 @@
 
 .container time.seconds {
     font-size: 30px;
+    margin-left: 10px;
     color: black;
-    transform: translate(90px, 15px)
+}
+
+.attques {
+    margin-left: 10px;
+    color: black;
+    font-size: 40px;
+}
+
+.clock-containerDiv span:last-child {
+    display: inline-block;
+    font-size: 40px;
+    margin-left: 20px;
+    position: relative;
+    font-weight: 700;
+    font-family: 'Montserrat';
 }
 
 .attendBtn {
@@ -52,16 +76,4 @@
     color: black;
     bottom: -70px;
     left: 120px;
-}
-
-.attStatus {
-    display: inline-block;
-    position: relative;
-    left: 52.5%;
-    font-size: 40px;
-    font-weight: 700;
-    transform: translateY(25px);
-    font-family: 'Montserrat';
-    border-bottom: 3px solid black;
-
 }

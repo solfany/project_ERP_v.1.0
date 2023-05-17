@@ -93,6 +93,7 @@ function AdminNavbar(props) {
     authService.signOut();
     history.push("/MainLogin");
   };
+
   //로그아웃 작업 끝
   return (
     <>
@@ -187,7 +188,7 @@ function AdminNavbar(props) {
                   <div>
                     {user ? (
                       <div>
-                        <b>{user.email} 님 환영합니다.</b>
+                        <b>{user.displayName} 님 환영합니다.</b>
                       </div>
                     ) : (<div><b>로그인 해주세요.</b></div>)}
                   </div>

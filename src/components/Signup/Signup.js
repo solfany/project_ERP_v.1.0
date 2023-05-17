@@ -39,7 +39,6 @@ function SignupModal() {
 
   const handleSignup = async (event) => {
     // 사원관리 버튼이 클릭되었을 때 실행되는 함수
-    // 'async'함수로 이벤트를 막고
     // 'async'는 일반함수를 비동기 함수로 만들기 위해서 사용
     event.preventDefault();
     // submit 새로고침 동작 막기 위해 사용

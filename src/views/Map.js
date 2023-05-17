@@ -49,6 +49,9 @@ function Map() {
     }
   }, [init, userObj, history]);
   return (
+    <>
+    {init && userObj &&
+    
     <div className="content">
       <div className="card" style={{minHeight: '600px', padding: '0 10px'}}>
       <div className="calendarHead">
@@ -88,6 +91,9 @@ function Map() {
       </Table>
       </div>
     </div>
+    
+          }
+    </>
   );
 }
 

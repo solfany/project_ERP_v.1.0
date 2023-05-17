@@ -93,7 +93,7 @@ function Vacation({ data, setData }) {
         휴가 신청
       </button>
       <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}><h2 className="calendarTitle">휴가 신청</h2></ModalHeader>
+        <ModalHeader toggle={toggle}><h2>휴가 신청</h2></ModalHeader>
         <ModalBody>
           <div>
             <form onSubmit={handleSubmit}>

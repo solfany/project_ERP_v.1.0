@@ -25,7 +25,7 @@ var routes = [
   {
     path: "/dashboard",
     name: "근무일정",
-    icon: "tim-icons icon-chart-pie-36",
+    icon: "tim-icons icon-align-center",
     component: Dashboard,
     layout: "/admin",
     props: true,

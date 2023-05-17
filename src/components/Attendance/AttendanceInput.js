@@ -19,19 +19,11 @@ function AttendanceInput() {
     }
   }, [time]);
 
-  console.log(attendanceStatus);
 
   return (
     <div className="attendContainer">
-      <Clock time={time} setTime={setTime} />
-      <span
-        className="attStatus"
-        style={
-          attendanceStatus === '출근' ? { color: 'blue' } : { color: 'red' }
-        }
-      >
-        {attendanceStatus}
-      </span>
+      <Clock time={time} setTime={setTime} attendanceStatus={attendanceStatus} />
+
       <div className="blue_circle">
         <CheckButton />
       </div>

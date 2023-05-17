@@ -93,6 +93,7 @@ function AdminNavbar(props) {
     authService.signOut();
     history.push("/MainLogin");
   };
+
   //로그아웃 작업 끝
   return (
     <>

@@ -17,9 +17,9 @@ function GetThisMonth() {
 
   return (
     <div className="d-flex month">
-      <h1>{year} 년</h1>
-      <select value={month}>{options}</select>
-      <h1> 월</h1>
+      <span>{year} 년</span>
+      <select style={{fontSize: '20px'}} value={month}>{options}</select>
+      <span> 월</span>
     </div>
   );
 }

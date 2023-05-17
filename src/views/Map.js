@@ -26,7 +26,7 @@ const Options = [
   { id: 9, name: "취소", value: "" },
 ];
 const TableSub = Options.map((parameter, index) => (
-  <th style={{fontSize:'20px',fontWeight:'bold', textAlign:'center'}} key={index}>{parameter.name}</th>
+  <th style={{fontSize:'14px', textAlign:'center', fontFamily : 'Poppins', whiteSpace:'nowrap'}} key={index}>{parameter.name}</th>
 ));
 // const Td = N.map((parameters, i) => <td key={i}>{parameters.name}</td>);
 
@@ -50,16 +50,19 @@ function Map() {
   }, [init, userObj, history]);
   return (
     <div className="content">
-      <h1>휴가 관리</h1>
+      <div className="card" style={{minHeight: '600px', padding: '0 10px'}}>
+      <div className="calendarHead">
+      <h2 className="calendarTitle">휴가 관리</h2>
       <div className="Mmodal_btn">
         <Vacation data={data} setData={setData} onRemove={onRemove} ></Vacation>
+        </div>
     </div>
     
         {/* {textValue} */}
       {/* if(!name && ! email*/}
       {/* math random code 맘대로 */}
       {/* 배열을 만들어서 기본값하고  */}
-      <Table>
+      <Table style={{ whiteSpace: 'nowrap', }}>
         <thead>
           <tr>{TableSub}</tr>
         </thead>
@@ -76,13 +79,14 @@ function Map() {
               <td>{data.day}</td>
               <td>{data.reason}</td>
               <td>
-                <button onClick={() => onRemove(data.name)}>삭제</button></td>
+                <button className="red" onClick={() => onRemove(data.name)}>삭제</button></td>
             </tr>
           ))}
         </tbody>
         <tfoot>
         </tfoot>
       </Table>
+      </div>
     </div>
   );
 }

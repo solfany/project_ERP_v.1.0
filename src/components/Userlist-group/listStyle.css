@@ -1,9 +1,9 @@
 .month {
-  font-size: 28px;
+  font-size: 18px;
   display: flex;
   align-items: center;
-  font-size: 24px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  margin-left: 5px;
 }
 
 .month h1 {
@@ -12,8 +12,7 @@
 
 .month select {
   margin-left: 10px;
-  padding: 5px;
-  font-size: 18px;
+  padding: 0 5px;
+  font-size: 20px;
   border-style: none;
-  font-size: 28px;
 }

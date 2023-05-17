@@ -17,7 +17,7 @@
 */
 import React, { useEffect, useState } from "react";
 import { authService } from "./../../Loginbase";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import image from './로고1.jpg';
 // nodejs library that concatenates classes
 import classNames from "classnames";
@@ -30,7 +30,6 @@ import {
   DropdownItem,
   UncontrolledDropdown,
   Input,
-  InputGroup,
   NavbarBrand,
   Navbar,
   NavLink,
@@ -140,13 +139,13 @@ function AdminNavbar(props) {
           </NavbarToggler>
           <Collapse navbar isOpen={collapseOpen}>
             <Nav className="ml-auto" navbar>
-              <InputGroup className="search-bar">
+              {/* <InputGroup className="search-bar">
                 <Button color="link" onClick={toggleModalSearch}>
                   <i className="tim-icons icon-zoom-split" />
                   <span className="d-lg-none d-md-block">Search</span>
                 </Button>
-              </InputGroup>
-              <UncontrolledDropdown nav>
+              </InputGroup> */}
+              {/* <UncontrolledDropdown nav>
                 <DropdownToggle
                   caret
                   color="default"
@@ -176,7 +175,7 @@ function AdminNavbar(props) {
                     <DropdownItem className="nav-item">가능</DropdownItem>
                   </NavLink>
                 </DropdownMenu>
-              </UncontrolledDropdown>
+              </UncontrolledDropdown> */}
               <UncontrolledDropdown nav>
                 <DropdownToggle
                   caret
@@ -186,11 +185,11 @@ function AdminNavbar(props) {
                 >
                   {/* 로그인 정보 랜더링 */}
                   <div>
-                    {user && (
+                    {user ? (
                       <div>
                         <b>{user.email} 님 환영합니다.</b>
                       </div>
-                    )}
+                    ) : (<div><b>로그인 해주세요.</b></div>)}
                   </div>
                   {/* <div className="photo">
                     sdafasd
@@ -215,7 +214,7 @@ function AdminNavbar(props) {
                   {/* 로그아웃 버튼  */}
                   <NavLink tag="li">
                     <DropdownItem className="nav-item">
-                      <button onClick= {onLogOutClick}>로그아웃</button>
+                      {user ? (<button onClick= {onLogOutClick}>로그아웃</button>) : <Link to="/admin/MainLogin">로그인</Link>}
                     </DropdownItem>
                   </NavLink>
                 </DropdownMenu>

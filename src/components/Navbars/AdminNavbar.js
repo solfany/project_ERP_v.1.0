@@ -19,6 +19,7 @@ import React, { useEffect, useState } from "react";
 import { authService } from "./../../Loginbase";
 import { Link, useHistory } from "react-router-dom";
 import image from './로고1.jpg';
+
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // reactstrap components
@@ -39,11 +40,14 @@ import {
   NavbarToggler,
   ModalHeader,
 } from "reactstrap";
+import { useSelector } from "react-redux";
 
 function AdminNavbar(props) {
   const [collapseOpen, setcollapseOpen] = React.useState(false);
   const [modalSearch, setmodalSearch] = React.useState(false);
   const [color, setcolor] = React.useState("navbar-transparent");
+  const init = useSelector((state) => state.init);
+  const userObj = useSelector((state) => state.userObj);
   React.useEffect(() => {
     window.addEventListener("resize", updateColor);
     // Specify how to clean up after this effect:
@@ -129,7 +133,7 @@ function AdminNavbar(props) {
                 style={{}}
               />
               <span className="logos" style={{}}>
-                {props.brandText}
+                {init && userObj ? props.brandText : '홈'}
               </span>
             </NavbarBrand>
           </div>

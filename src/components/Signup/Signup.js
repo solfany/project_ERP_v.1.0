@@ -135,7 +135,7 @@ function SignupModal() {
               <FormGroup>
                 <Label for="employeeNum"><b>사원번호</b></Label>
                 <Input
-                  style={{ width: '80%' }}
+                  style={{ width: '50%' }}
                   type="text"
                   id="EmployeeNum"
                   value={employeeNum}
@@ -146,7 +146,7 @@ function SignupModal() {
               <FormGroup>
                 <Label for="ranks"><b>직급</b></Label><br />
                 <select
-                  style={{ width: '40%', textAlign: 'center' }}
+                  style={{ width: '50%', textAlign: 'center' }}
                   id="ranks"
                   value={ranks}
                   onChange={(e) => setRanks(e.target.value)}
@@ -164,7 +164,7 @@ function SignupModal() {
               <FormGroup>
                 <Label for="name"><b>이름</b></Label>
                 <Input
-                  style={{ width: '80%' }}
+                  style={{ width: '50%' }}
                   type="text"
                   id="name"
                   value={name}
@@ -175,7 +175,7 @@ function SignupModal() {
               <FormGroup>
                 <Label for="email"><b>이메일</b></Label>
                 <Input
-                  style={{ width: '80%' }}
+                  style={{ width: '50%' }}
                   type="email"
                   id="email"
                   value={email}

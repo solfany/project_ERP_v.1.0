@@ -51,7 +51,6 @@ function Map() {
   return (
     <>
     {init && userObj &&
-    
     <div className="content">
       <div className="card" style={{minHeight: '600px', padding: '0 10px'}}>
       <div className="calendarHead">
@@ -60,11 +59,6 @@ function Map() {
         <Vacation data={data} setData={setData} onRemove={onRemove} ></Vacation>
         </div>
     </div>
-    
-        {/* {textValue} */}
-      {/* if(!name && ! email*/}
-      {/* math random code 맘대로 */}
-      {/* 배열을 만들어서 기본값하고  */}
       <Table style={{ whiteSpace: 'nowrap', }}>
         <thead>
           <tr>{TableSub}</tr>
@@ -91,7 +85,6 @@ function Map() {
       </Table>
       </div>
     </div>
-    
           }
     </>
   );

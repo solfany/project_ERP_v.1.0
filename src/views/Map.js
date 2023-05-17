@@ -49,6 +49,9 @@ function Map() {
     }
   }, [init, userObj, history]);
   return (
+    <>
+    {init && userObj &&
+    
     <div className="content">
       <h1>휴가 관리</h1>
       <div className="Mmodal_btn">
@@ -84,6 +87,9 @@ function Map() {
         </tfoot>
       </Table>
     </div>
+    
+          }
+    </>
   );
 }
 

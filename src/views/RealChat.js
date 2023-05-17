@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 // import SignIn from 'components/Chatting/SignIn'
 import Chat from "components/Chatting/Chat";
-import { useAuthState } from "react-firebase-hooks/auth";
+import { useAuthState, } from "react-firebase-hooks/auth";
 import { authService, firebaseInstance } from "Loginbase";
 import { useSelector } from "react-redux";
 import { message } from "antd";

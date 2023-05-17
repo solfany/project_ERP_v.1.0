@@ -10,7 +10,7 @@ function SendMessage({ scroll }) {
   async function sendMessage(e) {
     e.preventDefault();
     //로그인된 사용자의 객체를 가져온 뒤, 해당 객체에서 uid, photoURL, email 속성을 추출
-    const { uid, photoURL, email } = authService.currentUser;
+    const { uid, photoURL, email, displayName} = authService.currentUser;
 
     //await 함수를 이용해 firestore에 있는 db collection에 message를 접근
     await db.collection("messages")
@@ -19,9 +19,11 @@ function SendMessage({ scroll }) {
       photoURL,
       uid,
       email,
+      displayName,
       // serverTimestamp : Date.now(),
       createdAt: serverTimestamp(),
     });
+    
     setMsg("");
 
     if (scroll.current) {

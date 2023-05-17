@@ -25,7 +25,6 @@ import { message } from 'antd';
 import {
   Card,
   CardHeader,
-  CardTitle,
   CardBody,
   Table,
   Row,
@@ -73,9 +72,9 @@ const Tables = () => {
         <Row>
           <Col md="12">
             <Card>
-              <CardHeader>
-                <CardTitle tag="h1">직원관리</CardTitle>
-              </CardHeader>
+            <div className="calendarHead">
+            <h2 className="calendarTitle">직원 관리</h2>
+            </div>
               <CardHeader className="ml-auto">
                 <SignupModal />
               </CardHeader>

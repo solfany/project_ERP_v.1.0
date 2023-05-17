@@ -6,21 +6,24 @@ import { serverTimestamp } from "firebase/firestore";
 // import { doc, setDoc } from "firebase/firestore";
 function SendMessage({ scroll }) {
   const [msg, setMsg] = useState("");
-
+  //async 함수를 사용해 메시지 전송하는 동작을 처리
   async function sendMessage(e) {
     e.preventDefault();
-    const { uid, photoURL, email } = authService.currentUser;
+    //로그인된 사용자의 객체를 가져온 뒤, 해당 객체에서 uid, photoURL, email 속성을 추출
+    const { uid, photoURL, email, displayName} = authService.currentUser;
 
-    await db.collection("messages").add({
+    //await 함수를 이용해 firestore에 있는 db collection에 message를 접근
+    await db.collection("messages")
+      .add({
       text: msg,
       photoURL,
       uid,
       email,
+      displayName,
       // serverTimestamp : Date.now(),
       createdAt: serverTimestamp(),
-      
     });
-
+    
     setMsg("");
 
     if (scroll.current) {

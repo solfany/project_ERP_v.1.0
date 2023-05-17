@@ -55,31 +55,29 @@ function Vacation({ data, setData }) {
     setPositionValue("");
     setVacationTypeValue("");
     setDayValue("");
-    setVacationStartValue('');
-    setVacationEndValue('');
-    setReasonValue('');
+    setVacationStartValue("");
+    setVacationEndValue("");
+    setReasonValue("");
 
     if (userId === "") {
       alert("id 입력하세요");
       //토글안되게 막아야되고
     }
     const newData = {
-      code: "#",
+      code: "사원번호",
       // e.target.value.Math(), 코드 관련 메세지
       name: e.target.elements.Name.value, //이름
       teamName: e.target.elements.teamName.value, //부서명
       position: e.target.elements.position.value, //직무
       vacationType: e.target.elements.vacationType.value, //휴가종류
-      day: e.target.elements.day.value, //기간
-      etc:
-        // `휴가기간 : ` +
-        vacationStartValue +
-        ` ~ ` +
-        vacationEndValue +
-        ` , 총 : ` +
+      day:
         (new Date(vacationEndValue) - new Date(vacationStartValue)) /
           (1000 * 60 * 60 * 24) +
-        ` 일 `, //휴가 일수
+        ` 일 `, //휴가 일수 , //기간
+      etc:
+        // `휴가기간 : ` +
+        vacationStartValue + ` ~ ` + vacationEndValue,
+
       reason: e.target.elements.reason.value, //사유
     };
     setData([...data, newData]);
@@ -93,7 +91,7 @@ function Vacation({ data, setData }) {
         휴가 신청
       </button>
       <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}><h2 className="calendarTitle">휴가 신청</h2></ModalHeader>
+        <ModalHeader toggle={toggle}><h2>휴가 신청</h2></ModalHeader>
         <ModalBody>
           <div>
             <form onSubmit={handleSubmit}>
@@ -116,6 +114,7 @@ function Vacation({ data, setData }) {
                     onChange={(e) => setTeamNameOptionValue(e.target.value)}
                   >
                     <option value="">부서를 고르세요</option>
+                    <option value="개발팀">개발팀</option>
                     <option value="인사팀">인사팀</option>
                     <option value="경영팀">경영팀</option>
                     <option value="영업팀">영업팀</option>
@@ -160,9 +159,8 @@ function Vacation({ data, setData }) {
                     onChange={(e) => setDayValue(e.target.value)}
                   >
                     <option value="">휴가 기간</option>
-                    <option value="하루">하루</option>
-                    <option value="오전">오전</option>
-                    <option value="오후">오후</option>
+                    <option value="휴가 기간 조회">휴가 기간 조회</option>
+                    {/* <option value="오후">오후</option> */}
                   </select>
                 </li>
                 <li>
@@ -181,7 +179,6 @@ function Vacation({ data, setData }) {
                   ></input>
                 </li>
 
-                
                 <li>
                   <label style={{ width: "70px" }}>메모</label>
                   <textarea
@@ -193,22 +190,22 @@ function Vacation({ data, setData }) {
                     style={{ width: "95%" }}
                     placeholder="내용을 입력하세요"
                   ></textarea>
-                  <Button color="primary" type="submit" onClick={toggle}>
-                    신청하기
-                  </Button>
-                  <Button color="secondary" onClick={toggle}>
-                    취소하기
-                  </Button>
+                  <ModalFooter>
+                    <button className="blue" type="submit" onClick={toggle}>
+                      신청하기
+                    </button>
+                    <button className="red" onClick={toggle}>
+                      취소하기
+                    </button>
+                  </ModalFooter>
                 </li>
               </ul>
             </form>
           </div>
         </ModalBody>
-        <ModalFooter></ModalFooter>
       </Modal>
     </div>
   );
 }
 
 export default Vacation;
-

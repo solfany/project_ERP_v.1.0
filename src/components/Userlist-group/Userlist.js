@@ -171,9 +171,10 @@ function Userlist() {
 
   return (
     <div className="content">
+      <div className="calendarHead">
+          <h2 className="calendarTitle">근태정산</h2>
+        </div>
       <GetThisMonth />
-      <h3>근태정산</h3>
-
       <Row>
         <Col md="3">
           <FormGroup>
@@ -198,7 +199,7 @@ function Userlist() {
           />
         </Col>
       </Row>
-      <Table striped bordered hover>
+      <Table striped bordered hover style={{whiteSpace:'nowrap'}}>
         <thead>
           <tr>
             <th onClick={() => handleSortBy("name")}>

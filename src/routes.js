@@ -65,13 +65,13 @@ var routes = [
     component: TableList,
     layout: "/admin",
   },
-  {
-    path: "/typography",
-    name: "프로필",
-    icon: "tim-icons icon-align-center",
-    component: Typography,
-    layout: "/admin",
-  },
+  // {
+  //   path: "/typography",
+  //   name: "프로필",
+  //   icon: "tim-icons icon-align-center",
+  //   component: Typography,
+  //   layout: "/admin",
+  // },
   {
     path: "/Chat",
     name: "메신저",

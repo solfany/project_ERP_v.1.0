@@ -5,7 +5,7 @@ import './../components/Vacation/Map.css'
 import { Row, Col } from 'reactstrap';
 import '../assets/css/styles.css';
 import Attendance from './Attendance';
-import AttendCalendar from './../components/Attendance/AttendCalendar'
+import AttendanceInput from './../components/Attendance/AttendanceInput'
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { message } from 'antd';
@@ -111,9 +111,8 @@ function Main() {
         <Col xs={6} className="box-container">
           <div className="box">
             <div className="box-content">
-              <h1>출퇴근 현황</h1>
-              <div style={{height: '100%', overflow:'hidden'}}>
-                <AttendCalendar events={attendCalendar} setEvents={setAttendCalendar} style={{height: '100%'}} />
+              <div style={{height: '100%', overflow:'hidden',}}>
+                <AttendanceInput events={attendCalendar} setEvents={setAttendCalendar} style={{height: '100%'}} />
               </div>
             </div>
           </div>

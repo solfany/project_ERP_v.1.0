@@ -89,11 +89,11 @@ function Vacation({ data, setData }) {
 
   return (
     <div>
-      <Button color="danger" onClick={toggle}>
+      <button className="blue" onClick={toggle}>
         휴가 신청
-      </Button>
+      </button>
       <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>휴가 신청</ModalHeader>
+        <ModalHeader toggle={toggle}><h2 className="calendarTitle">휴가 신청</h2></ModalHeader>
         <ModalBody>
           <div>
             <form onSubmit={handleSubmit}>

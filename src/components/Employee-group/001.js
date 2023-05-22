@@ -69,8 +69,6 @@ function EmployeeCalculator() {
   }
 
   function calculateTaxesAndInsurance(salary) {
-    // 소득세 계산
-
     // 국민연금 계산
     const pension = Math.floor(salary * 0.045);
 

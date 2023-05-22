@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
-import { authService, firebaseInstance } from './../../Loginbase';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
-import { useHistory } from 'react-router-dom';
-import "./../login/Auth.css"
+import React, { useState } from "react";
+import { authService, firebaseInstance } from "./../../Loginbase";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+import { useHistory } from "react-router-dom";
+import "./../login/Auth.css";
 const Auth = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [newAccount, setNewAccount] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const history = useHistory();
 
   const onChange = (event) => {
     const {
       target: { name, value },
     } = event;
-    if (name === 'email') {
+    if (name === "email") {
       setEmail(value);
-    } else if (name === 'password') {
+    } else if (name === "password") {
       setPassword(value);
     }
   };
@@ -29,9 +29,9 @@ const Auth = () => {
         // await authService.createUserWithEmailAndPassword(email, password);
       }
 
-      history.push('/Main');
+      history.push("/Main");
     } catch (error) {
-      alert('등록된 이메일이 아닙니다.');
+      alert("등록된 이메일이 아닙니다.");
     }
   };
 
@@ -40,9 +40,9 @@ const Auth = () => {
       target: { name },
     } = event;
     let provider;
-    if (name === 'google') {
+    if (name === "google") {
       provider = new firebaseInstance.auth.GoogleAuthProvider();
-    } else if (name === 'github') {
+    } else if (name === "github") {
       provider = new firebaseInstance.auth.GithubAuthProvider();
     }
     const data = await authService.signInWithPopup(provider);
@@ -80,21 +80,31 @@ const Auth = () => {
         </FormGroup>
         {/* <br /> */}
         <Label className="AuthMain">
-          <Input className="LoginBtn"
+          <Input
+            className="LoginBtn"
             type="submit"
             name="LoginBtn"
-            value={newAccount ? '로그인' : 'Sign In'} />
+            value={newAccount ? "로그인" : "Sign In"}
+          />
           {error}
         </Label>
       </Form>
       <br />
       <div className="Auth_Sub_Btn">
-        <Button onClick={onSocialClick} name="google" style={{ width: "500px" }}>
+        <Button
+          onClick={onSocialClick}
+          name="google"
+          style={{ width: "500px" }}
+        >
           Google 로그인
         </Button>
       </div>
       <div className="Auth_Sub_Btn">
-        <Button onClick={onSocialClick} name="github" style={{ width: "500px" }}>
+        <Button
+          onClick={onSocialClick}
+          name="github"
+          style={{ width: "500px" }}
+        >
           github 로그인
         </Button>
       </div>

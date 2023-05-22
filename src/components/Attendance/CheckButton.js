@@ -1,16 +1,16 @@
-import { useState } from 'react';
-import './CheckButton.css';
-import { message } from 'antd';
-import Welcome from './Welcome';
+import { useState } from "react";
+import "./CheckButton.css";
+import { message } from "antd";
+import Welcome from "./Welcome";
 
 function CheckButton() {
   const [isClicked, setIsClicked] = useState(false);
 
   const handleToggle = () => {
     if (!isClicked) {
-      message.success('출근 등록이 완료되었습니다.');
+      message.success("출근 등록이 완료되었습니다.");
     } else {
-      message.success('퇴근 등록이 완료되었습니다.');
+      message.success("퇴근 등록이 완료되었습니다.");
     }
     setIsClicked((prev) => !prev);
   };

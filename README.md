@@ -1,78 +1,352 @@
-```
-폴더 구조
-
-src
-    - assets
-        - cs, fonts, img, scss
-
-    - components
-      푸터, 네비, 사이드 바 .js가 들어있음
-
-    - contexts
-      - BackgroundColorContext.js :
-        해당 폴더에서 색 변경 가능하나 현재 블루, 핑크, 그린으로만 변경 가능
-
-    - layouts
-      - Admin :
-        해당 폴더가 App.js 역할을 한다.
-
-    - variables
-      
-
-    - views
-        해당 폴더에 각 카테고리 페이지들이 들어가 있음
-        해당 폴더 icons.js 에 샘플 페이지 만들어 놨음
-        다른 페이지는 주석 처리 해놨으니 보고 주석 풀어보고 참고 해도 됌
-
-
-    다운로드 프로그램 
-    - 1. npm install
-    - 2. npm install --force
-        npm intall 설치해도 오류가 난다면 버전이 달라 호환이 안되기 때문이다. 
-        2번 프로그램 다운로드시 호환을 위해 패키지 의존성을 위해 추가적인 패키지를 설치한다.
-        즉 충돌 우회 패키지라고 생각하면 됩니다.
 
 
 ```
+3팀 웹 개발 프로젝트 
 
-```
+팀명 : 자겸정원
+팀장: 김솔비     팀원 :  조정원, 홍준이, 김자겸 
 
-<!-- 아래는 나중에 작성할 것 -->
+개발기간 : 2023.4.15 ~2023.05.15
 
-1. 프로젝트 Description
-- 자정겸원 인사관리 프로젝트 
-
-- 해당 프로젝트는 리액트를 활용해 인사관리 사이트를 구현했다. 
-
-
-2. 프로젝트 정보
-- 설치(Getting Started / Installation)
-
-
-- vscode를 이용하여 개발했고, 윈도우 크롬 환경에서 실행 및 개발 되었다.  
-컴파일 방법, 사용 환경, 브라우저 서포트(웹 프로젝트라면!)
-
-- 간단한 사용 방법 및 예제
+1. 설치 방법
+- 필수 프로그램 vscode/powerpoint/node.js
+- vscode를 실행시킨 후 터미널을 열고 npx create-react-app . 명령어 입력한다.
+- project 레퍼지토리의 소스를 내려 받은 후 압축해제한다. 
+- 압축해제한 파일을 react-app 폴더에 붙여넣기 한다.
+- 터미널에 npm install --force  입력 후 npm start를 하여 실행한다.
+- 함께 첨부한  "3조 2차 프로젝트.pdf" 를 실행 
 
 
-3. Contribute
-- 다른 사람들이 코드에 Contribute하기 쉽도록 설명
 
-- 어떤 류의 Contribute를 원하는지 또는 Contributing 규칙 등을 적을 수도 있다.
-
-
-4. LICENSE
-- 라이선스 : 저작물의 수정 배포에 대한 권한이나 저작권들에 대한 조항들
-
-- 보통 MIT License를 많이 사용하고 BSD 라이선스도 많이 사용한다
+2. 발표 순서
+-------intro------------
+1. 팀원소개 ~ 개발동기) -> 김솔비
+2. 로그인 ~ 메인페이지 개발 -> 김자겸
+3. 휴가일정 ~ 메신저   -> 조정원
+4. 근무일정 ~ 게시판 -> 홍준이 
+5. 근태정산 ~ 후기 -> 김솔비 
 
 
-5. 외부리소스 정보
-- 프로젝트에 포함된 외부 코드나 리소스 정보(각각의 출처 및 배포 라이선스)
+
+3. 폴더구조
+project02
+├─ .DS_Store
+├─ .env
+├─ .git
+│  ├─ COMMIT_EDITMSG
+│  ├─ config
+│  ├─ description
+│  ├─ FETCH_HEAD
+│  ├─ HEAD
+│  ├─ hooks
+│  │  ├─ applypatch-msg.sample
+│  │  ├─ commit-msg.sample
+│  │  ├─ fsmonitor-watchman.sample
+│  │  ├─ post-update.sample
+│  │  ├─ pre-applypatch.sample
+│  │  ├─ pre-commit.sample
+│  │  ├─ pre-merge-commit.sample
+│  │  ├─ pre-push.sample
+│  │  ├─ pre-rebase.sample
+│  │  ├─ pre-receive.sample
+│  │  ├─ prepare-commit-msg.sample
+│  │  ├─ push-to-checkout.sample
+│  │  └─ update.sample
+│  ├─ index
+│  ├─ info
+│  │  └─ exclude
+│  ├─ logs
+│  │  ├─ HEAD
+│  │  └─ refs
+│  │     ├─ heads
+│  │     │  └─ master
+│  │     └─ remotes
+│  │        └─ origin
+│  │           ├─ HEAD
+│  │           └─ master
+│  ├─ info
+│  │  └─ pack
+│  │     ├─ pack-0c583c1430e03b09fac377f506154e327549c3e3.idx
+│  │     ├─ pack-0c583c1430e03b09fac377f506154e327549c3e3.pack
+│  │     ├─ pack-6e44be8eec32357e3ef92249c42e7567364cc1c1.idx
+│  │     ├─ pack-6e44be8eec32357e3ef92249c42e7567364cc1c1.pack
+│  │     ├─ pack-72468322388de60a9e307c5528ea80beec71d707.idx
+│  │     └─ pack-72468322388de60a9e307c5528ea80beec71d707.pack
+│  ├─ ORIG_HEAD
+│  ├─ packed-refs
+│  └─ refs
+│     ├─ heads
+│     │  └─ master
+│     ├─ remotes
+│     │  └─ origin
+│     │     ├─ HEAD
+│     │     └─ master
+│     └─ tags
+├─ .gitignore
+├─ Documentation
+│  └─ documentation.html
+├─ gulpfile.js
+├─ jsconfig.json
+├─ package.json
+├─ public
+│  ├─ apple-icon.png
+│  ├─ favicon.png
+│  ├─ img
+│  │  └─ default-avatar.png
+│  ├─ index.html
+│  └─ manifest.json
+├─ README.md
+├─ src
+│  ├─ .DS_Store
+│  ├─ actions.js
+│  ├─ assets
+│  │  ├─ css
+│  │  │  ├─ nucleo-icons.css
+│  │  │  └─ styles.css
+│  │  ├─ fonts
+│  │  │  ├─ NanumGothic-Regular.ttf
+│  │  │  ├─ nucleo.eot
+│  │  │  ├─ nucleo.ttf
+│  │  │  ├─ nucleo.woff
+│  │  │  └─ nucleo.woff2
+│  │  ├─ img
+│  │  │  ├─ anime3.png
+│  │  │  ├─ anime6.png
+│  │  │  ├─ apple-icon.png
+│  │  │  ├─ asdf.jpg
+│  │  │  ├─ bg5.jpg
+│  │  │  ├─ default-avatar.png
+│  │  │  ├─ emilyz.jpg
+│  │  │  ├─ favicon.png
+│  │  │  ├─ header.jpg
+│  │  │  ├─ hiclipart.com (1).png
+│  │  │  ├─ img_3115.jpg
+│  │  │  ├─ james.jpg
+│  │  │  ├─ mike.jpg
+│  │  │  ├─ react-logo.png
+│  │  │  └─ unknown.png
+│  │  └─ scss
+│  │     ├─ black-dashboard-react
+│  │     │  ├─ custom
+│  │     │  │  ├─ cards
+│  │     │  │  │  ├─ _card-chart.scss
+│  │     │  │  │  ├─ _card-map.scss
+│  │     │  │  │  ├─ _card-plain.scss
+│  │     │  │  │  ├─ _card-task.scss
+│  │     │  │  │  └─ _card-user.scss
+│  │     │  │  ├─ mixins
+│  │     │  │  │  ├─ opacity.scss
+│  │     │  │  │  ├─ _alert.scss
+│  │     │  │  │  ├─ _background-variant.scss
+│  │     │  │  │  ├─ _badges.scss
+│  │     │  │  │  ├─ _buttons.scss
+│  │     │  │  │  ├─ _dropdown.scss
+│  │     │  │  │  ├─ _forms.scss
+│  │     │  │  │  ├─ _icon.scss
+│  │     │  │  │  ├─ _inputs.scss
+│  │     │  │  │  ├─ _modals.scss
+│  │     │  │  │  ├─ _page-header.scss
+│  │     │  │  │  ├─ _popovers.scss
+│  │     │  │  │  ├─ _vendor-prefixes.scss
+│  │     │  │  │  └─ _wizard.scss
+│  │     │  │  ├─ utilities
+│  │     │  │  │  ├─ _backgrounds.scss
+│  │     │  │  │  ├─ _floating.scss
+│  │     │  │  │  ├─ _helper.scss
+│  │     │  │  │  ├─ _position.scss
+│  │     │  │  │  ├─ _shadows.scss
+│  │     │  │  │  ├─ _sizing.scss
+│  │     │  │  │  ├─ _spacing.scss
+│  │     │  │  │  ├─ _text.scss
+│  │     │  │  │  └─ _transform.scss
+│  │     │  │  ├─ vendor
+│  │     │  │  │  ├─ _plugin-perfect-scrollbar.scss
+│  │     │  │  │  └─ _plugin-react-notification-alert.scss
+│  │     │  │  ├─ _alerts.scss
+│  │     │  │  ├─ _badges.scss
+│  │     │  │  ├─ _buttons.scss
+│  │     │  │  ├─ _card.scss
+│  │     │  │  ├─ _checkboxes-radio.scss
+│  │     │  │  ├─ _dropdown.scss
+│  │     │  │  ├─ _fixed-plugin.scss
+│  │     │  │  ├─ _footer.scss
+│  │     │  │  ├─ _forms.scss
+│  │     │  │  ├─ _functions.scss
+│  │     │  │  ├─ _images.scss
+│  │     │  │  ├─ _input-group.scss
+│  │     │  │  ├─ _misc.scss
+│  │     │  │  ├─ _mixins.scss
+│  │     │  │  ├─ _modal.scss
+│  │     │  │  ├─ _navbar.scss
+│  │     │  │  ├─ _rtl.scss
+│  │     │  │  ├─ _sidebar-and-main-panel.scss
+│  │     │  │  ├─ _tables.scss
+│  │     │  │  ├─ _type.scss
+│  │     │  │  ├─ _utilities.scss
+│  │     │  │  ├─ _variables.scss
+│  │     │  │  └─ _white-content.scss
+│  │     │  └─ react-differences
+│  │     │     ├─ react-differences.scss
+│  │     │     └─ _inputs.scss
+│  │     └─ black-dashboard-react.scss
+│  ├─ components
+│  │  ├─ Attendance
+│  │  │  ├─ Attendance.css
+│  │  │  ├─ AttendanceInput.js
+│  │  │  ├─ AttendCalendar.css
+│  │  │  ├─ AttendCalendar.js
+│  │  │  ├─ CheckButton.css
+│  │  │  ├─ CheckButton.js
+│  │  │  ├─ Clock.js
+│  │  │  ├─ EmployeeData.js
+│  │  │  ├─ EmployeeTable.css
+│  │  │  ├─ Welcome.css
+│  │  │  └─ Welcome.js
+│  │  ├─ BackgroundColorWrapper
+│  │  │  └─ BackgroundColorWrapper.js
+│  │  ├─ Bulletin
+│  │  │  ├─ Bulletin.css
+│  │  │  ├─ comments
+│  │  │  │  ├─ Comment.js
+│  │  │  │  ├─ CommentEditor.js
+│  │  │  │  └─ CommentForm.js
+│  │  │  ├─ Editor
+│  │  │  │  ├─ editor.css
+│  │  │  │  ├─ EditorEditor.js
+│  │  │  │  └─ QuillEditor.js
+│  │  │  ├─ Notification
+│  │  │  │  ├─ comments
+│  │  │  │  │  ├─ Comment.js
+│  │  │  │  │  ├─ CommentEditor.js
+│  │  │  │  │  └─ CommentForm.js
+│  │  │  │  ├─ Notice.js
+│  │  │  │  ├─ NoticeEditor.js
+│  │  │  │  ├─ NoticeFactory.js
+│  │  │  │  ├─ NoticeOption.js
+│  │  │  │  ├─ NoticePage.js
+│  │  │  │  ├─ NoticeScope.js
+│  │  │  │  └─ Option
+│  │  │  │     ├─ DeleteOption.js
+│  │  │  │     ├─ EditOption.js
+│  │  │  │     ├─ ReplyOption.js
+│  │  │  │     └─ ScopeOption.js
+│  │  │  ├─ Option
+│  │  │  │  ├─ DeleteOption.js
+│  │  │  │  ├─ EditOption.js
+│  │  │  │  ├─ ReplyOption.js
+│  │  │  │  └─ ScopeOption.js
+│  │  │  ├─ Profile.js
+│  │  │  ├─ Route
+│  │  │  │  ├─ Notification.js
+│  │  │  │  └─ Unknown.js
+│  │  │  ├─ Tabs
+│  │  │  │  ├─ BulletinTab.css
+│  │  │  │  └─ BulletinTab.js
+│  │  │  └─ Unknown
+│  │  │     ├─ Factory.js
+│  │  │     ├─ Text.js
+│  │  │     ├─ TextEditor.js
+│  │  │     ├─ TextOption.js
+│  │  │     ├─ TextPage.js
+│  │  │     └─ TextScope.js
+│  │  ├─ Button
+│  │  │  ├─ Button.css
+│  │  │  └─ CustomButton.js
+│  │  ├─ Calendar
+│  │  │  ├─ calen.css
+│  │  │  ├─ calendar.css
+│  │  │  ├─ Calendar.js
+│  │  │  ├─ calendar2.css
+│  │  │  └─ events.js
+│  │  ├─ CalendarModal
+│  │  │  ├─ DeleteModal.js
+│  │  │  ├─ modal.css
+│  │  │  └─ RunModal.js
+│  │  ├─ Chatting
+│  │  │  ├─ Chat.css
+│  │  │  ├─ Chat.js
+│  │  │  ├─ SendMessage.js
+│  │  │  ├─ SignIn.js
+│  │  │  └─ Signout.js
+│  │  ├─ Employee-group
+│  │  │  ├─ 001.js
+│  │  │  ├─ 002.js
+│  │  │  ├─ 003.js
+│  │  │  ├─ Employee.js
+│  │  │  ├─ EmployeeModal.js
+│  │  │  ├─ inputNumberFormat.js
+│  │  │  ├─ toolStyle.css
+│  │  │  └─ Tooltip.js
+│  │  ├─ FixedPlugin
+│  │  │  └─ FixedPlugin.js
+│  │  ├─ Footer
+│  │  │  └─ Footer.js
+│  │  ├─ Loader
+│  │  │  └─ Loader.js
+│  │  ├─ login
+│  │  │  ├─ Auth.css
+│  │  │  ├─ Auth.js
+│  │  │  ├─ Navigation.js
+│  │  │  ├─ Profile.js
+│  │  │  └─ Router.js
+│  │  ├─ Navbars
+│  │  │  ├─ AdminNavbar.js
+│  │  │  ├─ RTLNavbar.js
+│  │  │  └─ 로고1.jpg
+│  │  ├─ Sidebar
+│  │  │  └─ Sidebar.js
+│  │  ├─ Signup
+│  │  │  └─ Signup.js
+│  │  ├─ ThemeWrapper
+│  │  │  └─ ThemeWrapper.js
+│  │  ├─ Userlist-group
+│  │  │  ├─ getThisMonth.js
+│  │  │  ├─ listStyle.css
+│  │  │  ├─ TableToExcel.js
+│  │  │  ├─ TotalExcel.js
+│  │  │  └─ Userlist.js
+│  │  └─ Vacation
+│  │     ├─ FixModal.js
+│  │     ├─ Map.css
+│  │     ├─ MapArray.js
+│  │     └─ VacationModal.js
+│  ├─ contexts
+│  │  ├─ BackgroundColorContext.js
+│  │  └─ ThemeContext.js
+│  ├─ FBase.js
+│  ├─ index.js
+│  ├─ layouts
+│  │  ├─ Admin
+│  │  │  └─ Admin.js
+│  │  └─ RTL
+│  │     └─ RTL.js
+│  ├─ Loginbase.js
+│  ├─ logo.svg
+│  ├─ routes.js
+│  ├─ store.js
+│  ├─ style
+│  │  └─ Employee-nav.css
+│  ├─ variables
+│  │  └─ charts.js
+│  └─ views
+│     ├─ .DS_Store
+│     ├─ Attendance.js
+│     ├─ AttendanceManagement.js
+│     ├─ Bulletin.js
+│     ├─ Dashboard.js
+│     ├─ Main.js
+│     ├─ MainLogin.js
+│     ├─ Map.js
+│     ├─ Payroll.js
+│     ├─ RealChat.js
+│     ├─ Rtl.js
+│     ├─ SendMessage.js
+│     ├─ TableList.js
+│     ├─ Typography.js
+│     └─ UserProfile.js
+└─ variables
+   └─ charts.js
 
 
-6. Code Status
-- Shield라는 것을 사용하여 [build | passing]과 같은 정보를 줄 수 있다.
 
-- 프로젝트가 커질수록 도움이 되는 부분
 ```

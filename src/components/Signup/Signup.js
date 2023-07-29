@@ -39,7 +39,6 @@ function SignupModal() {
 
   const handleSignup = async (event) => {
     // 사원관리 버튼이 클릭되었을 때 실행되는 함수
-    // 'async'함수로 이벤트를 막고
     // 'async'는 일반함수를 비동기 함수로 만들기 위해서 사용
     event.preventDefault();
     // submit 새로고침 동작 막기 위해 사용
@@ -136,7 +135,7 @@ function SignupModal() {
               <FormGroup>
                 <Label for="employeeNum"><b>사원번호</b></Label>
                 <Input
-                  style={{ width: '80%' }}
+                  style={{ width: '50%' }}
                   type="text"
                   id="EmployeeNum"
                   value={employeeNum}
@@ -147,7 +146,7 @@ function SignupModal() {
               <FormGroup>
                 <Label for="ranks"><b>직급</b></Label><br />
                 <select
-                  style={{ width: '40%', textAlign: 'center' }}
+                  style={{ width: '50%', textAlign: 'center' }}
                   id="ranks"
                   value={ranks}
                   onChange={(e) => setRanks(e.target.value)}
@@ -165,7 +164,7 @@ function SignupModal() {
               <FormGroup>
                 <Label for="name"><b>이름</b></Label>
                 <Input
-                  style={{ width: '80%' }}
+                  style={{ width: '50%' }}
                   type="text"
                   id="name"
                   value={name}
@@ -176,7 +175,7 @@ function SignupModal() {
               <FormGroup>
                 <Label for="email"><b>이메일</b></Label>
                 <Input
-                  style={{ width: '80%' }}
+                  style={{ width: '50%' }}
                   type="email"
                   id="email"
                   value={email}

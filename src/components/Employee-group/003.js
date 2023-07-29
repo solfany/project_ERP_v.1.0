@@ -20,16 +20,7 @@ function EmployeeManagement() {
   const [users, setUsers] = useState([]);
   const [modal, setModal] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
-  const [toDo, setTodo] = useState("");
-  const [toDos, setTodos] = useState([]);
-  // const onSubmit = (e) => {
-  //   e.preventDefault();
-  //   if (toDo === "") {
-  //     return;
-  //   }
-  //   setTodos((currentArray) => [toDo, ...currentArray]);
-  //   setTodo("");
-  // };
+
   useEffect(() => {
     fetch(
       "https://raw.githubusercontent.com/solfany/Json_Group/main/json/project/002/user-list.json"

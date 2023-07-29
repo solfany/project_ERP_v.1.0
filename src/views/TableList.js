@@ -67,6 +67,7 @@ const Tables = () => {
 
   return (
     <>
+    {init && userObj &&
       <div className="content">
         <Row>
           <Col md="12">
@@ -103,7 +104,8 @@ const Tables = () => {
           </Col>
         </Row>
       </div>
-    </>
+    }
+      </>
   );
 };
 

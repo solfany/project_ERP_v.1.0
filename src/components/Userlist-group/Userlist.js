@@ -1,14 +1,18 @@
-import { Table, FormGroup, Label, Input, Row, Col, Button } from "reactstrap";
+import {
+  Table,
+  FormGroup,
+  Label,
+  Input,
+  Row,
+  Col,
+  Button,
+  Pagination,
+} from "reactstrap";
 import { useState, useEffect } from "react";
-// 엑셀 파일
 import TableToExcel from "./TableToExcel";
 import TotalExcel from "./TotalExcel";
-// 당월 표시
+// ---------
 import GetThisMonth from "./getThisMonth";
-import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { message } from "antd";
-
 function Userlist() {
   const [users, setUsers] = useState([]);
   const [sortDirection, setSortDirection] = useState("asc");
@@ -19,12 +23,6 @@ function Userlist() {
   const itemsPerPage = 10; // 한 페이지에 표시할 아이템 수
   const [currentSortKey, setCurrentSortKey] = useState("");
   const [tableData, setTableData] = useState([]);
-
-  const [showCalculator, setShowCalculator] = useState(true);
-
-  const handleComponentChange = () => {
-    setShowCalculator(false);
-  };
 
   // --------------
 
@@ -94,22 +92,29 @@ function Userlist() {
 
     // ---------
 
+
+
+    // currentSortKey에 따라 데이터를 정렬하는 로직 
     let sortedData;
-    if (currentSortKey === "name") {
+    if (currentSortKey === "name") {  //이름 오름차순/내림차순 정렬
       sortedData = [...filterData].sort((a, b) =>
-        sortDirection === "asc"
+        sortDirection === "asc" //오름차순 정렬 
           ? a.name.localeCompare(b.name)
           : b.name.localeCompare(a.name)
       );
-    } else if (currentSortKey === "vacationDays") {
+    } else if (currentSortKey === "vacationDays") { //유급휴가 일수 정렬 
       sortedData = [...filterData].sort((a, b) =>
-        sortDirection === "asc"
+        sortDirection === "asc" //오름차순 정렬 
           ? a.vacationDays - b.vacationDays
           : b.vacationDays - a.vacationDays
       );
     } else {
-      sortedData = filterData;
+      sortedData = filterData;  //위의 두 경우에 해당하지 않는 경우에는 filterData를 그대로 할당
     }
+
+    
+
+
 
     // 페이지네이션 ----------
     const startIndex = (currentPage - 1) * itemsPerPage;
@@ -136,6 +141,7 @@ function Userlist() {
     }
   };
 
+  // 이름 & 유급휴가 일수 오름차순/내림차순 정렬
   const handleSortBy = (key) => {
     if (sortDirection === "asc") {
       setUsers([...users].sort((a, b) => (a[key] < b[key] ? 1 : -1)));
@@ -157,7 +163,7 @@ function Userlist() {
     }
   };
 
-  // 검색창 해당하는 db 찾기
+  // 검색창 해당하는 DB 찾기
   const handleSearchTermChange = (event) => {
     setSearchTerm(event.target.value);
     setCurrentPage(1);

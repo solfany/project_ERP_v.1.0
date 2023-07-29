@@ -7,21 +7,6 @@ import "firebase/compat/firestore";
 import "firebase/compat/storage";
 
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// const firebaseConfig = {
-//     apiKey: "AIzaSyDk0ppxmk7hZ1GkuY4UXe4apARYfbiL2ng",
-//     authDomain: "project02-a2811.firebaseapp.com",
-//     projectId: "project02-a2811",
-//     storageBucket: "project02-a2811.appspot.com",
-//     messagingSenderId: "381941299812",
-//     appId: "1:381941299812:web:93ce569d8ca79300013d71",
-//     measurementId: "G-Y1NY904B7V"
-//   };
-
-
-//---------------------------------------------
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
@@ -31,10 +16,7 @@ const firebaseConfig = {
   messagingSenderId: process.env.REACT_APP_MESSAGIN_ID,
   appId: process.env.REACT_APP_APP_ID,
 };
-// ---------------------------------------------
-// Initialize Firebase
 
-// const app = initializeApp(firebaseConfig);
 firebase.initializeApp(firebaseConfig);
 
 export const firebaseInstance = firebase;

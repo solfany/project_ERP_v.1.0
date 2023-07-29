@@ -2,7 +2,7 @@
   "name": "project-02",
   "version": "1.2.1",
   "private": true,
-  "homepage": "https://demos.creative-tim.com/black-dashboard-react/#/admin/dashboard",
+  "homepage": "https://junyihong.github.io/project02",
   "dependencies": {
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
@@ -24,6 +24,7 @@
     "classnames": "2.3.1",
     "dotenv": "^16.0.3",
     "firebase": "^9.6.1",
+    "gh-pages": "^5.0.0",
     "moment": "^2.29.4",
     "nodemailer": "^6.9.1",
     "pdf-lib": "^1.17.1",
@@ -57,7 +58,9 @@
     "eject": "react-scripts eject",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
     "compile-scss": "sass src/assets/scss/black-dashboard-react.scss src/assets/css/black-dashboard-react.css",
-    "minify-scss": "sass src/assets/scss/black-dashboard-react.scss src/assets/css/black-dashboard-react.min.css --style compressed"
+    "minify-scss": "sass src/assets/scss/black-dashboard-react.scss src/assets/css/black-dashboard-react.min.css --style compressed",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/project02/static/css/main.d833f49a.css",
+    "main.js": "/project02/static/js/main.2103a543.js",
+    "static/media/fa-solid-900.ttf": "/project02/static/media/fa-solid-900.e615bbcb258550973c16.ttf",
+    "static/media/fa-brands-400.ttf": "/project02/static/media/fa-brands-400.b823fc0dbb5a5f0c21bb.ttf",
+    "static/media/fa-solid-900.woff2": "/project02/static/media/fa-solid-900.59edf72a325ac2048d60.woff2",
+    "static/media/fa-brands-400.woff2": "/project02/static/media/fa-brands-400.ebb7a127d2d8ee6f1832.woff2",
+    "static/media/fa-regular-400.ttf": "/project02/static/media/fa-regular-400.0d03b1bbd1d62c1e1284.ttf",
+    "static/media/nucleo.eot": "/project02/static/media/nucleo.bd5cce8bf40be5947637.eot",
+    "static/media/nucleo.ttf": "/project02/static/media/nucleo.35b08447277ca7bf9f09.ttf",
+    "static/media/fa-regular-400.woff2": "/project02/static/media/fa-regular-400.0caf4c6cf244a90efcc5.woff2",
+    "static/media/로고1.jpg": "/project02/static/media/로고1.a542d608617b93cce73a.jpg",
+    "static/media/nucleo.woff": "/project02/static/media/nucleo.5c65ef4d6434bb8062a3.woff",
+    "static/media/nucleo.woff2": "/project02/static/media/nucleo.6dfb4833e3a0132fd1fc.woff2",
+    "static/media/fa-v4compatibility.ttf": "/project02/static/media/fa-v4compatibility.4baccb548138840fa33a.ttf",
+    "static/media/fa-v4compatibility.woff2": "/project02/static/media/fa-v4compatibility.afac89562a5301459069.woff2",
+    "index.html": "/project02/index.html",
+    "main.d833f49a.css.map": "/project02/static/css/main.d833f49a.css.map",
+    "main.2103a543.js.map": "/project02/static/js/main.2103a543.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d833f49a.css",
+    "static/js/main.2103a543.js"
+  ]
+}
